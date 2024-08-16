@@ -2,7 +2,7 @@ import { extendTheme } from "@chakra-ui/react";
 
 const customTheme = extendTheme({
   fonts: {
-    body: `"Nunito", sans-serif`,
+    body: `"Moderustic", sans-serif`,
   },
   colors: {
     brand: {

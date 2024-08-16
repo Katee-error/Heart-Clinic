@@ -78,13 +78,13 @@ const Header = () => {
     <Box
       id="sticky-nav"
       position={isNavSticky ? "fixed" : "relative"}
-      py={"30px"}
+      pt={"30px"}
       top="0"
       zIndex="sticky"
       w="100%"
       transition="0.3s"
       bg={"white"}
-      opacity={"95%"}
+      
       //   boxShadow="sm"
     >
       <Container maxW="container.xl">
@@ -99,10 +99,10 @@ const Header = () => {
           </Link>
           <Flex>
             <Flex
-              justifyContent={"space-between"}
+              justifyContent={"space-around"}
               gap={"30px"}
-              fontSize={"12px"}
-              fontWeight={600}
+              fontSize={"13px"}
+              fontWeight={500}
             >
               <Flex w={"220px"} gap={"10px"} alignItems={"center"}>
                 <Box
@@ -111,7 +111,7 @@ const Header = () => {
                   w={"36px"}
                   borderRadius={"100%"}
                   fill={"white"}
-                  boxShadow={"0 1px 4px 0 rgba(58, 58, 156, 0.71)"}
+                  boxShadow={"1px 2px 5px 0 #3a3a9c"}
                 >
                   <Image
                     src={mapIcon}
@@ -120,10 +120,7 @@ const Header = () => {
                     size={"20px"}
                   />
                 </Box>
-                <Text>
-                  367009, г. Махачкала, <br />
-                  Туп. Каммаева 1-й, влд.30
-                </Text>
+                <Text>Туп. Каммаева 1-й,<br/> влд.30</Text>
               </Flex>
               <Flex w={"220px"} gap={"10px"} alignItems={"center"}>
                 <Box
@@ -132,7 +129,7 @@ const Header = () => {
                   w={"36px"}
                   borderRadius={"100%"}
                   fill={"white"}
-                  boxShadow={"0 1px 4px 0 rgba(58, 58, 156, 0.71)"}
+                  boxShadow={"1px 2px 5px 0 #3a3a9c"}
                 >
                   <Image
                     src={phoneIcon}
@@ -153,7 +150,7 @@ const Header = () => {
                   w={"36px"}
                   borderRadius={"100%"}
                   fill={"white"}
-                  boxShadow={"0 1px 4px 0 rgba(58, 58, 156, 0.71)"}
+                  boxShadow={"1px 2px 5px 0 #3a3a9c"}
                 >
                   <Image
                     src={clockIcon}
@@ -173,16 +170,19 @@ const Header = () => {
                 h={"60px"}
                 w={"230px"}
                 p={"10px 40px"}
-                borderRadius={"10px"}
-                boxShadow={"0 4px 4px 0 rgba(58, 58, 156, 0.67)"}
-                fontSize={"16px"}
-                fontWeight={700}
+                borderRadius={"20px"}
+                boxShadow={"1px 2px 5px 0 #3a3a9c"}
+                // boxShadow={"1px 2px 5px 0 #C7323D"}
+                fontSize={"14px"}
+                fontWeight={600}
+                // border={"1px solid #C7323D"}
                 border={"1px solid #3a3a9c"}
                 bg={"transparent"}
                 // bg={"#C7323D"}
                 _hover={{ bgColor: "hover.button" }}
                 whileHover={{ scale: 1.05 }}
-                // color={'white'}
+                //  color={'brand.main'}
+                // color={"#C7323D"}
               >
                 <Image src={calendarIcon} mr={"10px"} />
                 Записаться на прием

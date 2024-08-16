@@ -78,14 +78,14 @@ const Navbar = () => {
         color={"white"}
         // border={"1px solid #3a3a9c"}
         gap={"20px"}
-        fontWeight={700}
+        fontWeight={500}
         fontSize={"xs"}
         alignItems={"center"}
         justifyContent={"space-around"}
         bgColor={"brand.main"}
         h={"70px"}
         px={"90px"}
-        borderRadius={"10px"}
+        borderRadius={"20px"}
       >
         {links.map((link, i) => (
           <Link
@@ -104,7 +104,7 @@ const Navbar = () => {
               <Menu isOpen={isOpen === i}>
                 <MenuButton
                   fontSize={"16px"}
-                  fontWeight={700}
+                  fontWeight={500}
                   color={"white"}
                   as={Button}
                   bg={"none"}
@@ -121,7 +121,7 @@ const Navbar = () => {
                 //   left={"-100px"}
                   minW={"300px"}
                   color={"brand.main"}
-                  fontWeight={700}
+                  fontWeight={500}
                   gap={"20px"}
                   py={"10px"}
                 >
