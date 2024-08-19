@@ -28,7 +28,6 @@ const Home = () => {
       <ContactForm />
       <Questions/>
       <YandexMap />
-      <Footer />
     </Box>
   );
 };

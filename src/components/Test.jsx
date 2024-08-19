@@ -13,6 +13,11 @@ import {
 } from "@chakra-ui/react";
 import React from "react";
 import test1 from "./../assets/all/test-1.jpg";
+import test2 from "./../assets/all/test-2.jpg";
+import test3 from "./../assets/all/test-3.jpg";
+import test4 from "./../assets/all/test-4.jpg";
+import test5 from "./../assets/all/test-5.jpg";
+
 import arrow from "./../assets/icons/arrow-right.svg";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
@@ -24,6 +29,8 @@ const Test = () => {
     triggerOnce: true, // Анимация запускается только один раз
     threshold: 0.3, // Процент видимой области, после которого запускается анимация
   });
+
+  const MotionCard = motion(Card);
   return (
     <MotionBox
       my={"120px"}
@@ -52,16 +59,36 @@ const Test = () => {
                 fontWeight={"300"}
                 as={"h2"}
               >
-                Мы заботимся о вашем здоровье
+                Мы заботимся
+                <br /> о вашем здоровье
               </Heading>
             </Box>
           </GridItem>
-          <GridItem>
-            <Card maxW="sm">
+          <GridItem >
+            <MotionCard maxW="sm" whileHover={{ scale: 1.08 }}  h={'400px'}>
               <CardBody>
-                <Image src={test1} h={"100px"} w={"100%"} objectFit={"cover"} />
+                <Image src={test2} h={"100px"} w={"100%"} objectFit={"cover"} />
                 <Stack mt="6" spacing="3">
-                  <Heading fontSize={"20px"}>Название направления</Heading>
+                  <Heading fontSize={"20px"}>Медпомощь по ОМС</Heading>
+                  <Text color={"gray.500"} fontSize={"14px"}>
+                    {" "}
+                    Пациенты Медицинского центра «Клиника Сердца» имеют
+                    возможность получить бесплатное обследование и лечение по
+                    полису обязательного медицинского страхования. Для планового
+                    обследования и лечения необходимо получить направление по
+                    форме 057/у от лечащего (участкового) врача, а также
+                    предъявить паспорт и полис ОМС.
+                  </Text>
+                </Stack>
+              </CardBody>
+            </MotionCard>
+          </GridItem>
+          <GridItem >
+            <MotionCard maxW="sm" whileHover={{ scale: 1.08 }} h={'400px'}>
+              <CardBody>
+                <Image src={test3} h={"100px"} w={"100%"} objectFit={"cover"} />
+                <Stack mt="6" spacing="3">
+                  <Heading fontSize={"20px"}>Лабораторные анализы</Heading>
                   <Text color={"gray.500"} fontSize={"14px"}>
                     {" "}
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -70,31 +97,16 @@ const Test = () => {
                     doloribus amet eum similique tenetur blanditiis quaerat
                     dignissimos.
                   </Text>
-                  <Button
-                    p={"10px 20px"}
-                    borderRadius={"10px"}
-                    fontSize={"14px"}
-                    fontWeight={500}
-                    border={"1px solid #3a3a9c"}
-                    bg={"transparent"}
-                    // bg={"#C7323D"}
-                    _hover={{ bgColor: "hover.button" }}
-                    whileHover={{ scale: 1.05 }}
-                    mt={"30px"}
-                  >
-                    Узнать больше
-                    <Image src={arrow} w={"20px"} ml={"10px"} />
-                  </Button>
                 </Stack>
               </CardBody>
-            </Card>
+            </MotionCard>
           </GridItem>
           <GridItem>
-            <Card maxW="sm">
+            <MotionCard maxW="sm" whileHover={{ scale: 1.08 }} h={'400px'}>
               <CardBody>
                 <Image src={test1} h={"100px"} w={"100%"} objectFit={"cover"} />
                 <Stack mt="6" spacing="3">
-                  <Heading fontSize={"20px"}>Название направления</Heading>
+                  <Heading fontSize={"20px"}>УЗИ сердца и сосудов</Heading>
                   <Text color={"gray.500"} fontSize={"14px"}>
                     {" "}
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -103,31 +115,16 @@ const Test = () => {
                     doloribus amet eum similique tenetur blanditiis quaerat
                     dignissimos.
                   </Text>
-                  <Button
-                    p={"10px 20px"}
-                    borderRadius={"10px"}
-                    fontSize={"14px"}
-                    fontWeight={500}
-                    border={"1px solid #3a3a9c"}
-                    bg={"transparent"}
-                    // bg={"#C7323D"}
-                    _hover={{ bgColor: "hover.button" }}
-                    whileHover={{ scale: 1.05 }}
-                    mt={"30px"}
-                  >
-                    Узнать больше
-                    <Image src={arrow} w={"20px"} ml={"10px"} />
-                  </Button>
                 </Stack>
               </CardBody>
-            </Card>
+            </MotionCard>
           </GridItem>
           <GridItem>
-            <Card maxW="sm">
+            <MotionCard maxW="sm" whileHover={{ scale: 1.08 }} h={'400px'}>
               <CardBody>
-                <Image src={test1} h={"100px"} w={"100%"} objectFit={"cover"} />
+                <Image src={test5} h={"100px"} w={"100%"} objectFit={"cover"} />
                 <Stack mt="6" spacing="3">
-                  <Heading fontSize={"20px"}>Название направления</Heading>
+                  <Heading fontSize={"20px"}>Консультации специалистов</Heading>
                   <Text color={"gray.500"} fontSize={"14px"}>
                     {" "}
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -136,31 +133,16 @@ const Test = () => {
                     doloribus amet eum similique tenetur blanditiis quaerat
                     dignissimos.
                   </Text>
-                  <Button
-                    p={"10px 20px"}
-                    borderRadius={"10px"}
-                    fontSize={"14px"}
-                    fontWeight={500}
-                    border={"1px solid #3a3a9c"}
-                    bg={"transparent"}
-                    // bg={"#C7323D"}
-                    _hover={{ bgColor: "hover.button" }}
-                    whileHover={{ scale: 1.05 }}
-                    mt={"30px"}
-                  >
-                    Узнать больше
-                    <Image src={arrow} w={"20px"} ml={"10px"} />
-                  </Button>
                 </Stack>
               </CardBody>
-            </Card>
+            </MotionCard>
           </GridItem>
           <GridItem>
-            <Card maxW="sm">
+            <MotionCard maxW="sm" whileHover={{ scale: 1.08 }} h={'400px'}>
               <CardBody>
-                <Image src={test1} h={"100px"} w={"100%"} objectFit={"cover"} />
+                <Image src={test4} h={"100px"} w={"100%"} objectFit={"cover"} />
                 <Stack mt="6" spacing="3">
-                  <Heading fontSize={"20px"}>Название направления</Heading>
+                  <Heading fontSize={"20px"}>Дневной стационар</Heading>
                   <Text color={"gray.500"} fontSize={"14px"}>
                     {" "}
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -169,59 +151,9 @@ const Test = () => {
                     doloribus amet eum similique tenetur blanditiis quaerat
                     dignissimos.
                   </Text>
-                  <Button
-                    p={"10px 20px"}
-                    borderRadius={"10px"}
-                    fontSize={"14px"}
-                    fontWeight={500}
-                    border={"1px solid #3a3a9c"}
-                    bg={"transparent"}
-                    // bg={"#C7323D"}
-                    _hover={{ bgColor: "hover.button" }}
-                    whileHover={{ scale: 1.05 }}
-                    mt={"30px"}
-                  >
-                    Узнать больше
-                    <Image src={arrow} w={"20px"} ml={"10px"} />
-                  </Button>
                 </Stack>
               </CardBody>
-            </Card>
-          </GridItem>
-          <GridItem>
-            <Card maxW="sm">
-              <CardBody>
-                <Image src={test1} h={"100px"} w={"100%"} objectFit={"cover"} />
-                <Stack mt="6" spacing="3">
-                  <Heading fontSize={"20px"} fontWeight={500}>
-                    Название направления
-                  </Heading>
-                  <Text color={"gray.500"} fontSize={"14px"}>
-                    {" "}
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Necessitatibus voluptatibus totam, numquam incidunt culpa id
-                    commodi iusto fugit voluptas quibusdam perferendis vel
-                    doloribus amet eum similique tenetur blanditiis quaerat
-                    dignissimos.
-                  </Text>
-                  <Button
-                    p={"10px 20px"}
-                    borderRadius={"10px"}
-                    fontSize={"14px"}
-                    fontWeight={500}
-                    border={"1px solid #3a3a9c"}
-                    bg={"transparent"}
-                    // bg={"#C7323D"}
-                    _hover={{ bgColor: "hover.button" }}
-                    whileHover={{ scale: 1.05 }}
-                    mt={"30px"}
-                  >
-                    Узнать больше
-                    <Image src={arrow} w={"20px"} ml={"10px"} />
-                  </Button>
-                </Stack>
-              </CardBody>
-            </Card>
+            </MotionCard>
           </GridItem>
         </SimpleGrid>
       </Container>

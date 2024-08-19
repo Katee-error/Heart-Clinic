@@ -28,6 +28,8 @@ const Benefits = () => {
     threshold: 0.4, // Процент видимой области, после которого запускается анимация
   });
 
+  const MotionCard = motion(Card)
+
   return (
     <MotionBox
       my={"120px"}
@@ -76,7 +78,7 @@ const Benefits = () => {
                 </Text>
               </GridItem> */}
             <GridItem>
-              <Card maxW="sm"  border={"1px solid #3a3a9c"}>
+              <MotionCard maxW="sm"  border={"1px solid #3a3a9c"} whileHover={{ scale: 1.08 }}>
                 <CardBody>
                   <Image src={doctor} w={"50px"} h={"50px"} mb={"15px"} />
                   <Heading fontSize={"16px"} mb={"10px"}>
@@ -90,10 +92,10 @@ const Benefits = () => {
                     repellendus inventore.
                   </Text>
                 </CardBody>
-              </Card>
+              </MotionCard>
             </GridItem>{" "}
             <GridItem>
-              <Card maxW="sm"  border={"1px solid #3a3a9c"}>
+              <MotionCard maxW="sm"  border={"1px solid #3a3a9c"} whileHover={{ scale: 1.08 }}>
                 <CardBody>
                   <Image src={stethoscope} w={"50px"} h={"50px"} mb={"15px"} />
                   <Heading fontSize={"16px"} mb={"10px"}>
@@ -107,10 +109,10 @@ const Benefits = () => {
                     repellendus inventore.
                   </Text>
                 </CardBody>
-              </Card>
+              </MotionCard>
             </GridItem>{" "}
             <GridItem>
-              <Card maxW="sm"  border={"1px solid #3a3a9c"}>
+              <MotionCard maxW="sm"  border={"1px solid #3a3a9c"} whileHover={{ scale: 1.08 }}>
                 <CardBody>
                   <Image src={en} w={"50px"} h={"50px"} mb={"15px"} />
                   <Heading fontSize={"16px"} mb={"10px"}>
@@ -124,7 +126,7 @@ const Benefits = () => {
                     repellendus inventore.
                   </Text>
                 </CardBody>
-              </Card>
+              </MotionCard>
             </GridItem>
           </SimpleGrid>
         </Box>

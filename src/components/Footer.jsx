@@ -103,7 +103,7 @@ const Footer = () => {
           {/* DESKTOP */}
           <Flex justifyContent={'space-between'} alignItems={'start'}  display={{base: 'none', md: 'flex'}}>
             <NavLink to="/">
-              <Image src={logo} alt="logo" w={"130px"} />
+              <Image src={logo} alt="logo" w={"200px"} />
             </NavLink>
             <Flex
               flexDirection={{ base: "column" }}
@@ -151,12 +151,7 @@ const Footer = () => {
                 gap={{ base: "2px" }}
                 mt={"8px"}
               >
-                <Link href="mailto:office@monocure.ee" color="#3489C8">
-                  office@monocure.ee
-                </Link>
-                <Link href="mailto:nikolai@monocure.ee" color="#3489C8">
-                  nikolai@monocure.ee
-                </Link>
+              
               </Flex>
             </Box>
             <Box>

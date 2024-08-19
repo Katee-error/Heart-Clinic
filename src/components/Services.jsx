@@ -72,12 +72,6 @@ const services = [
     img: services1,
   },
   {
-    tabName: "Дневной стационар",
-    title: "Дневной стационар",
-    desc: " Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis fugiat rerum error molestias obcaecati alias ab ut dolore temporibus incidunt nemo quos officiis, laborum perferendis officia voluptatibus explicabo vero repellat.",
-    img: services1,
-  },
-  {
     tabName: "Лабораторная диагностика",
     title: "Лабораторная диагностика",
     desc: " Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis fugiat rerum error molestias obcaecati alias ab ut dolore temporibus incidunt nemo quos officiis, laborum perferendis officia voluptatibus explicabo vero repellat.",
@@ -102,6 +96,8 @@ const Services = () => {
   const handleTabChange = (index) => {
     setActiveIndex(index);
   };
+
+  const MotionImage = motion(Image)
   return (
     <MotionBox
       bgImage="url('/services.jpg')"
@@ -168,7 +164,7 @@ const Services = () => {
                       <Text color={"gray.500"}>{service.desc}</Text>
                     </Box>
                     <Box>
-                      <Image src={service.img} borderRadius={"20px"} />
+                      <MotionImage src={service.img} borderRadius={"20px"} whileHover={{ scale: 1.05 }} />
                     </Box>
                   </Flex>
                 </TabPanel>
