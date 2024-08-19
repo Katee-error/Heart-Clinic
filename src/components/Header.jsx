@@ -77,14 +77,14 @@ const Header = () => {
   return (
     <Box
       id="sticky-nav"
-      position={isNavSticky ? "fixed" : "relative"}
+      // position={isNavSticky ? "fixed" : "relative"}
       pt={"30px"}
       top="0"
-      zIndex="sticky"
+      //  zIndex="sticky"
       w="100%"
       transition="0.3s"
       bg={"white"}
-      
+
       //   boxShadow="sm"
     >
       <Container maxW="container.xl">
@@ -92,19 +92,27 @@ const Header = () => {
         <Flex
           as={"header"}
           justifyContent={"space-between"}
+          gap={"50px"}
+          alignItems={"center"}
           display={{ base: "none", md: "flex" }}
         >
           <Link as={RouterLink} to="/">
-            <Image src={logo} alt="logo" w={"250px"} />
+            <Image
+              src={logo}
+              alt="logo"
+              w={"210px"}
+              h={"50px"}
+              objectFit={"contain"}
+            />
           </Link>
-          <Flex>
+          <Flex gap={"30px"}>
             <Flex
               justifyContent={"space-around"}
               gap={"30px"}
               fontSize={"13px"}
               fontWeight={500}
             >
-              <Flex w={"220px"} gap={"10px"} alignItems={"center"}>
+              <Flex w={"180px"} gap={"10px"} alignItems={"center"}>
                 <Box
                   position={"relative"}
                   h={"36px"}
@@ -120,9 +128,12 @@ const Header = () => {
                     size={"20px"}
                   />
                 </Box>
-                <Text>Туп. Каммаева 1-й,<br/> влд.30</Text>
+                <Text>
+                  Туп. Каммаева 1-й,
+                  <br /> влд.30
+                </Text>
               </Flex>
-              <Flex w={"220px"} gap={"10px"} alignItems={"center"}>
+              <Flex w={"180px"} gap={"10px"} alignItems={"center"}>
                 <Box
                   position={"relative"}
                   h={"36px"}
@@ -143,7 +154,7 @@ const Header = () => {
                   +7 (999) 478 00 55
                 </Text>
               </Flex>
-              <Flex w={"220px"} gap={"10px"} alignItems={"center"}>
+              <Flex w={"180px"} gap={"10px"} alignItems={"center"}>
                 <Box
                   position={"relative"}
                   h={"36px"}
@@ -165,16 +176,16 @@ const Header = () => {
                 </Text>
               </Flex>
             </Flex>
-            <Link as={RouterLink} to="/">
+            <Link as={RouterLink} to="/" 
+            // state={{ section: "form" }}
+            >
               <MotionButton
-                h={"60px"}
-                w={"230px"}
-                p={"10px 40px"}
+                p={"30px"}
                 borderRadius={"20px"}
                 boxShadow={"1px 2px 5px 0 #3a3a9c"}
                 // boxShadow={"1px 2px 5px 0 #C7323D"}
                 fontSize={"14px"}
-                fontWeight={600}
+                fontWeight={700}
                 // border={"1px solid #C7323D"}
                 border={"1px solid #3a3a9c"}
                 bg={"transparent"}
@@ -200,36 +211,6 @@ const Header = () => {
             <Image src={logo} alt="logo" w={"130px"} />
           </NavLink>
           <Flex gap={"20px"} alignItems={"center"}>
-            <Menu>
-              <MenuButton
-                as={Button}
-                bg={"none"}
-                _active={{ bg: "none" }}
-                _hover={{ bg: "none" }}
-                p={"0"}
-                fontSize={"xs"}
-              >
-                <Flex gap={"5px"} alignItems={"center"} ml={"30px"} mt={"10px"}>
-                  {" "}
-                </Flex>
-              </MenuButton>
-              <MenuList>
-                <MenuItem
-                  value="en"
-                  onClick={() => i18n.changeLanguage("en")}
-                  type="submit"
-                >
-                  <Flex gap={"6px"} alignItems={"center"}>
-                    <Text value="en">English</Text>
-                  </Flex>
-                </MenuItem>
-                <MenuItem value="en" type="submit">
-                  <Flex gap={"6px"} alignItems={"center"}>
-                    <Text value="de">Deutsch</Text>
-                  </Flex>
-                </MenuItem>
-              </MenuList>
-            </Menu>
             {/* Menu hamburger */}
             <IconButton
               ref={btnRef}
@@ -326,7 +307,7 @@ const Header = () => {
                       fontWeight={500}
                       p={"25px 40px"}
                       borderRadius={"5px"}
-                      _hover={{ bgColor: "#B0D1EA" }}
+                      _hover={{ bgColor: "#ECECFF" }}
                       whileTap={{ scale: 1.2 }}
                       whileHover={{ scale: 1.05 }}
                       // onClick={() => scrollToSection("form")}

@@ -21,9 +21,13 @@ import { motion } from "framer-motion";
 import AutoResizeTextarea from "./AutoResizeTexarea";
 import { toast } from "react-toastify";
 import formImg from "./../assets/all/form-img.jpg";
+// import { useScroll } from "./ScrollContext";
 
 const ContactForm = () => {
   const MotionButton = motion(Button);
+
+  //use smooth scroll section
+  // const { sectionRefs } = useScroll();
 
   // SENDING FORM
   const [isLoading, setIsLoading] = useState(false);
@@ -104,6 +108,7 @@ const ContactForm = () => {
   return (
     <Box
       id="form"
+      // ref={sectionRefs["form"]}
       textAlign={"center"}
       // py={{ base: "100px", md: "150px" }}
       my={"120px"}
@@ -154,19 +159,19 @@ const ContactForm = () => {
                 />
               </FormControl>
               <FormControl isRequired>
-              <FormLabel fontSize={"xs"} htmlFor="message">
-                Сообщение
-              </FormLabel>
-              <AutoResizeTextarea
-                onChange={handleChange}
-                id="message"
-                fontSize={"xs"}
-                type="text"
-                name="message"
-                value={formDetails.message}
-                placeholder={'Введите ваш вопрос'}
-              />
-            </FormControl>
+                <FormLabel fontSize={"xs"} htmlFor="message">
+                  Комментарий
+                </FormLabel>
+                <AutoResizeTextarea
+                  onChange={handleChange}
+                  id="message"
+                  fontSize={"xs"}
+                  type="text"
+                  name="message"
+                  value={formDetails.message}
+                  placeholder={"Введите ваш вопрос"}
+                />
+              </FormControl>
 
               <MotionButton
                 type={"submit"}

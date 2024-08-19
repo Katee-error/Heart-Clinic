@@ -7,6 +7,7 @@ import "./index.css";
 import { ToastContainer } from "react-toastify"; // добавление уведомлениЯ о добавлении продукта в корзину
 import "react-toastify/dist/ReactToastify.css"; // добавление уведомлениЯ о добавлении продукта в корзину
 import customTheme from "../theme.js";
+//import { ScrollProvider } from "./components/ScrollContext.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -19,7 +20,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           closeOnClick
           pauseOnHover={false}
         />
+         {/* <ScrollProvider> */}
         <App />
+        {/* </ScrollProvider> */}
       </ChakraProvider>
       {/* </AuthProvider> */}
     </BrowserRouter>

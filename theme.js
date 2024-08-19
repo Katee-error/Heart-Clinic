@@ -2,7 +2,7 @@ import { extendTheme } from "@chakra-ui/react";
 
 const customTheme = extendTheme({
   fonts: {
-    body: `"Moderustic", sans-serif`,
+    body: `"Nunito", sans-serif`,
   },
   colors: {
     brand: {
@@ -22,7 +22,7 @@ const customTheme = extendTheme({
       500: "#667085",
     },
     hover : {
-      button : '#F6FBFF',
+      button : '#ECECFF',
       link: '#D1D1D1'
     },
     main_blue : "#3489C8"

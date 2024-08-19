@@ -3,10 +3,7 @@ import {
   Box,
   Container,
   Flex,
-  Image,
-  Text,
-  useColorModeValue,
-  IconButton,
+ 
   Button,
   Menu,
   MenuItem,
@@ -64,7 +61,7 @@ const Navbar = () => {
     },
     {
       text: "Контакты",
-      // href: "/",
+       section: "contact",
       hasMenu: false,
     },
   ];
@@ -78,6 +75,7 @@ const Navbar = () => {
         color={"white"}
         // border={"1px solid #3a3a9c"}
         gap={"20px"}
+        
         fontWeight={500}
         fontSize={"xs"}
         alignItems={"center"}
@@ -94,7 +92,7 @@ const Navbar = () => {
             key={i}
             as={RouterLink}
             to="/"
-            //   state={{ section: "hero" }}
+            state={{ section: link.section }}
             px={2}
             py={1}
              _hover={{ textDecoration: "none"}}

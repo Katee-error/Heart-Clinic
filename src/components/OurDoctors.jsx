@@ -26,7 +26,7 @@ import { motion } from "framer-motion";
 const OurDoctors = () => {
   const MotionCard = motion(GridItem);
   return (
-    <Box my={"120px"}>
+    <Box my={"120px"} py={'60px'}>
       <Container maxW="container.xl">
         <Flex justifyContent={"space-between"} pb={"60px"}>
           <Heading fontSize={'50px'} fontWeight={"300"} maxW={'500px'}>Квалифицированные Специалисты</Heading>
