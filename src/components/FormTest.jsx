@@ -23,7 +23,7 @@ import { useInView } from "react-intersection-observer";
 import AutoResizeTextarea from "./AutoResizeTexarea";
 import { toast } from "react-toastify";
 import formImg from "./../assets/all/form-img.jpg";
-// import { useScroll } from "./ScrollContext";
+import { useScroll } from "./ScrollContext";
 const MotionBox = motion(Box);
 
 const ContactForm = () => {
@@ -34,7 +34,7 @@ const ContactForm = () => {
   const MotionButton = motion(Button);
 
   //use smooth scroll section
-  // const { sectionRefs } = useScroll();
+   //const { sectionRefs } = useScroll();
 
   // SENDING FORM
   const [isLoading, setIsLoading] = useState(false);
@@ -115,11 +115,11 @@ const ContactForm = () => {
   return (
     <MotionBox
       id="form"
-      // ref={sectionRefs["form"]}
+      //  ref={sectionRefs["form"]}
       textAlign={"center"}
       // py={{ base: "100px", md: "150px" }}
       my={"120px"}
-      ref={ref}
+       ref={ref}
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 50 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
