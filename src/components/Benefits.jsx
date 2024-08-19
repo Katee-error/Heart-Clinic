@@ -76,7 +76,7 @@ const Benefits = () => {
                 </Text>
               </GridItem> */}
             <GridItem>
-              <Card maxW="sm">
+              <Card maxW="sm"  border={"1px solid #3a3a9c"}>
                 <CardBody>
                   <Image src={doctor} w={"50px"} h={"50px"} mb={"15px"} />
                   <Heading fontSize={"16px"} mb={"10px"}>
@@ -93,7 +93,7 @@ const Benefits = () => {
               </Card>
             </GridItem>{" "}
             <GridItem>
-              <Card maxW="sm">
+              <Card maxW="sm"  border={"1px solid #3a3a9c"}>
                 <CardBody>
                   <Image src={stethoscope} w={"50px"} h={"50px"} mb={"15px"} />
                   <Heading fontSize={"16px"} mb={"10px"}>
@@ -110,7 +110,7 @@ const Benefits = () => {
               </Card>
             </GridItem>{" "}
             <GridItem>
-              <Card maxW="sm">
+              <Card maxW="sm"  border={"1px solid #3a3a9c"}>
                 <CardBody>
                   <Image src={en} w={"50px"} h={"50px"} mb={"15px"} />
                   <Heading fontSize={"16px"} mb={"10px"}>

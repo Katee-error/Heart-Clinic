@@ -15,13 +15,75 @@ import {
   TabIndicator,
   Divider,
 } from "@chakra-ui/react";
-import React from "react";
+import React, { useState } from "react";
 import services1 from "./../assets/all/services-1.jpg";
-import arrow from "./../assets/icons/arrow-right.svg";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
 const MotionBox = motion(Box);
+
+const services = [
+  {
+    tabName: "Консультация флеболога",
+    title: "Консультация врача сердечно-сосудистого хирурга / флеболога",
+    desc: " Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis fugiat rerum error molestias obcaecati alias ab ut dolore temporibus incidunt nemo quos officiis, laborum perferendis officia voluptatibus explicabo vero repellat.",
+    img: services1,
+  },
+  {
+    tabName: "Консультация кардиолога",
+    title: "Консультация врача кардиолога",
+    desc: " Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis fugiat rerum error molestias obcaecati alias ab ut dolore temporibus incidunt nemo quos officiis, laborum perferendis officia voluptatibus explicabo vero repellat.",
+    img: services1,
+  },
+  {
+    tabName: "ЭКГ",
+    title: "Электрокардиография (ЭКГ)",
+    desc: " Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis fugiat rerum error molestias obcaecati alias ab ut dolore temporibus incidunt nemo quos officiis, laborum perferendis officia voluptatibus explicabo vero repellat.",
+    img: services1,
+  },
+  {
+    tabName: "СМЭКГ",
+    title: "Суточное (холтеровское) мониторирование ЭКГ (СМЭКГ)",
+    desc: " Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis fugiat rerum error molestias obcaecati alias ab ut dolore temporibus incidunt nemo quos officiis, laborum perferendis officia voluptatibus explicabo vero repellat.",
+    img: services1,
+  },
+  {
+    tabName: "СМАД",
+    title: "Суточное мониторирование артериального давления (СМАД)",
+    desc: " Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis fugiat rerum error molestias obcaecati alias ab ut dolore temporibus incidunt nemo quos officiis, laborum perferendis officia voluptatibus explicabo vero repellat.",
+    img: services1,
+  },
+  {
+    tabName: "УЗИ сердца ",
+    title: "Ультразвуковое исследование (УЗИ) сердца (эхокардиография, ЭхоКГ)",
+    desc: " Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis fugiat rerum error molestias obcaecati alias ab ut dolore temporibus incidunt nemo quos officiis, laborum perferendis officia voluptatibus explicabo vero repellat.",
+    img: services1,
+  },
+  {
+    tabName: "ЭхоКГс",
+    title: "ЭхоКГс физической или фармакологической нагрузкой (стресс-ЭхоКГ)",
+    desc: " Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis fugiat rerum error molestias obcaecati alias ab ut dolore temporibus incidunt nemo quos officiis, laborum perferendis officia voluptatibus explicabo vero repellat.",
+    img: services1,
+  },
+  {
+    tabName: "УЗДГ сосудов",
+    title: "Ультразвуковая допплерография (УЗДГ) сосудов",
+    desc: " Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis fugiat rerum error molestias obcaecati alias ab ut dolore temporibus incidunt nemo quos officiis, laborum perferendis officia voluptatibus explicabo vero repellat.",
+    img: services1,
+  },
+  {
+    tabName: "Дневной стационар",
+    title: "Дневной стационар",
+    desc: " Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis fugiat rerum error molestias obcaecati alias ab ut dolore temporibus incidunt nemo quos officiis, laborum perferendis officia voluptatibus explicabo vero repellat.",
+    img: services1,
+  },
+  {
+    tabName: "Лабораторная диагностика",
+    title: "Лабораторная диагностика",
+    desc: " Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis fugiat rerum error molestias obcaecati alias ab ut dolore temporibus incidunt nemo quos officiis, laborum perferendis officia voluptatibus explicabo vero repellat.",
+    img: services1,
+  },
+];
 
 const Services = () => {
   const { ref, inView } = useInView({
@@ -29,6 +91,17 @@ const Services = () => {
     threshold: 0.4, // Процент видимой области, после которого запускается анимация
   });
 
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const handleTabClick = (index) => {
+    setCurrentIndex(index);
+  };
+
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const handleTabChange = (index) => {
+    setActiveIndex(index);
+  };
   return (
     <MotionBox
       bgImage="url('/services.jpg')"
@@ -54,93 +127,55 @@ const Services = () => {
         >
           Услуги клиники
         </Heading>
-        <Tabs position="relative" variant="unstyled">
-          <TabList>
-            <Tab fontSize={"16px"} mr={"20px"}>
-              название
-            </Tab>
-            <Tab fontSize={"16px"} mr={"20px"}>
-              название
-            </Tab>
-            <Tab fontSize={"16px"} mr={"20px"}>
-              название
-            </Tab>
-            <Tab fontSize={"16px"} mr={"20px"}>
-              название
-            </Tab>
-            <Tab fontSize={"16px"} mr={"20px"}>
-              название
-            </Tab>
-            <Tab fontSize={"16px"} mr={"20px"}>
-              название
-            </Tab>
-            <Tab fontSize={"16px"} mr={"20px"}>
-              название
-            </Tab>
-            <Tab fontSize={"16px"} mr={"20px"}>
-              название
-            </Tab>
-            <Tab fontSize={"16px"} mr={"20px"}>
-              название
-            </Tab>
-            <Tab fontSize={"16px"} mr={"20px"}>
-              название
-            </Tab>
-          </TabList>
-          <TabIndicator
-            mt="-1.5px"
-            height="2px"
-            bg="brand.main"
-            borderRadius="1px"
-            zIndex={"1000"}
-          />
-          <Divider
-            borderBottomWidth={"2px"}
-            borderBottomColor={"gray.300"}
-            mt="-1.5px"
-          />
-          <TabPanels mt={"60px"}>
-            <TabPanel>
-              <Flex alignItems={"start"} justifyContent={"space-between"}>
-                <Box w={"50%"}>
-                  <Heading mb={"30px"} fontWeight={400} fontSize={"md"}>
-                    Name Services
-                  </Heading>
-                  <Text color={"gray.500"}>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Reiciendis fugiat rerum error molestias obcaecati alias ab
-                    ut dolore temporibus incidunt nemo quos officiis, laborum
-                    perferendis officia voluptatibus explicabo vero repellat.
-                  </Text>
-                  <Button
-                    p={"10px 20px"}
-                    borderRadius={"10px"}
-                    fontSize={"14px"}
-                    fontWeight={500}
-                    border={"1px solid #3a3a9c"}
-                    bg={"transparent"}
-                    // bg={"#C7323D"}
-                    _hover={{ bgColor: "hover.button" }}
-                    whileHover={{ scale: 1.05 }}
-                    mt={"30px"}
-                  >
-                    Узнать больше
-                    <Image src={arrow} w={"20px"} ml={"10px"} />
-                  </Button>
-                </Box>
-                <Box>
-                  <Image src={services1} borderRadius={"20px"} />
-                </Box>
-              </Flex>
-            </TabPanel>
-            <TabPanel>
-              <p>two!</p>
-            </TabPanel>
-            <TabPanel>
-              <p>three!</p>
-            </TabPanel>
-          </TabPanels>
-        </Tabs>
+        <Box className="tabs-container">
+          <Tabs
+            position="relative"
+            variant="unstyled"
+            isLazy
+            index={currentIndex}
+            onChange={(index) => handleTabClick(index)}
+          >
+            <Box className="tabs-wrapper">
+              <TabList className="scrolling-tabs" position="relative">
+                {services.map((service, index) => (
+                  <Tab key={index} fontSize={"16px"} mr={"20px"}  position="relative" onClick={() => handleTabChange(index)}>
+                    {service.tabName}
+                    {activeIndex === index && (
+                  <Box
+                    position="absolute"
+                    bottom={0}
+                    left={0}
+                    width="100%"
+                    height="2px"
+                    bg="brand.main"
+                    transition="all 0.3s ease"
+                    
+                  />
+                )}
+                  </Tab>
+                ))}
+              </TabList>
+            </Box>
+            
+            <TabPanels mt={"60px"}>
+              {services.map((service, index) => (
+                <TabPanel key={index}>
+                  <Flex alignItems={"start"} justifyContent={"space-between"}>
+                    <Box w={"50%"}>
+                      <Heading mb={"30px"} fontWeight={400} fontSize={"md"}>
+                        {service.title}
+                      </Heading>
+                      <Text color={"gray.500"}>{service.desc}</Text>
+                    </Box>
+                    <Box>
+                      <Image src={service.img} borderRadius={"20px"} />
+                    </Box>
+                  </Flex>
+                </TabPanel>
+              ))}
+            </TabPanels>
+          </Tabs>
+        </Box>
       </Container>
     </MotionBox>
   );

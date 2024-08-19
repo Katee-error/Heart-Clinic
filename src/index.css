@@ -18,3 +18,41 @@
     height: 100%;
     object-fit: cover;
   }
+
+  .tabs-container {
+    position: relative;
+  }
+  
+  .tabs-wrapper {
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    display: flex;
+  }
+  
+  .scrolling-tabs {
+    display: flex;
+    white-space: nowrap;
+  }
+  
+  .tab {
+    flex: 0 0 auto;
+    margin-right: 16px; /* Adjust space between tabs if needed */
+  }
+  
+  /* Для скрытия полосы прокрутки в веб-китовских браузерах (Chrome, Safari) */
+.tabs-wrapper::-webkit-scrollbar {
+    display: none; /* Или width: 0; для скрытия, не влияя на прокрутку */
+  }
+  
+  /* Для скрытия полосы прокрутки в других браузерах */
+  .tabs-wrapper {
+    -ms-overflow-style: none; /* Для Internet Explorer and Edge */
+    scrollbar-width: none; /* Для Firefox */
+  }
+  
+  /* При необходимости, можно добавить стили для скрытия фона полос прокрутки в некоторых браузерах */
+  .tabs-wrapper {
+    overflow-x: auto;
+  }
+  
+  

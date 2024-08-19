@@ -30,18 +30,7 @@ const specialistics = [
     post: "Специальность врача",
     experience: "6 лет",
   },
-  {
-    img: doctor5,
-    name: "Иван Иванов",
-    post: "Специальность врача",
-    experience: "8 лет",
-  },
-  {
-    img: doctor6,
-    name: "Иван Иванов",
-    post: "Специальность врача",
-    experience: "7 лет",
-  },
+
 ];
 
 export default specialistics;

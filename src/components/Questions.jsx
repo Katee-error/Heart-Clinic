@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {
   Box,
   Container,
@@ -15,7 +15,7 @@ import {
 } from "@chakra-ui/react";
 
 import questions from "../data/Questions";
-import questionsImg from "./../assets/all/questions-img.webp";
+import questionsImg from "./../assets/all/questions.jpg";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
@@ -28,6 +28,12 @@ const Questions = () => {
     triggerOnce: true, // Анимация запускается только один раз
     threshold: 0.4, // Процент видимой области, после которого запускается анимация
   });
+
+  const [activeIndex, setActiveIndex] = useState([0]); // Первый таб открыт по умолчанию
+
+  const handleAccordionChange = (index) => {
+    setActiveIndex(index); // Позволяем пользователю вручную закрывать и открывать табы
+  };
 
   return (
     <MotionBox
@@ -60,9 +66,9 @@ const Questions = () => {
             objectFit={"contain"}
             borderRadius={"20px"}
           />
-          <Accordion allowToggle w={"50%"}>
+          <Accordion w={"50%"} allowMultiple index={activeIndex} onChange={handleAccordionChange}>
             {questions.map((question, i) => (
-              <AccordionItem mb={"20px"} border={"transparent"} key={i}>
+              <AccordionItem mb={"20px"} border={"transparent"} key={i} >
                 <h2>
                   <AccordionButton
                     _expanded={{
@@ -84,8 +90,8 @@ const Questions = () => {
                     <AccordionIcon />
                   </AccordionButton>
                 </h2>
-                <AccordionPanel py={"30px"}>
-                  <Text mb={"30px"} px={"20px"}>
+                <AccordionPanel py={"20px"}>
+                  <Text  px={"20px"}>
                     {question.desc}
                   </Text>
                 </AccordionPanel>
