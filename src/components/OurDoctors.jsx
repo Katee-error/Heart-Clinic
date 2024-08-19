@@ -22,14 +22,30 @@ import React from "react";
 import specialistics from "../data/OurSpecialists";
 import arrow from "./../assets/icons/arrow-right.svg";
 import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+
+const MotionBox = motion(Box);
 
 const OurDoctors = () => {
   const MotionCard = motion(GridItem);
+  const { ref, inView } = useInView({
+    triggerOnce: true, // Анимация запускается только один раз
+    threshold: 0.3, // Процент видимой области, после которого запускается анимация
+  });
   return (
-    <Box my={"120px"} py={'60px'}>
+    <MotionBox
+      my={"120px"}
+      py={"60px"}
+      ref={ref}
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 50 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+    >
       <Container maxW="container.xl">
         <Flex justifyContent={"space-between"} pb={"60px"}>
-          <Heading fontSize={'50px'} fontWeight={"300"} maxW={'500px'}>Квалифицированные Специалисты</Heading>
+          <Heading fontSize={"50px"} fontWeight={"300"} maxW={"500px"}>
+            Квалифицированные Специалисты
+          </Heading>
           <Button
             p={"10px 30px"}
             borderRadius={"10px"}
@@ -52,7 +68,6 @@ const OurDoctors = () => {
               border={"1px solid #3a3a9c"}
               mr={"15px"}
               fontWeight={500}
-           
             >
               Кардиолог
             </Tab>
@@ -124,7 +139,7 @@ const OurDoctors = () => {
           ))}
         </SimpleGrid>
       </Container>
-    </Box>
+    </MotionBox>
   );
 };
 

@@ -14,34 +14,55 @@ import {
 import React from "react";
 import test1 from "./../assets/all/test-1.jpg";
 import arrow from "./../assets/icons/arrow-right.svg";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+
+const MotionBox = motion(Box);
 
 const Test = () => {
+  const { ref, inView } = useInView({
+    triggerOnce: true, // Анимация запускается только один раз
+    threshold: 0.3, // Процент видимой области, после которого запускается анимация
+  });
   return (
-    <Box my={"120px"} py={'60px'}>
+    <MotionBox
+      my={"120px"}
+      py={"60px"}
+      ref={ref}
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 50 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+    >
       <Container maxW={"container.xl"}>
         <SimpleGrid
           minChildWidth="270px"
           p={"20px"}
           spacing={"60px"}
           maxChildHeight="120px"
-          alignItems={'center'}
+          alignItems={"center"}
         >
           <GridItem>
-            <Box >
-              <Text color={'brand.main'} fontWeight={600} fontSize={'18px'}>НАПРАВЛЕНИЯ</Text>
-              <Heading mb={{ base: "40px", md: "60px" }}
-          fontSize={"50px"}
-          fontWeight={"300"}
-          as={"h2"}>Мы заботимся о вашем здоровье</Heading>
+            <Box>
+              <Text color={"brand.main"} fontWeight={600} fontSize={"18px"}>
+                НАПРАВЛЕНИЯ
+              </Text>
+              <Heading
+                mb={{ base: "40px", md: "60px" }}
+                fontSize={"50px"}
+                fontWeight={"300"}
+                as={"h2"}
+              >
+                Мы заботимся о вашем здоровье
+              </Heading>
             </Box>
           </GridItem>
           <GridItem>
             <Card maxW="sm">
               <CardBody>
-                <Image src={test1} h={'100px'} w={'100%'} objectFit={'cover'}/>
+                <Image src={test1} h={"100px"} w={"100%"} objectFit={"cover"} />
                 <Stack mt="6" spacing="3">
                   <Heading fontSize={"20px"}>Название направления</Heading>
-                  <Text color={"gray.500"} fontSize={'14px'}>
+                  <Text color={"gray.500"} fontSize={"14px"}>
                     {" "}
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
                     Necessitatibus voluptatibus totam, numquam incidunt culpa id
@@ -71,10 +92,10 @@ const Test = () => {
           <GridItem>
             <Card maxW="sm">
               <CardBody>
-                <Image src={test1} h={'100px'} w={'100%'} objectFit={'cover'}/>
+                <Image src={test1} h={"100px"} w={"100%"} objectFit={"cover"} />
                 <Stack mt="6" spacing="3">
                   <Heading fontSize={"20px"}>Название направления</Heading>
-                  <Text color={"gray.500"} fontSize={'14px'}>
+                  <Text color={"gray.500"} fontSize={"14px"}>
                     {" "}
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
                     Necessitatibus voluptatibus totam, numquam incidunt culpa id
@@ -104,10 +125,10 @@ const Test = () => {
           <GridItem>
             <Card maxW="sm">
               <CardBody>
-                <Image src={test1} h={'100px'} w={'100%'} objectFit={'cover'}/>
+                <Image src={test1} h={"100px"} w={"100%"} objectFit={"cover"} />
                 <Stack mt="6" spacing="3">
                   <Heading fontSize={"20px"}>Название направления</Heading>
-                  <Text color={"gray.500"} fontSize={'14px'}>
+                  <Text color={"gray.500"} fontSize={"14px"}>
                     {" "}
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
                     Necessitatibus voluptatibus totam, numquam incidunt culpa id
@@ -137,10 +158,10 @@ const Test = () => {
           <GridItem>
             <Card maxW="sm">
               <CardBody>
-                <Image src={test1} h={'100px'} w={'100%'} objectFit={'cover'}/>
+                <Image src={test1} h={"100px"} w={"100%"} objectFit={"cover"} />
                 <Stack mt="6" spacing="3">
                   <Heading fontSize={"20px"}>Название направления</Heading>
-                  <Text color={"gray.500"} fontSize={'14px'}>
+                  <Text color={"gray.500"} fontSize={"14px"}>
                     {" "}
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
                     Necessitatibus voluptatibus totam, numquam incidunt culpa id
@@ -170,10 +191,12 @@ const Test = () => {
           <GridItem>
             <Card maxW="sm">
               <CardBody>
-                <Image src={test1} h={'100px'} w={'100%'} objectFit={'cover'}/>
+                <Image src={test1} h={"100px"} w={"100%"} objectFit={"cover"} />
                 <Stack mt="6" spacing="3">
-                  <Heading fontSize={"20px"} fontWeight={500}>Название направления</Heading>
-                  <Text color={"gray.500"} fontSize={'14px'}>
+                  <Heading fontSize={"20px"} fontWeight={500}>
+                    Название направления
+                  </Heading>
+                  <Text color={"gray.500"} fontSize={"14px"}>
                     {" "}
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
                     Necessitatibus voluptatibus totam, numquam incidunt culpa id
@@ -202,7 +225,7 @@ const Test = () => {
           </GridItem>
         </SimpleGrid>
       </Container>
-    </Box>
+    </MotionBox>
   );
 };
 

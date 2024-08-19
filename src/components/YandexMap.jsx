@@ -19,16 +19,29 @@ import { motion } from "framer-motion";
 import telegram from "./../assets/icons/social/telegram.svg";
 import whatsap from "./../assets/icons/social/whatsapp.svg";
 // import { useScroll } from "./ScrollContext";
+import { useInView } from "react-intersection-observer";
+
+const MotionBox = motion(Box);
 
 const YandexMap = () => {
   const address = "367009, г. Махачкала Туп. Каммаева 1-й, влд.30";
   const MotionButton = motion(Button);
 
+  const { ref, inView } = useInView({
+    triggerOnce: true, // Анимация запускается только один раз
+    threshold: 0.4, // Процент видимой области, после которого запускается анимация
+  });
   //use smooth scroll section
   // const { sectionRefs } = useScroll();
 
   return (
-    <Box my={"120px"}>
+    <MotionBox
+      my={"120px"}
+      ref={ref}
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 50 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+    >
       <Location address={address} />
       <Card
         maxW={"1000px"}
@@ -120,7 +133,7 @@ const YandexMap = () => {
           </Flex>
         </CardBody>
       </Card>
-    </Box>
+    </MotionBox>
   );
 };
 

@@ -18,10 +18,19 @@ import {
 import React from "react";
 import services1 from "./../assets/all/services-1.jpg";
 import arrow from "./../assets/icons/arrow-right.svg";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+
+const MotionBox = motion(Box);
 
 const Services = () => {
+  const { ref, inView } = useInView({
+    triggerOnce: true, // Анимация запускается только один раз
+    threshold: 0.4, // Процент видимой области, после которого запускается анимация
+  });
+
   return (
-    <Box
+    <MotionBox
       bgImage="url('/services.jpg')"
       bgPosition="center"
       bgRepeat="no-repeat"
@@ -31,6 +40,10 @@ const Services = () => {
       display="flex"
       alignItems="center"
       justifyContent="center"
+      ref={ref}
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 50 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
     >
       <Container maxW={"container.xl"}>
         <Heading
@@ -129,7 +142,7 @@ const Services = () => {
           </TabPanels>
         </Tabs>
       </Container>
-    </Box>
+    </MotionBox>
   );
 };
 

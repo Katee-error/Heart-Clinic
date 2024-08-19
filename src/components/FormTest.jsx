@@ -17,13 +17,20 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+
 
 import AutoResizeTextarea from "./AutoResizeTexarea";
 import { toast } from "react-toastify";
 import formImg from "./../assets/all/form-img.jpg";
 // import { useScroll } from "./ScrollContext";
+const MotionBox = motion(Box);
 
 const ContactForm = () => {
+  const { ref, inView } = useInView({
+    triggerOnce: true, // Анимация запускается только один раз
+    threshold: 0.6, // Процент видимой области, после которого запускается анимация
+  });
   const MotionButton = motion(Button);
 
   //use smooth scroll section
@@ -106,12 +113,16 @@ const ContactForm = () => {
     formDetails.fullName && formDetails.email && formDetails.message;
 
   return (
-    <Box
+    <MotionBox
       id="form"
       // ref={sectionRefs["form"]}
       textAlign={"center"}
       // py={{ base: "100px", md: "150px" }}
       my={"120px"}
+      ref={ref}
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 50 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
     >
       <Container maxW="container.xl">
         <Heading
@@ -214,7 +225,7 @@ const ContactForm = () => {
           </Box>
         </Flex>
       </Container>
-    </Box>
+    </MotionBox>
   );
 };
 

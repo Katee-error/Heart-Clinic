@@ -11,6 +11,8 @@ import {
   Text,
   Flex,
 } from "@chakra-ui/react";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 import doctor from "./../assets/about-us/icons/doctor.png";
 import en from "./../assets/about-us/icons/en.png";
@@ -18,9 +20,23 @@ import letter from "./../assets/about-us/icons/letter.png";
 import stethoscope from "./../assets/about-us/icons/stethoscope.png";
 import box from "./../assets/slider/box-ben.png";
 
+const MotionBox = motion(Box);
+
 const Benefits = () => {
+  const { ref, inView } = useInView({
+    triggerOnce: true, // Анимация запускается только один раз
+    threshold: 0.4, // Процент видимой области, после которого запускается анимация
+  });
+
   return (
-    <Box my={"120px"} py={"60px"}>
+    <MotionBox
+      my={"120px"}
+      py={"60px"}
+      ref={ref}
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 50 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+    >
       <Container maxW="container.xl">
         <Box bg={""} pos={"relative"}>
           <Image src={box} w={"100%"} />
@@ -113,7 +129,7 @@ const Benefits = () => {
           </SimpleGrid>
         </Box>
       </Container>
-    </Box>
+    </MotionBox>
   );
 };
 

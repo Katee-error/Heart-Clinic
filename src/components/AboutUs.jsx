@@ -1,14 +1,30 @@
 import React from "react";
 import { Box, Text, Container } from "@chakra-ui/react";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+
+const MotionBox = motion(Box);
 
 const AboutUs = () => {
+  const { ref, inView } = useInView({
+    triggerOnce: true, // Анимация запускается только один раз
+    threshold: 0.7, // Процент видимой области, после которого запускается анимация
+  });
   return (
-    <Box my={"120px"} py={'60px'}>
+    <MotionBox
+      my={"120px"}
+      py={"60px"}
+      ref={ref}
+      initial={{ opacity: 0, y: 50 }} 
+      animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 50 }} 
+      transition={{ duration: 0.6, ease: "easeOut" }}
+    >
       <Container maxW={"container.lg"}>
-        <Box textAlign={'center'}>
-          <Text  mb={{ base: "40px", md: "60px" }}
-          fontSize={"30px"}
-          fontWeight={"300"}
+        <Box textAlign={"center"}>
+          <Text
+            mb={{ base: "40px", md: "60px" }}
+            fontSize={"30px"}
+            fontWeight={"300"}
           >
             «Клиника Сердца» - это современная клиника, предоставляющая
             медицинские услуги по диагностике и лечению заболеваний сердца и
@@ -18,7 +34,7 @@ const AboutUs = () => {
           </Text>
         </Box>
       </Container>
-    </Box>
+    </MotionBox>
   );
 };
 

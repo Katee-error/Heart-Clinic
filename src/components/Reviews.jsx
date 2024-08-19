@@ -2,7 +2,10 @@ import React, { useState } from 'react';
 import { Box, Button, Flex, Text, IconButton, Heading, Image } from '@chakra-ui/react';
 import { FiArrowLeft, FiArrowRight } from 'react-icons/fi';
 import box from './../assets/slider/box-ben.png'
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
+const MotionBox = motion(Box);
 
 const testimonials = [
   { text: "Центр ,которому можно доверить свое сердце", author: "Анжела Р." },
@@ -22,8 +25,20 @@ const TestimonialSlider = () => {
     setCurrentIndex((prevIndex) => (prevIndex - 1 + testimonials.length) % testimonials.length);
   };
 
+  const { ref, inView } = useInView({
+    triggerOnce: true, // Анимация запускается только один раз
+    threshold: 0.4, // Процент видимой области, после которого запускается анимация
+  });
+
   return (
-    <Box my={'120px'}>
+    <MotionBox
+    my={"120px"}
+    py={"60px"}
+    ref={ref}
+    initial={{ opacity: 0, y: 50 }}
+    animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 50 }}
+    transition={{ duration: 0.6, ease: "easeOut" }}
+  >
         <Box bg={''} pos={'relative'}>
             <Image src={box} w={'100%'}  />
             <Heading mb={"60px"} fontSize={"50px"} fontWeight={300} pos={'absolute'} top={'10'} left={'20'} color={'#fff'}>
@@ -84,7 +99,7 @@ const TestimonialSlider = () => {
         _hover={{ bg: "gray.100" }}
       />
     </Box>
-    </Box>
+    </MotionBox>
     
   );
 };
