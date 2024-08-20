@@ -21,12 +21,12 @@ const DoctorModal = ({ doctor, isOpen, onClose }) => {
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
       <ModalOverlay />
-      <ModalContent maxW="1000px" p={"40px"}>
-        <Flex gap={'40px'} alignItems={'center'}>
+      <ModalContent maxW="1000px" p={{base:"20px", md:"40px"}}>
+        <Flex gap={{base: '20px',md:'40px'}} alignItems={'center'} flexDirection={{base: 'column', md: 'row'}}>
           <Image src={doctor.img} w={"auto"} h={'600px'} objectFit={'contain'} />
           <Box >
-            <Flex justifyContent={'space-between'} alignItems={'baseline'}>
-                <ModalHeader fontSize={'40px'}>{doctor.name}</ModalHeader>
+            <Flex justifyContent={'space-between'} alignItems={'baseline'}  flexDirection={{base: 'column', md: 'row'}} px={'20px'} mb={'20px'} gap={'20px'} >
+                <ModalHeader fontSize={{base: '40px', md: '30px'}} p={'0px'}>{doctor.name}</ModalHeader>
                 <Box
                   bg={"brand.main"}
                   color={"white"}
@@ -34,8 +34,9 @@ const DoctorModal = ({ doctor, isOpen, onClose }) => {
                   fontWeight={600}
                   p={"10px "}
                   display={"inline-block"}
-                  w={"120px"}
+                  w={{base:"70%", md:"120px"}}
                   h={'40px'}
+                  
                 >
                   Опыт {doctor.experience}
                 </Box>
