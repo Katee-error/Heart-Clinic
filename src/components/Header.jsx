@@ -1,8 +1,8 @@
 import React from "react";
 import { useRef, useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import { HashLink as NavLink } from "react-router-hash-link";
 import { Link as RouterLink } from "react-router-dom";
+import { Link as ScrollLink } from "react-scroll";
 
 import {
   Box,
@@ -216,9 +216,9 @@ const Header = () => {
               alignItems={"center"}
               justifyContent={"space-between"}
             >
-              <NavLink to="/">
+              <Link to="/">
                 <Image src={logo} alt="logo" w={"200px"} />
-              </NavLink>
+              </Link>
               <Flex gap={"50px"} alignItems={"center"}>
                 <Flex
                   justifyContent={"space-between"}
@@ -284,81 +284,84 @@ const Header = () => {
                   _active={{ border: "transparent", bg: "transparent" }}
                 />
                 <Drawer isOpen={isOpen} placement="left" onClose={onClose}>
-              <DrawerOverlay />
-              <DrawerContent>
-                <DrawerCloseButton />
-                <DrawerBody p={"30px"}>
-                  <VStack align="stretch" spacing={4}>
-                    {links.map((link, i) => (
-                      <Box key={i} w="100%">
-                        <Box
-                          fontSize={"20px"}
-                          color={"brand.main"}
-                          fontWeight={500}
-                          py={2}
-                          _hover={{
-                            textDecoration: "none",
-                            
-                          }}
-                          display="block"
-                        >
-                          {link.hasMenu ? (
-                            <Accordion allowToggle>
-                              <AccordionItem>
-                                <AccordionButton
-                                  px={0}
-                                  _hover={{ bg: "none" }}
-                                  _focus={{ boxShadow: "none" }}
-                                >
-                                  <Box
-                                    flex="1"
-                                    textAlign="left"
-                                    fontSize={"20px"}
-                                  >
-                                    {link.text}
-                                  </Box>
-                                  <AccordionIcon />
-                                </AccordionButton>
-                                <AccordionPanel pb={4} pl={4}>
-                                  {link.items.map((item, idx) => (
-                                    <Link
-                                      key={idx}
-                                      as={RouterLink}
-                                      to={`/${item
-                                        .toLowerCase()
-                                        .replace(/\s/g, "-")}`}
-                                      onClick={onClose}
-                                      fontWeight={400}
-                                      fontSize={'16px'}
-                                      py={1}
-                                      _hover={{
-                                        textDecoration: "none",
-                                      }}
-                                      display="block"
-                                    >
-                                      {item}
-                                    </Link>
-                                  ))}
-                                </AccordionPanel>
-                              </AccordionItem>
-                            </Accordion>
-                          ) : (
-                            <Link
-                              as={RouterLink}
-                              to="/"
-                              state={{ section: link.section }}
-                              onClick={onClose}
+                  <DrawerOverlay />
+                  <DrawerContent>
+                    <DrawerCloseButton
+                      _hover={{ border: "transparent", bg: "transparent" }}
+                      _focus={{ border: "transparent", bg: "transparent" }}
+                      _active={{ border: "transparent", bg: "transparent" }}
+                    />
+                    <DrawerBody p={"30px"}>
+                      <VStack align="stretch" spacing={4}>
+                        {links.map((link, i) => (
+                          <Box key={i} w="100%">
+                            <Box
+                              fontSize={"20px"}
+                              color={"brand.main"}
+                              fontWeight={500}
+                              py={2}
+                              _hover={{
+                                textDecoration: "none",
+                              }}
+                              display="block"
                             >
-                              {link.text}
-                            </Link>
-                          )}
-                        </Box>
-                      </Box>
-                    ))}
-                  </VStack>
-                </DrawerBody>
-              </DrawerContent>
-            </Drawer>
+                              {link.hasMenu ? (
+                                <Accordion allowToggle>
+                                  <AccordionItem>
+                                    <AccordionButton
+                                      px={0}
+                                      _hover={{ bg: "none" }}
+                                      _focus={{ boxShadow: "none" }}
+                                    >
+                                      <Box
+                                        flex="1"
+                                        textAlign="left"
+                                        fontSize={"20px"}
+                                      >
+                                        {link.text}
+                                      </Box>
+                                      <AccordionIcon />
+                                    </AccordionButton>
+                                    <AccordionPanel pb={4} pl={4}>
+                                      {link.items.map((item, idx) => (
+                                        <Link
+                                          key={idx}
+                                          as={RouterLink}
+                                          to={`/${item
+                                            .toLowerCase()
+                                            .replace(/\s/g, "-")}`}
+                                          onClick={onClose}
+                                          fontWeight={400}
+                                          fontSize={"16px"}
+                                          py={1}
+                                          _hover={{
+                                            textDecoration: "none",
+                                          }}
+                                          display="block"
+                                        >
+                                          {item}
+                                        </Link>
+                                      ))}
+                                    </AccordionPanel>
+                                  </AccordionItem>
+                                </Accordion>
+                              ) : (
+                                <Link
+                                  as={RouterLink}
+                                  to="/"
+                                  state={{ section: link.section }}
+                                  onClick={onClose}
+                                >
+                                  {link.text}
+                                </Link>
+                              )}
+                            </Box>
+                          </Box>
+                        ))}
+                      </VStack>
+                    </DrawerBody>
+                  </DrawerContent>
+                </Drawer>
               </Flex>
             </Flex>
             <Navbar />

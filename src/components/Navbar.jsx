@@ -18,8 +18,8 @@ import {
   DrawerFooter,
   Link,
 } from "@chakra-ui/react";
-import { HashLink as NavLink } from "react-router-hash-link";
 import { Link as RouterLink } from "react-router-dom";
+import { Link as ScrollLink } from "react-scroll";
 import { FiChevronDown } from "react-icons/fi";
 import links from "../data/links";
 
@@ -88,12 +88,20 @@ const Navbar = () => {
                 </MenuList>
               </Menu>
             ) : (
-              <Link
-                pr={"20px"}
-                _hover={{ textDecoration: "none", color: "hover.link" }}
+              <ScrollLink
+                to={link.sectionId}  // Используйте уникальный идентификатор секции
+                smooth={true}
+                duration={500}
+                offset={-70} // Чтобы учесть высоту фиксированной навигации
               >
-                {link.text}
-              </Link>
+                <Link
+                  as="span"
+                  pr={"20px"}
+                  _hover={{ textDecoration: "none", color: "hover.link" }}
+                >
+                  {link.text}
+                </Link>
+              </ScrollLink>
             )}
           </Link>
         ))}

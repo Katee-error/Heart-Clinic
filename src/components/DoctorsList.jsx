@@ -17,21 +17,40 @@ import {
   TabPanels,
   TabPanel,
 } from "@chakra-ui/react";
-import React from "react";
+import React, {useState} from "react";
 
 import specialistics from "../data/OurSpecialists";
 import arrow from "./../assets/icons/arrow-right.svg";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import doctors from "../data/doctors";
+import DoctorCard from "./DoctorCard";
+import DoctorModal from "./ModalWindowDoctors";
 
 const MotionBox = motion(Box);
 
-const OurDoctors = () => {
+const DoctorsList = () => {
+
   const MotionCard = motion(GridItem);
   const { ref, inView } = useInView({
     triggerOnce: true, // Анимация запускается только один раз
     threshold: 0.3, // Процент видимой области, после которого запускается анимация
   });
+
+  const [selectedDoctor, setSelectedDoctor] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleOpenModal = (doctorId) => {
+    const doctor = doctors.find(doc => doc.id === doctorId);
+    setSelectedDoctor(doctor);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setSelectedDoctor(null);
+  };
+
   return (
     <MotionBox
       my={"120px"}
@@ -49,32 +68,14 @@ const OurDoctors = () => {
         </Flex>
 
         <SimpleGrid minChildWidth="250px" p={"20px"} spacing={"40px"}>
-          {specialistics.map((item, i) => (
-            <MotionCard key={i} whileHover={{ scale: 1.08 }}>
-              <Card maxW="sm">
-                <CardBody>
-                  <Image
-                    borderRadius="lg"
-                    src={item.img}
-                    w={"auto"}
-                    h={"250px"}
-                    m={"0 auto"}
-                  />
-                  <Stack mt="6" spacing="3">
-                    <Heading fontSize={"20px"}>{item.name}</Heading>
-                    <Text color={"gray.500"}>{item.post}</Text>
-                    <Box bg={'brand.main'} color={'white'} borderRadius={'10px'} fontWeight={600} p={'10px '} display={'inline-block'} w={'70%'}>
-                      Опыт {item.experience}
-                    </Box>
-                  </Stack>
-                </CardBody>
-              </Card>
-            </MotionCard>
+          {doctors.map((doctor) => (
+            <DoctorCard key={doctor.id} doctor={doctor} onOpen={handleOpenModal} />
           ))}
         </SimpleGrid>
+        <DoctorModal doctor={selectedDoctor} isOpen={isModalOpen} onClose={handleCloseModal} />
       </Container>
     </MotionBox>
   );
 };
 
-export default OurDoctors;
+export default DoctorsList;

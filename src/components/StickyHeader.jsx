@@ -39,8 +39,9 @@ import phoneIcon from "./../assets/header-icons/phone.svg";
 import clockIcon from "./../assets/header-icons/clock.svg";
 import calendarIcon from "./../assets/header-icons/calendar.svg";
 import { FiMenu } from "react-icons/fi";
-import { HashLink as NavLink } from "react-router-hash-link";
+
 import { Link as RouterLink } from "react-router-dom";
+import { Link as ScrollLink } from "react-scroll";
 import { FiChevronDown } from "react-icons/fi";
 import links from "../data/links";
 
@@ -49,18 +50,12 @@ import StickyNavbar from "./StickyNavbar";
 
 // import { NavLink } from "react-router-dom";
 const StickyHeader = () => {
-  const { onOpen, isOpen, onClose } = useDisclosure();
-  const location = useLocation();
-  const activeColor = useColorModeValue("#3489C8");
-  const inactiveColor = useColorModeValue("black");
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const [activeMenu, setActiveMenu] = useState(null);
 
   const MotionBox = motion(Box);
   const MotionButton = motion(Button);
   const btnRef = React.useRef();
-
-  const getLinkColor = (path) => {
-    return location.pathname === path ? activeColor : inactiveColor;
-  };
 
   return (
     <Box top="0" w="100%" bg={"white"} pb={"30px"} boxShadow="sm">
@@ -108,9 +103,9 @@ const StickyHeader = () => {
           alignItems={"center"}
           justifyContent={"space-between"}
         >
-          <NavLink to="/">
+          <Link to="/">
             <Image src={logo} alt="logo" w={"200px"} />
-          </NavLink>
+          </Link>
           <Flex gap={"50px"} alignItems={"center"}>
             <Flex
               justifyContent={"space-between"}
@@ -178,7 +173,11 @@ const StickyHeader = () => {
             <Drawer isOpen={isOpen} placement="left" onClose={onClose}>
               <DrawerOverlay />
               <DrawerContent>
-                <DrawerCloseButton />
+                <DrawerCloseButton
+                  _hover={{ border: "none", bg: "transparent" }}
+                  _focus={{ border: "none", bg: "transparent" }}
+                  _active={{ border: "none", bg: "transparent" }}
+                />
                 <DrawerBody p={"30px"}>
                   <VStack align="stretch" spacing={4}>
                     {links.map((link, i) => (
@@ -190,7 +189,6 @@ const StickyHeader = () => {
                           py={2}
                           _hover={{
                             textDecoration: "none",
-                            
                           }}
                           display="block"
                         >
@@ -221,7 +219,7 @@ const StickyHeader = () => {
                                         .replace(/\s/g, "-")}`}
                                       onClick={onClose}
                                       fontWeight={400}
-                                      fontSize={'16px'}
+                                      fontSize={"16px"}
                                       py={1}
                                       _hover={{
                                         textDecoration: "none",
@@ -235,14 +233,26 @@ const StickyHeader = () => {
                               </AccordionItem>
                             </Accordion>
                           ) : (
-                            <Link
-                              as={RouterLink}
-                              to="/"
-                              state={{ section: link.section }}
-                              onClick={onClose}
+                            <ScrollLink
+                              to={link.href}
+                              smooth={true}
+                              duration={500}
+                              offset={-70} // Учитываем высоту фиксированного меню
                             >
-                              {link.text}
-                            </Link>
+                              <Link
+                                as="span"
+                                onClick={onClose}
+                                fontWeight={500}
+                                py={2}
+                                _hover={{
+                                  textDecoration: "none",
+                                  color: "hover.link",
+                                }}
+                                display="block"
+                              >
+                                {link.text}
+                              </Link>
+                            </ScrollLink>
                           )}
                         </Box>
                       </Box>
