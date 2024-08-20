@@ -20,51 +20,10 @@ import {
 import { HashLink as NavLink } from "react-router-hash-link";
 import { Link as RouterLink } from "react-router-dom";
 import { FiChevronDown } from "react-icons/fi";
-
+import links from "../data/links";
 
 const StickyNavbar = () => {
-  const links = [
-    { text: "Главная", href: "/", hasMenu: false },
-    {
-      text: "ОМС",
-      //   href: "/",
-      hasMenu: true,
-      items: [
-        "Постановление Правительства РД",
-        "Перечень ЖНВЛП",
-        "Программа государственных гарантий",
-      ],
-    },
-    {
-      text: "Платные услуги ",
-      //   href: "/",
-      hasMenu: true,
-      items: ["Платные услуги", "Договор", "Акт", "Прейскурант"],
-    },
-    {
-      text: "Наши врачи",
-      //   href: "/",
-      hasMenu: true,
-      items: ["Платные услуги", "Договор", "Акт", "Прейскурант"],
-    },
-    {
-      text: "О нас",
-      //   href: "/",
-      hasMenu: true,
-      items: [
-        "Персонал",
-        "Документы",
-        "Контролирующие органы",
-        "Вакансии",
-        "Отзывы пациентов",
-      ],
-    },
-    {
-      text: "Контакты",
-      section: "contact",
-      hasMenu: false,
-    },
-  ];
+ 
   const [isOpen, setIsOpen] = useState(null);
   return (
     <Flex

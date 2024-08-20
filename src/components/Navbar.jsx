@@ -3,7 +3,7 @@ import {
   Box,
   Container,
   Flex,
- 
+  VStack,
   Button,
   Menu,
   MenuItem,
@@ -21,50 +21,9 @@ import {
 import { HashLink as NavLink } from "react-router-hash-link";
 import { Link as RouterLink } from "react-router-dom";
 import { FiChevronDown } from "react-icons/fi";
+import links from "../data/links";
 
 const Navbar = () => {
-  const links = [
-    { text: "Главная", href: "/", hasMenu: false },
-    {
-      text: "ОМС",
-      //   href: "/",
-      hasMenu: true,
-      items: [
-        "Постановление Правительства РД",
-        "Перечень ЖНВЛП",
-        "Программа государственных гарантий",
-      ],
-    },
-    {
-      text: "Платные услуги ",
-      //   href: "/",
-      hasMenu: true,
-      items: ["Платные услуги", "Договор", "Акт", "Прейскурант"],
-    },
-    {
-      text: "Наши врачи",
-      //   href: "/",
-      hasMenu: true,
-      items: ["Платные услуги", "Договор", "Акт", "Прейскурант"],
-    },
-    {
-      text: "О нас",
-       href: "#about",
-      hasMenu: true,
-      items: [
-        "Персонал",
-        "Документы",
-        "Контролирующие органы",
-        "Вакансии",
-        "Отзывы пациентов",
-      ],
-    },
-    {
-      text: "Контакты",
-       section: "contact",
-      hasMenu: false,
-    },
-  ];
   const [isOpen, setIsOpen] = useState(null);
 
   return (
@@ -75,7 +34,6 @@ const Navbar = () => {
         color={"white"}
         // border={"1px solid #3a3a9c"}
         gap={"20px"}
-        
         fontWeight={500}
         fontSize={"xs"}
         alignItems={"center"}
@@ -84,7 +42,7 @@ const Navbar = () => {
         h={"70px"}
         px={"90px"}
         borderRadius={"20px"}
-        display={{base: 'none', md: 'flex'}}
+        display={{ base: "none", md: "flex" }}
       >
         {links.map((link, i) => (
           <Link
@@ -96,7 +54,7 @@ const Navbar = () => {
             state={{ section: link.section }}
             px={2}
             py={1}
-             _hover={{ textDecoration: "none"}}
+            _hover={{ textDecoration: "none" }}
             //   color={getLinkColor("/")}
           >
             {link.hasMenu ? (
@@ -116,8 +74,8 @@ const Navbar = () => {
                 </MenuButton>
                 <MenuList
                   mt={"7px"}
-                //   pos={"absolute"}
-                //   left={"-100px"}
+                  //   pos={"absolute"}
+                  //   left={"-100px"}
                   minW={"300px"}
                   color={"brand.main"}
                   fontWeight={500}
@@ -130,7 +88,12 @@ const Navbar = () => {
                 </MenuList>
               </Menu>
             ) : (
-              <Link pr={'20px'}  _hover={{ textDecoration: "none", color: "hover.link"}}>{link.text}</Link>
+              <Link
+                pr={"20px"}
+                _hover={{ textDecoration: "none", color: "hover.link" }}
+              >
+                {link.text}
+              </Link>
             )}
           </Link>
         ))}

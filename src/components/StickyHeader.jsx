@@ -23,6 +23,12 @@ import {
   useDisclosure,
   DrawerFooter,
   Link,
+  VStack,
+  Accordion,
+  AccordionItem,
+  AccordionButton,
+  AccordionIcon,
+  AccordionPanel,
 } from "@chakra-ui/react";
 
 import { motion } from "framer-motion";
@@ -36,55 +42,13 @@ import { FiMenu } from "react-icons/fi";
 import { HashLink as NavLink } from "react-router-hash-link";
 import { Link as RouterLink } from "react-router-dom";
 import { FiChevronDown } from "react-icons/fi";
+import links from "../data/links";
 
 import Navbar from "./Navbar";
 import StickyNavbar from "./StickyNavbar";
 
 // import { NavLink } from "react-router-dom";
 const StickyHeader = () => {
-  const links = [
-    { text: "Главная", href: "/", hasMenu: false },
-    {
-      text: "ОМС",
-      //   href: "/",
-      hasMenu: true,
-      items: [
-        "Постановление Правительства РД",
-        "Перечень ЖНВЛП",
-        "Программа государственных гарантий",
-      ],
-    },
-    {
-      text: "Платные услуги ",
-      //   href: "/",
-      hasMenu: true,
-      items: ["Платные услуги", "Договор", "Акт", "Прейскурант"],
-    },
-    {
-      text: "Наши врачи",
-      //   href: "/",
-      hasMenu: true,
-      items: ["Платные услуги", "Договор", "Акт", "Прейскурант"],
-    },
-    {
-      text: "О нас",
-      //   href: "/",
-      hasMenu: true,
-      items: [
-        "Персонал",
-        "Документы",
-        "Контролирующие органы",
-        "Вакансии",
-        "Отзывы пациентов",
-      ],
-    },
-    {
-      text: "Контакты",
-      section: "contact",
-      hasMenu: false,
-    },
-  ];
-
   const { onOpen, isOpen, onClose } = useDisclosure();
   const location = useLocation();
   const activeColor = useColorModeValue("#3489C8");
@@ -143,7 +107,6 @@ const StickyHeader = () => {
           display={{ base: "flex", md: "none" }}
           alignItems={"center"}
           justifyContent={"space-between"}
-         
         >
           <NavLink to="/">
             <Image src={logo} alt="logo" w={"200px"} />
@@ -155,7 +118,7 @@ const StickyHeader = () => {
               alignItems={"center"}
               fontSize={"14px"}
               fontWeight={600}
-              display={{base: 'none', sm: 'flex', md: 'none'}}
+              display={{ base: "none", sm: "flex", md: "none" }}
             >
               <Flex gap={"8px"} alignItems={"center"}>
                 <Image src={mapIcon} color={"#3a3a9c"} w={"25px"} />
@@ -179,6 +142,26 @@ const StickyHeader = () => {
                 </Text>
               </Flex>
             </Flex>
+            <Link
+              as={RouterLink}
+              to="/"
+              display={{ base: "none", xs: "block", sm: "none" }}
+            >
+              <MotionButton
+                p={"20px"}
+                borderRadius={"10px"}
+                fontSize={"16px"}
+                fontWeight={600}
+                border={"1px solid #3a3a9c"}
+                // bg={"transparent"}
+                bg={"brand.main"}
+                _hover={{ bgColor: "hover.button", color: "black" }}
+                whileHover={{ scale: 1.05 }}
+                color={"white"}
+              >
+                Записаться
+              </MotionButton>
+            </Link>
             {/* Menu hamburger */}
             <IconButton
               ref={btnRef}
@@ -192,97 +175,80 @@ const StickyHeader = () => {
               _focus={{ border: "transparent", bg: "transparent" }}
               _active={{ border: "transparent", bg: "transparent" }}
             />
-            <Drawer
-              isOpen={isOpen}
-              placement="top"
-              onClose={onClose}
-              finalFocusRef={btnRef}
-            >
+            <Drawer isOpen={isOpen} placement="left" onClose={onClose}>
               <DrawerOverlay />
               <DrawerContent>
-                <DrawerCloseButton
-                  size={"2xl"}
-                  pt={"30px"}
-                  pr={"20px"}
-                  bg={"none"}
-                  _hover={{ border: "transparent", bg: "transparent" }}
-                  _focus={{ boxShadow: "none", bg: "transparent" }}
-                  _active={{ border: "transparent", bg: "transparent" }}
-                />
-                <DrawerBody>
-                  <Flex
-                    py={"70px"}
-                    flexDirection={"column"}
-                    alignItems={"center"}
-                    gap={"40px"}
-                    onClick={onClose}
-                    fontSize={"md"}
-                    fontWeight={500}
-                  >
-                    <Link
-                      as={RouterLink}
-                      to="/"
-                      // state={{ section: "hero" }}
-                    >
-                      <Link
-                        px={2}
-                        py={1}
-                        // _hover={{ textDecoration: 'none', fontWeight:'600'}}
-                        color={getLinkColor("/home")}
-                      ></Link>
-                    </Link>
-                    <Link as={RouterLink} to="/" state={{ section: "about" }}>
-                      <Link
-                        px={2}
-                        py={1}
-                        color={getLinkColor("/about-us")}
-                      ></Link>
-                    </Link>
-                    <Link
-                      as={RouterLink}
-                      to="/"
-                      //   state={{ section: "product" }}
-                      border={"none"}
-                    >
-                      <Link
-                        px={2}
-                        py={1}
-                        // color={getLinkColor("/our-product")}
-                      ></Link>
-                    </Link>
-                    <Link as={NavLink} to="/detail/#main">
-                      <Link
-                        px={2}
-                        py={1}
-                        fontWeight={500}
-                        // _hover={{ textDecoration: 'none', fontWeight:'600'}}
-                        color={getLinkColor("/product-detail")}
-                      ></Link>
-                    </Link>
-                  </Flex>
+                <DrawerCloseButton />
+                <DrawerBody p={"30px"}>
+                  <VStack align="stretch" spacing={4}>
+                    {links.map((link, i) => (
+                      <Box key={i} w="100%">
+                        <Box
+                          fontSize={"20px"}
+                          color={"brand.main"}
+                          fontWeight={500}
+                          py={2}
+                          _hover={{
+                            textDecoration: "none",
+                            
+                          }}
+                          display="block"
+                        >
+                          {link.hasMenu ? (
+                            <Accordion allowToggle>
+                              <AccordionItem>
+                                <AccordionButton
+                                  px={0}
+                                  _hover={{ bg: "none" }}
+                                  _focus={{ boxShadow: "none" }}
+                                >
+                                  <Box
+                                    flex="1"
+                                    textAlign="left"
+                                    fontSize={"20px"}
+                                  >
+                                    {link.text}
+                                  </Box>
+                                  <AccordionIcon />
+                                </AccordionButton>
+                                <AccordionPanel pb={4} pl={4}>
+                                  {link.items.map((item, idx) => (
+                                    <Link
+                                      key={idx}
+                                      as={RouterLink}
+                                      to={`/${item
+                                        .toLowerCase()
+                                        .replace(/\s/g, "-")}`}
+                                      onClick={onClose}
+                                      fontWeight={400}
+                                      fontSize={'16px'}
+                                      py={1}
+                                      _hover={{
+                                        textDecoration: "none",
+                                      }}
+                                      display="block"
+                                    >
+                                      {item}
+                                    </Link>
+                                  ))}
+                                </AccordionPanel>
+                              </AccordionItem>
+                            </Accordion>
+                          ) : (
+                            <Link
+                              as={RouterLink}
+                              to="/"
+                              state={{ section: link.section }}
+                              onClick={onClose}
+                            >
+                              {link.text}
+                            </Link>
+                          )}
+                        </Box>
+                      </Box>
+                    ))}
+                  </VStack>
                 </DrawerBody>
-                <DrawerFooter pb={"30px"}>
-                  <Link
-                    as={RouterLink}
-                    to="/"
-                    state={{ section: "form" }}
-                    m={" 0 auto"}
-                  >
-                    <MotionButton
-                      border={"#3489C8 2px solid"}
-                      bgColor={"transparent"}
-                      fontSize={"xxs"}
-                      fontWeight={500}
-                      p={"25px 40px"}
-                      borderRadius={"5px"}
-                      _hover={{ bgColor: "#ECECFF" }}
-                      whileTap={{ scale: 1.2 }}
-                      whileHover={{ scale: 1.05 }}
-                      // onClick={() => scrollToSection("form")}
-                      onClick={onClose}
-                    ></MotionButton>
-                  </Link>
-                </DrawerFooter>
               </DrawerContent>
             </Drawer>
           </Flex>

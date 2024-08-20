@@ -52,7 +52,7 @@ const YandexMap = () => {
         w={"80%"}
         borderRadius={"20px"}
         pos={"relative"}
-        mt={"-120px"}
+        mt={{base: '0px', md:"-120px"}}
       >
         <CardBody
           id="contact"
