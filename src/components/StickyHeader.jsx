@@ -99,7 +99,7 @@ const StickyHeader = () => {
   };
 
   return (
-    <Box top="0" w="100%" bg={"white"} pb={'15px'} boxShadow="sm">
+    <Box top="0" w="100%" bg={"white"} pb={"30px"} boxShadow="sm">
       <Container maxW="container.xl">
         {/* DESKTOP */}
         <Flex
@@ -143,11 +143,42 @@ const StickyHeader = () => {
           display={{ base: "flex", md: "none" }}
           alignItems={"center"}
           justifyContent={"space-between"}
+         
         >
           <NavLink to="/">
-            <Image src={logo} alt="logo" w={"130px"} />
+            <Image src={logo} alt="logo" w={"200px"} />
           </NavLink>
-          <Flex gap={"20px"} alignItems={"center"}>
+          <Flex gap={"50px"} alignItems={"center"}>
+            <Flex
+              justifyContent={"space-between"}
+              gap={"50px"}
+              alignItems={"center"}
+              fontSize={"14px"}
+              fontWeight={600}
+              display={{base: 'none', sm: 'flex', md: 'none'}}
+            >
+              <Flex gap={"8px"} alignItems={"center"}>
+                <Image src={mapIcon} color={"#3a3a9c"} w={"25px"} />
+                <Text>
+                  Туп. Каммаева 1-й,
+                  <br /> влд.30
+                </Text>
+              </Flex>
+              <Flex gap={"8px"} alignItems={"center"}>
+                <Image src={phoneIcon} color={"#3a3a9c"} w={"25px"} />
+                <Text>
+                  +7 (999) 478 00 66 <br />
+                  +7 (999) 478 00 55
+                </Text>
+              </Flex>
+              <Flex gap={"8px"} alignItems={"center"}>
+                <Image src={clockIcon} color={"#3a3a9c"} w={"25px"} />
+                <Text>
+                  пн-пт 8:00-18:00
+                  <br /> сб 9:00-14:00
+                </Text>
+              </Flex>
+            </Flex>
             {/* Menu hamburger */}
             <IconButton
               ref={btnRef}

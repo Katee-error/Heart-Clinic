@@ -36,10 +36,10 @@ const HeroSlider = () => {
   return (
     <Box
       width="100vw"
-      height="700px"
+      height={{base: '300px','2xs': '500px', md:"700px"}}
       overflow="hidden"
       position="relative"
-      py={"60px"}
+      py={{ base: "0", md: "60px" }}
     >
       <Slider {...settings}>
         {images.map((image, index) => (

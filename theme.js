@@ -54,8 +54,9 @@ const customTheme = extendTheme({
   breakpoints: {
     base: "0em", // 0px
     xs: '30em',// 480px
-    sm: "50em", // ~780px. em is a relative unit and is dependant on the font size.
-    md: "62em", // ~1000px
+    '2xs': '51.25em', //
+    sm: "56em", // ~820px. em is a relative unit and is dependant on the font size.
+    md: "64em", // ~1070px
     lg: "75em", // ~1190px
     xl: "76em", // ~1280px
     "2xl": "96em", // ~1536px
@@ -74,7 +75,7 @@ const customTheme = extendTheme({
   container: {
     sm: "640px",
     md: "768px",
-    lg: "1024px",
+    lg: "1050px",
     xl: "1280px",
   },
 });

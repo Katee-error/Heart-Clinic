@@ -38,7 +38,7 @@ const Questions = () => {
   return (
     <MotionBox
       my={"120px"}
-      py={"60px"}
+      py={{base: '0px' ,md:"60px"}}
       ref={ref}
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 50 }}
@@ -46,7 +46,7 @@ const Questions = () => {
     >
       <Container maxW="container.xl">
         <Heading
-          fontSize={"50px"}
+          fontSize={{base: '40px',md:"50px"}}
           fontWeight={"300"}
           mb={"60px"}
           textAlign={"center"}
@@ -58,15 +58,16 @@ const Questions = () => {
           justifyContent={"space-between"}
           gap={"50px"}
           alignItems={"center"}
+          flexDirection={{base: 'column', md: 'row'}}
         >
           <Image
             src={questionsImg}
-            w={"40%"}
+            w={{base: '100%', md: '40%'}}
             h={"auto"}
             objectFit={"contain"}
             borderRadius={"20px"}
           />
-          <Accordion w={"50%"} allowMultiple index={activeIndex} onChange={handleAccordionChange}>
+          <Accordion w={{base: '100%', md: '50%'}}allowMultiple index={activeIndex} onChange={handleAccordionChange}>
             {questions.map((question, i) => (
               <AccordionItem mb={"20px"} border={"transparent"} key={i} >
                 <h2>

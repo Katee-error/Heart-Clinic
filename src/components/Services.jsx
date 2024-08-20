@@ -117,7 +117,7 @@ const Services = () => {
       <Container maxW={"container.xl"}>
         <Heading
           mb={{ base: "40px", md: "60px" }}
-          fontSize={"50px"}
+          fontSize={{base: "40px", md: "50px" }}
           fontWeight={"300"}
           as={"h2"}
         >
@@ -156,8 +156,8 @@ const Services = () => {
             <TabPanels mt={"60px"}>
               {services.map((service, index) => (
                 <TabPanel key={index}>
-                  <Flex alignItems={"start"} justifyContent={"space-between"}>
-                    <Box w={"50%"}>
+                  <Flex alignItems={"start"} justifyContent={"space-between"} flexDirection={{base: 'column', md: 'row'}} gap={{base: '20px'}}>
+                    <Box w={{base: "100%", md: "50%" }}>
                       <Heading mb={"30px"} fontWeight={400} fontSize={"md"}>
                         {service.title}
                       </Heading>

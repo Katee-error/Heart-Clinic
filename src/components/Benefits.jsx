@@ -33,7 +33,7 @@ const Benefits = () => {
   return (
     <MotionBox
       my={"120px"}
-      py={"60px"}
+      py={{base: '0px' ,md:"60px"}}
       ref={ref}
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 50 }}
@@ -41,22 +41,22 @@ const Benefits = () => {
     >
       <Container maxW="container.xl">
         <Box bg={""} pos={"relative"}>
-          <Image src={box} w={"100%"} />
+          <Image src={box} w={"100%"} h={{base: '120px', md: 'auto'}} />
           <Heading
             mb={"60px"}
-            fontSize={"50px"}
+            fontSize={{base: '24px',md:"50px"}}
             fontWeight={300}
             pos={"absolute"}
             top={"10"}
-            left={"20"}
+            left={{base: "10px",md:"20"}}
             color={"#fff"}
           >
             {" "}
             Почему нас выбирают?
           </Heading>
         </Box>
-        <Box mt={"-70px"} zIndex={"1"} pos={"relative"}>
-          <SimpleGrid minChildWidth="200px" spacing={"100px"}>
+        <Box mt={{base: '70px', md: "-70px"}} zIndex={"1"} pos={"relative"}>
+          <SimpleGrid minChildWidth="200px" spacing={{base: '50px',md:"100px"}}>
             {/* <GridItem>
                 <Imagex
                   src={doctor}

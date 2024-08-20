@@ -49,7 +49,7 @@ const Navbar = () => {
     },
     {
       text: "О нас",
-      //   href: "/",
+       href: "#about",
       hasMenu: true,
       items: [
         "Персонал",
@@ -84,6 +84,7 @@ const Navbar = () => {
         h={"70px"}
         px={"90px"}
         borderRadius={"20px"}
+        display={{base: 'none', md: 'flex'}}
       >
         {links.map((link, i) => (
           <Link

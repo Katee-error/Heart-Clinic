@@ -85,7 +85,6 @@ const Header = () => {
       w="100%"
       transition="0.3s"
       bg={"white"}
-      
     >
       <Container maxW="container.xl">
         {isNavSticky ? (
@@ -180,7 +179,7 @@ const Header = () => {
                     </Text>
                   </Flex>
                 </Flex>
-                <Link as={RouterLink} to="/">
+                <Link as={RouterLink} href="#form">
                   <MotionButton
                     p={"30px"}
                     borderRadius={"20px"}
@@ -211,9 +210,39 @@ const Header = () => {
               justifyContent={"space-between"}
             >
               <NavLink to="/">
-                <Image src={logo} alt="logo" w={"130px"} />
+                <Image src={logo} alt="logo" w={"200px"} />
               </NavLink>
-              <Flex gap={"20px"} alignItems={"center"}>
+              <Flex gap={"50px"} alignItems={"center"}>
+                <Flex
+                  justifyContent={"space-between"}
+                  gap={"50px"}
+                  alignItems={"center"}
+                  fontSize={"14px"}
+                  fontWeight={600}
+                  display={{base: 'none', sm: 'flex', lg: 'none'}}
+                >
+                  <Flex gap={"8px"} alignItems={"center"}>
+                    <Image src={mapIcon} color={"#3a3a9c"}  w={"25px"}  />
+                    <Text>
+                      Туп. Каммаева 1-й,
+                      <br /> влд.30
+                    </Text>
+                  </Flex>
+                  <Flex gap={"8px"} alignItems={"center"}>
+                    <Image src={phoneIcon} color={"#3a3a9c"} w={"25px"} />
+                    <Text>
+                      +7 (999) 478 00 66 <br />
+                      +7 (999) 478 00 55
+                    </Text>
+                  </Flex>
+                  <Flex gap={"8px"} alignItems={"center"}>
+                    <Image src={clockIcon} color={"#3a3a9c"}  w={"25px"} />
+                    <Text>
+                      пн-пт 8:00-18:00
+                      <br /> сб 9:00-14:00
+                    </Text>
+                  </Flex>
+                </Flex>
                 {/* Menu hamburger */}
                 <IconButton
                   ref={btnRef}

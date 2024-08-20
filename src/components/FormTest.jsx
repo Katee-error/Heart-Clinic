@@ -126,8 +126,8 @@ const ContactForm = () => {
     >
       <Container maxW="container.xl">
         <Heading
-          mb={{ base: "40px", md: "60px" }}
-          fontSize={"50px"}
+          mb={{ base: "30px", md: "60px" }}
+          fontSize={{base: '40px',md:"50px"}}
           fontWeight={"300"}
           as={"h2"}
         >

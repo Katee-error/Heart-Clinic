@@ -34,7 +34,7 @@ const Test = () => {
   return (
     <MotionBox
       my={"120px"}
-      py={"60px"}
+      py={{base: '0px' ,md:"60px"}}
       ref={ref}
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 50 }}
@@ -54,8 +54,8 @@ const Test = () => {
                 НАПРАВЛЕНИЯ
               </Text>
               <Heading
-                mb={{ base: "40px", md: "60px" }}
-                fontSize={"50px"}
+                mb={{ base: "20px", md: "60px" }}
+                fontSize={{base: '40px',md:"50px"}}
                 fontWeight={"300"}
                 as={"h2"}
               >

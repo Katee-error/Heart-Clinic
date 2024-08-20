@@ -12,20 +12,17 @@ const AboutUs = () => {
   });
   return (
     <MotionBox
+      id="about"
       my={"120px"}
-      pt={"60px"}
+      pt={{'2xs': '0px',md: "60px"}}
       ref={ref}
-      initial={{ opacity: 0, y: 50 }} 
-      animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 50 }} 
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 50 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
     >
       <Container maxW={"container.lg"}>
         <Box textAlign={"center"}>
-          <Text
-            mb={{ base: "40px", md: "60px" }}
-            fontSize={"30px"}
-            fontWeight={"300"}
-          >
+          <Text fontSize={{base: "20px", sm: '24px', md: "30px"}} fontWeight={"300"}>
             «Клиника Сердца» - это современная клиника, предоставляющая
             медицинские услуги по диагностике и лечению заболеваний сердца и
             сосудов, а также по другим областям медицины. Клиника входит в

@@ -35,7 +35,7 @@ const OurDoctors = () => {
   return (
     <MotionBox
       my={"120px"}
-      py={"60px"}
+      py={{base: "0px", md: "60px"} }
       ref={ref}
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 50 }}
@@ -43,7 +43,7 @@ const OurDoctors = () => {
     >
       <Container maxW="container.xl">
         <Flex justifyContent={"space-between"} pb={"60px"}>
-          <Heading fontSize={"50px"} fontWeight={"300"} maxW={"500px"}>
+          <Heading fontSize={{base: "40px", md: "50px" }} fontWeight={"300"} maxW={"500px"}>
             Квалифицированные Специалисты
           </Heading>
         </Flex>
@@ -63,7 +63,7 @@ const OurDoctors = () => {
                   <Stack mt="6" spacing="3">
                     <Heading fontSize={"20px"}>{item.name}</Heading>
                     <Text color={"gray.500"}>{item.post}</Text>
-                    <Box bg={'brand.main'} color={'white'} borderRadius={'10px'} fontWeight={600} p={'10px '} display={'inline-block'} w={'50%'}>
+                    <Box bg={'brand.main'} color={'white'} borderRadius={'10px'} fontWeight={600} p={'10px '} display={'inline-block'} w={'70%'}>
                       Опыт {item.experience}
                     </Box>
                   </Stack>

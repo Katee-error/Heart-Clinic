@@ -47,7 +47,7 @@ const YandexMap = () => {
         maxW={"1000px"}
         bg={"#fff"}
         // border={"1px solid #3a3a9c"}
-        p={"50px"}
+        p={{ base: "20px", md: "50px" }}
         m={"0 auto"}
         w={"80%"}
         borderRadius={"20px"}
@@ -58,11 +58,20 @@ const YandexMap = () => {
           id="contact"
           // ref={sectionRefs["contact"]}
         >
-          <Flex gap={"50px"} justifyContent={"space-between"}>
+          <Flex
+            gap={"50px"}
+            justifyContent={"space-between"}
+            flexDirection={{ base: "column", md: "row" }}
+          >
             <Box>
-              <Flex alignItems={"start"} justifyContent={"space-between"}>
-                <VStack fontSize={"xxs"} alignItems={"start"}>
-                  <Text color={"brand.main"} fontWeight={600}>
+              <Flex
+                alignItems={"start"}
+                justifyContent={"space-between"}
+                flexDirection={{ base: "column", md: "row" }}
+                gap={{base: '20px'}}
+              >
+                <VStack fontSize={"xxs"} alignItems={{ md:"start"}}>
+                  <Text color={"brand.main"} fontWeight={700}>
                     Телефон
                   </Text>
                   <Link>
@@ -71,7 +80,7 @@ const YandexMap = () => {
                   </Link>
                 </VStack>
                 <VStack fontSize={"xxs"} alignItems={"start"}>
-                  <Text color={"brand.main"} fontWeight={600}>
+                  <Text color={"brand.main"} fontWeight={700}>
                     Время работы
                   </Text>
                   <Text>
@@ -80,7 +89,7 @@ const YandexMap = () => {
                   </Text>
                 </VStack>
                 <VStack fontSize={"xxs"} alignItems={"start"}>
-                  <Text color={"brand.main"} fontWeight={600}>
+                  <Text color={"brand.main"} fontWeight={700}>
                     Адрес
                   </Text>
                   <Text>
@@ -89,13 +98,13 @@ const YandexMap = () => {
                   </Text>
                 </VStack>
               </Flex>
-              <Text my={"30px"} fontSize={"xxs"} color={"gray.500"}>
+              <Text my={"30px"} fontSize={"xxs"} color={"gray.500"} display={{base: 'none', md: 'block'}}>
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit,
                 reiciendis quasi sit, libero earum non sequi vitae cumque
                 nesciunt ullam placeat eveniet maiores asperiores fugiat dolorem
                 quos ad aperiam nobis.
               </Text>
-              <Flex justifyContent={"space-between"} alignItems={"center"}>
+              <Flex justifyContent={"space-between"} alignItems={"center"} gap={'20px'} mt={{base: '30px', md: '0'}}>
                 <MotionButton
                   h={"60px"}
                   w={"200px"}
@@ -126,7 +135,7 @@ const YandexMap = () => {
             <Image
               src={build}
               borderRadius={"20px"}
-              w={"40%"}
+              w={{ base: "100%", md: "40%" }}
               h={"auto"}
               objectFit={"contain"}
             />
