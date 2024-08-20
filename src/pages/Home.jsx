@@ -12,21 +12,22 @@ import Test from "../components/Test";
 import HeroSlider from "../components/HeroSlider";
 import Footer from "./../components/Footer";
 import Questions from "../components/Questions";
-import TestimonialsMarquee from './../components/Reviews'
+import TestimonialsMarquee from "./../components/Reviews";
+import StickyNav from "../components/StickyHeader";
 
 const Home = () => {
   return (
     <Box>
       <HeroSlider />
       <AboutUs />
-      <Benefits/> 
+      <Benefits />
       <Test />
       {/* <Doctors/> */}
       <Services />
       <OurDoctors />
-      <TestimonialsMarquee/>
+      <TestimonialsMarquee />
       <ContactForm />
-      <Questions/>
+      <Questions />
       <YandexMap />
     </Box>
   );
