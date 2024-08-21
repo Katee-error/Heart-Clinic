@@ -45,7 +45,7 @@ const DoctorModal = ({ doctor, isOpen, onClose }) => {
           <ModalBody>
             <Text  fontSize={'16px'} mb={'20px'}><Box as="span" fontSize={'18px'} color={'brand.main'} fontWeight="bold">Специальность: </Box> {doctor.specialty}</Text>
             <Text fontWeight="400" fontSize={'16px'} mb={'20px'}><Box as="span" fontSize={'18px'} color={'brand.main'} fontWeight="bold">Образование: </Box> {doctor.education}</Text>
-            <Text mt="4" >{doctor.fullInfo}</Text>
+            
           </ModalBody>
           <ModalFooter></ModalFooter>
           </Box>

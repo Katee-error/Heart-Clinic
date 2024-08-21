@@ -3,7 +3,6 @@ import { Box } from "@chakra-ui/react";
 
 import AboutUs from "../components/AboutUs";
 import OurDoctors from "../components/DoctorsList";
-import Doctors from "../components/Doctors";
 import ContactForm from "../components/FormTest";
 import YandexMap from "../components/YandexMap";
 import Services from "../components/Services";

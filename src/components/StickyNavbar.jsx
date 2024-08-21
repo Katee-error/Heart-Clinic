@@ -17,10 +17,9 @@ import {
   DrawerFooter,
   Link,
 } from "@chakra-ui/react";
-import { HashLink as NavLink } from "react-router-hash-link";
-import { Link as RouterLink } from "react-router-dom";
 import { FiChevronDown } from "react-icons/fi";
-import links from "../data/links";
+import { NavLink } from "react-router-dom";
+
 
 const StickyNavbar = () => {
  
@@ -30,67 +29,89 @@ const StickyNavbar = () => {
       as={"nav"}
       color={"brand.main"}
       // border={"1px solid #3a3a9c"}
-      gap={"10px"}
-      fontWeight={600}
+      gap={"30px"}
+      fontWeight={700}
       fontSize={"xs"}
       alignItems={"center"}
       justifyContent={"space-around"}
       h={"70px"}
       borderRadius={"20px"}
     >
-      {links.map((link, i) => (
-        <Link
-          onMouseEnter={() => link.hasMenu && setIsOpen(i)}
-          onMouseLeave={() => link.hasMenu && setIsOpen(null)}
-          key={i}
-          as={RouterLink}
-          to="/"
-          state={{ section: link.section }}
-          px={2}
-          py={1}
-          _hover={{ textDecoration: "none" }}
-          //   color={getLinkColor("/")}
-        >
-          {link.hasMenu ? (
-            <Menu isOpen={isOpen === i}>
-              <MenuButton
-                fontSize={"16px"}
-                fontWeight={600}
-                color={"brand.main"}
-                as={Button}
-                bg={"none"}
-                rightIcon={<FiChevronDown />}
-                _hover={{ bg: "none", boxShadow: "transparent" }}
-                _active={{ bg: "none", boxShadow: "none" }}
-                _focus={{ bg: "none", boxShadow: "none" }}
-              >
-                {link.text}
-              </MenuButton>
-              <MenuList
-                mt={"7px"}
-                //   pos={"absolute"}
-                //   left={"-100px"}
-                minW={"300px"}
-                color={"brand.main"}
-                fontWeight={500}
-                gap={"20px"}
-                py={"10px"}
-              >
-                {link.items.map((item, idx) => (
-                  <MenuItem key={idx}>{item}</MenuItem>
-                ))}
-              </MenuList>
-            </Menu>
-          ) : (
-            <Link
-              pr={"10px"}
-              _hover={{ textDecoration: "none", color: "hover.link" }}
+      <NavLink to="/home">
+          <Link _hover={{ textDecoration: "none", color: "hover.link" }}>
+            Главная
+          </Link>
+        </NavLink>
+        <NavLink to="/services">
+          <Link _hover={{ textDecoration: "none", color: "hover.link" }}>
+            Услуги клиники
+          </Link>
+        </NavLink>
+        <NavLink to="/servicesCost" border={"none"}>
+          <Link _hover={{ textDecoration: "none", color: "hover.link" }}>
+            Цены
+          </Link>
+        </NavLink>
+        <NavLink to="/doctors" border={"none"}>
+          <Link _hover={{ textDecoration: "none", color: "hover.link" }}>
+            Наши врачи
+          </Link>
+        </NavLink>
+        <NavLink to="/oms" border={"none"}>
+          <Link _hover={{ textDecoration: "none", color: "hover.link" }}>
+            ОМС
+          </Link>
+        </NavLink>
+        <NavLink to="/aboutUs" border={"none"}>
+          <Link _hover={{ textDecoration: "none", color: "hover.link" }}>
+            О нас
+          </Link>
+        </NavLink>
+        <NavLink to="/contact" border={"none"}>
+          <Link _hover={{ textDecoration: "none", color: "hover.link" }}>
+            Контакты
+          </Link>
+        </NavLink>
+        <Link border={"none"}>
+          <Menu>
+            <MenuButton
+              fontSize={"16px"}
+              fontWeight={700}
+              color={"brand.main"}
+              as={Button}
+              bg={"none"}
+              rightIcon={<FiChevronDown />}
+              _hover={{ bg: "none", boxShadow: "transparent" }}
+              _active={{ bg: "none", boxShadow: "none" }}
+              _focus={{ bg: "none", boxShadow: "none" }}
             >
-              {link.text}
-            </Link>
-          )}
+              Еще
+            </MenuButton>
+            <MenuList
+              mt={"7px"}
+              pos={"absolute"}
+              left={"-100px"}
+              minW={"300px"}
+              color={"brand.main"}
+              fontWeight={500}
+              gap={"20px"}
+              py={"10px"}
+            >
+              <NavLink to="" border={"none"}>
+                <MenuItem>Download</MenuItem>
+              </NavLink>
+              <NavLink to="" border={"none"}>
+                <MenuItem>Download</MenuItem>
+              </NavLink>
+              <NavLink to="" border={"none"}>
+                <MenuItem>Download</MenuItem>
+              </NavLink>
+              <NavLink to="" border={"none"}>
+                <MenuItem>Download</MenuItem>
+              </NavLink>
+            </MenuList>
+          </Menu>
         </Link>
-      ))}
     </Flex>
   );
 };

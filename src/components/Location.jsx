@@ -4,7 +4,7 @@ import { Box } from "@chakra-ui/react";
 
 const Location = ({ address }) => {
   return (
-    <Box height="400px" width="100%" mb={'50px'}>
+    <Box height="500px" width="100%" mb={'50px'}>
       <YMaps>
         <Map
           defaultState={{

@@ -35,8 +35,9 @@ const HeroSlider = () => {
 
   return (
     <Box
+      id="hero"
       width="100vw"
-      height={{base: '300px','2xs': '500px', md:"700px"}}
+      height={{ base: "300px", "2xs": "500px", md: "700px" }}
       overflow="hidden"
       position="relative"
       py={{ base: "0", md: "60px" }}

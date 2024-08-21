@@ -20,6 +20,7 @@ const DoctorCard = ({ doctor, onOpen }) => {
       whileHover={{ scale: 1.08 }}
       onClick={() => onOpen(doctor.id)}
       cursor="pointer"
+
     >
       <Card maxW="sm">
         <CardBody>
@@ -32,7 +33,7 @@ const DoctorCard = ({ doctor, onOpen }) => {
           />
           <Stack mt="6" spacing="3">
             <Heading fontSize={"20px"}>{doctor.name}</Heading>
-            <Text color={"gray.500"}>{doctor.specialty}</Text>
+            <Text color={"gray.500"}>{doctor.shortSpeciality}</Text>
             <Box
               bg={"brand.main"}
               color={"white"}
