@@ -47,11 +47,18 @@ import links from "../data/links";
 
 import Navbar from "./Navbar";
 import StickyNavbar from "./StickyNavbar";
+import FormModal from "./FormModal";
 
 // import { NavLink } from "react-router-dom";
 const StickyHeader = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const [isModalOpen, setIsModalOpen] = useState(false); //modal window
   const [activeMenu, setActiveMenu] = useState(null);
+
+  const handleOpenModal = () => {
+    onClose(); // Закрываем боковое меню
+    setIsModalOpen(true); // Открываем модальное окно
+  };
 
   const MotionBox = motion(Box);
   const MotionButton = motion(Button);
@@ -92,11 +99,13 @@ const StickyHeader = () => {
               _hover={{ bgColor: "hover.button", color: "black" }}
               whileHover={{ scale: 1.05 }}
               color={"white"}
+              onClick={() => setIsModalOpen(true)} // Open modal window
             >
               Записаться
             </MotionButton>
           </Link>
         </Flex>
+
         {/* Mobile */}
         <Flex
           display={{ base: "flex", md: "none" }}
@@ -257,6 +266,23 @@ const StickyHeader = () => {
                         </Box>
                       </Box>
                     ))}
+                    <MotionButton
+                      mt={"30px"}
+                      p={"20px"}
+                      borderRadius={"10px"}
+                      fontSize={"16px"}
+                      fontWeight={600}
+                      border={"1px solid #3a3a9c"}
+                      // bg={"transparent"}
+                      bg={"brand.main"}
+                      _hover={{ bgColor: "hover.button", color: "black" }}
+                      whileHover={{ scale: 1.05 }}
+                      color={"white"}
+                      // onClick={onClose}
+                      onClick={handleOpenModal}
+                    >
+                      Записаться
+                    </MotionButton>
                   </VStack>
                 </DrawerBody>
               </DrawerContent>
@@ -264,6 +290,7 @@ const StickyHeader = () => {
           </Flex>
         </Flex>
       </Container>
+      <FormModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </Box>
   );
 };

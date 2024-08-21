@@ -45,6 +45,7 @@ import StickyHeader from "./StickyHeader";
 
 import Navbar from "./Navbar";
 import links from "../data/links";
+import FormModal from "./FormModal";
 
 // import { NavLink } from "react-router-dom";
 const Header = () => {
@@ -70,17 +71,16 @@ const Header = () => {
   /* .........*/
 
   const { onOpen, isOpen, onClose } = useDisclosure();
-  const location = useLocation();
-  const activeColor = useColorModeValue("#3489C8");
-  const inactiveColor = useColorModeValue("black");
+  const [isModalOpen, setIsModalOpen] = useState(false); //modal window
+
+  const handleOpenModal = () => {
+    onClose(); // Закрываем боковое меню
+    setIsModalOpen(true); // Открываем модальное окно
+  };
 
   const MotionBox = motion(Box);
   const MotionButton = motion(Button);
   const btnRef = React.useRef();
-
-  const getLinkColor = (path) => {
-    return location.pathname === path ? activeColor : inactiveColor;
-  };
 
   return (
     <Box
@@ -202,6 +202,7 @@ const Header = () => {
                     whileHover={{ scale: 1.05 }}
                     //  color={'brand.main'}
                     // color={"#C7323D"}
+                    onClick={() => setIsModalOpen(true)} // Open modal window
                   >
                     <Image src={calendarIcon} mr={"10px"} />
                     Записаться на прием
@@ -358,6 +359,23 @@ const Header = () => {
                             </Box>
                           </Box>
                         ))}
+                        <MotionButton
+                          mt={"30px"}
+                          p={"20px"}
+                          borderRadius={"10px"}
+                          fontSize={"16px"}
+                          fontWeight={600}
+                          border={"1px solid #3a3a9c"}
+                          // bg={"transparent"}
+                          bg={"brand.main"}
+                          _hover={{ bgColor: "hover.button", color: "black" }}
+                          whileHover={{ scale: 1.05 }}
+                          color={"white"}
+                          // onClick={onClose}
+                          onClick={handleOpenModal}
+                        >
+                          Записаться
+                        </MotionButton>
                       </VStack>
                     </DrawerBody>
                   </DrawerContent>
@@ -368,6 +386,7 @@ const Header = () => {
           </Box>
         )}
       </Container>
+      <FormModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </Box>
   );
 };
