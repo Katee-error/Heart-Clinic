@@ -11,6 +11,7 @@ import {
   Text,
   Flex,
   Button,
+  VStack,
 } from "@chakra-ui/react";
 import doctor from "./../assets/about-us/icons/doctor.png";
 import en from "./../assets/about-us/icons/en.png";
@@ -42,7 +43,7 @@ const AboutUsPage = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 4000,
+    autoplaySpeed: 1500,
     fade: false, // Оставляем отключенным, чтобы слайды не затухали
     cssEase: "ease", // Задаем тип анимации для плавного перелистывания
   };
@@ -60,7 +61,7 @@ const AboutUsPage = () => {
 
   const MotionButton = motion(Button);
   return (
-    <Box>
+    <Box py={{md:'60px'}}>
       <Container maxW="container.xl">
         <Heading
           fontSize={{ base: "40px", md: "50px" }}
@@ -69,25 +70,35 @@ const AboutUsPage = () => {
         >
           О нашей клинике
         </Heading>
-        <Box>
-          <Text>
+        <VStack alignItems={'start'} spacing={'20px'} fontSize={"20px"} >
+          <Text w={"70%"}>
             Медицинский центр «Клиника Сердца» - это современная клиника,
             предоставляющая медицинские услуги по диагностике и лечению
             заболеваний сердца и сосудов, а также по другим областям медицины.
           </Text>
-        </Box>
-        <Box mt={{ base: "70px", md: "-70px" }} zIndex={"1"} pos={"relative"}>
-          <SimpleGrid
-            minChildWidth="200px"
-            spacing={{ base: "50px", md: "100px" }}
-          >
+          <Text>
+            - Наша клиника оснащена самым современным оборудованием. Врачи клиники
+            имеют многолетний опыт диагностики и лечения сердечно-сосудистых
+            заболеваний.
+          </Text>
+          <Text>
+            - Лаборатория Клиники Сердца позволяет сдать различные комплексы
+            анализов и оперативно получить результат.
+          </Text>
+          <Text>
+            - В клинике есть стандартная и VIP палаты дневного стационара для
+            послеоперационной реабилитации.
+          </Text>
+        </VStack>
+        <Box my={{ base: "70px", md: "70px" }}>
+          <SimpleGrid minChildWidth="230px" spacing={{ base: "50px" }}>
             <GridItem>
               <MotionCard
                 maxW="sm"
                 border={"1px solid #3a3a9c"}
                 whileHover={{ scale: 1.08 }}
               >
-                <CardBody>
+                <CardBody minH={"350px"}>
                   <Image src={doctor} w={"50px"} h={"50px"} mb={"15px"} />
                   <Heading fontSize={"16px"} mb={"10px"}>
                     Квалифицированные специалисты
@@ -101,14 +112,14 @@ const AboutUsPage = () => {
                   </Text>
                 </CardBody>
               </MotionCard>
-            </GridItem>{" "}
+            </GridItem>
             <GridItem>
               <MotionCard
                 maxW="sm"
                 border={"1px solid #3a3a9c"}
                 whileHover={{ scale: 1.08 }}
               >
-                <CardBody>
+                <CardBody minH={"350px"}>
                   <Image src={stethoscope} w={"50px"} h={"50px"} mb={"15px"} />
                   <Heading fontSize={"16px"} mb={"10px"}>
                     Современное оборудование
@@ -129,8 +140,8 @@ const AboutUsPage = () => {
                 border={"1px solid #3a3a9c"}
                 whileHover={{ scale: 1.08 }}
               >
-                <CardBody>
-                  <Image src={en} w={"50px"} h={"50px"} mb={"15px"} />
+                <CardBody minH={"350px"}>
+                  <Image src={letter} w={"50px"} h={"50px"} mb={"15px"} />
                   <Heading fontSize={"16px"} mb={"10px"}>
                     Широкий спектр услуг
                   </Heading>
@@ -150,7 +161,7 @@ const AboutUsPage = () => {
                 border={"1px solid #3a3a9c"}
                 whileHover={{ scale: 1.08 }}
               >
-                <CardBody>
+                <CardBody minH={"350px"}>
                   <Image src={en} w={"50px"} h={"50px"} mb={"15px"} />
                   <Heading fontSize={"16px"} mb={"10px"}>
                     Бесплатные консультации
@@ -169,32 +180,17 @@ const AboutUsPage = () => {
         </Box>
         <Box
           id="hero"
-          width="100vw"
-          height={{ base: "300px", "2xs": "500px", md: "700px" }}
+          width={{base: '100%', md: '80%'}}
+          height={{ base: "300px", "2xs": "500px", md: "500px" }}
           overflow="hidden"
           position="relative"
           py={{ base: "0", md: "60px" }}
+          m={"0 auto"}
+          borderRadius={"20px"}
         >
           <Slider {...settings}>
             {images.map((image, index) => (
               <Box key={index}>
-                {/* <Box
-              h={"auto"}
-              bgColor={"white"}
-              opacity={"70%"}
-              pos={"absolute"}
-              zIndex={"1"}
-              m={"120px 20px"}
-              p={" 10px"}
-              borderRadius={"10px"}
-            >
-              {texts.map((text, i) => (
-                <Text key={2} fontSize={"50px"} color={"black"}>
-                  {text}
-                </Text>
-              ))}
-            </Box> */}
-
                 <Image
                   src={image}
                   alt={`Slide ${index + 1}`}

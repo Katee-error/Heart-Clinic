@@ -54,7 +54,7 @@ const DoctorsList = () => {
   return (
     <MotionBox
       my={"120px"}
-      py={{base: "0px", md: "60px"} }
+      
       ref={ref}
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 50 }}

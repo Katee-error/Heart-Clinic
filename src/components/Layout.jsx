@@ -1,22 +1,20 @@
-import React, { Suspense } from 'react'
-import Header from './Header'
-import Footer from './Footer'
-import Routers from '../router/Routers'
-import { Flex } from '@chakra-ui/react'
-
+import React, { Suspense } from "react";
+import Header from "./Header";
+import Footer from "./Footer";
+import Routers from "../router/Routers";
+import { Flex } from "@chakra-ui/react";
 
 const Layout = () => {
-
   return (
-      <Flex flexDirection={'column'} minH={'100vh'} overflowX={'hidden'}> 
-    <Header/>
+    <Flex flexDirection={"column"} minH={"100vh"} overflowX={"hidden"}>
+      <Header />
       <div>
-      <Routers/> 
+        <Routers />
       </div>
-      <Footer/>
+      <Footer />
     </Flex>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;
 // overflow????
