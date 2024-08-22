@@ -19,7 +19,6 @@ import {
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
-
 import AutoResizeTextarea from "./AutoResizeTexarea";
 import { toast } from "react-toastify";
 import formImg from "./../assets/all/form-img.jpg";
@@ -34,7 +33,7 @@ const ContactForm = () => {
   const MotionButton = motion(Button);
 
   //use smooth scroll section
-   //const { sectionRefs } = useScroll();
+  //const { sectionRefs } = useScroll();
 
   // SENDING FORM
   const [isLoading, setIsLoading] = useState(false);
@@ -57,11 +56,13 @@ const ContactForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const whatsappUrl = `https://wa.me/`+79536995362`?text=Имя: ${encodeURIComponent(
-      fullName
-    )}%0AТелефон: ${encodeURIComponent(phone)}%0AСообщение: ${encodeURIComponent(
-      message
-    )}`;
+    const whatsappUrl =
+      `https://wa.me/` 
+      +79536995362`?text=Имя: ${encodeURIComponent(
+        fullName
+      )}%0AТелефон: ${encodeURIComponent(
+        phone
+      )}%0AСообщение: ${encodeURIComponent(message)}`;
     window.location.href = whatsappUrl;
   };
 
@@ -76,7 +77,7 @@ const ContactForm = () => {
       textAlign={"center"}
       // py={{ base: "100px", md: "150px" }}
       my={"120px"}
-       ref={ref}
+      ref={ref}
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 50 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
@@ -84,7 +85,7 @@ const ContactForm = () => {
       <Container maxW="container.xl">
         <Heading
           mb={{ base: "30px", md: "60px" }}
-          fontSize={{base: '40px',md:"50px"}}
+          fontSize={{ base: "40px", md: "50px" }}
           fontWeight={"300"}
           as={"h2"}
         >

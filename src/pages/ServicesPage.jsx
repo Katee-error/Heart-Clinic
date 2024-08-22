@@ -8,9 +8,6 @@ import {
   InputLeftElement,
   Input,
   SimpleGrid,
-  Flex,
-  Button,
-  Image,
   Tabs,
   TabList,
   TabPanels,
@@ -19,51 +16,52 @@ import {
 } from "@chakra-ui/react";
 import servicesAll from "../data/servicesDetail";
 import { FiSearch } from "react-icons/fi";
-import servicesImg from "/services-img.jpg";
 
 const ServicesPage = () => {
-    const [searchTerm, setSearchTerm] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState('Все услуги');
+  const [searchTerm, setSearchTerm] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("Все услуги");
   const [currentIndex, setCurrentIndex] = useState(0);
   const [activeIndex, setActiveIndex] = useState(0);
 
   // Фильтрация услуг по названию
-  const searchedServices = servicesAll.filter(service =>
+  const searchedServices = servicesAll.filter((service) =>
     service.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   // Фильтрация услуг по категории и результатам поиска
-  const filteredServices = selectedCategory === 'Все услуги'
-    ? searchedServices
-    : searchedServices.filter(service => service.category === selectedCategory);
+  const filteredServices =
+    selectedCategory === "Все услуги"
+      ? searchedServices
+      : searchedServices.filter(
+          (service) => service.category === selectedCategory
+        );
 
   // Получаем уникальные категории из данных
   const categories = [
-    'Все услуги',
-    ...new Set(servicesAll.map(service => service.category)),
+    "Все услуги",
+    ...new Set(servicesAll.map((service) => service.category)),
   ];
 
-  const handleTabClick = index => {
+  const handleTabClick = (index) => {
     setCurrentIndex(index);
     setSelectedCategory(categories[index]);
   };
 
-  const handleTabChange = index => {
+  const handleTabChange = (index) => {
     setActiveIndex(index);
   };
-  
 
   return (
-    <Box>
+    <Box bg={"#f0f4fc"}>
       <Box>
         <Container maxW="container.xl">
           <Box
-            h={"300px"}
-            borderRadius={"20px"}
+            h={{ base: "300px", md: "400px" }}
+            borderRadius={" 0 0 20px 20px"}
             bgImage="url('/services-img.jpg')"
             bgPosition="center"
             bgRepeat="no-repeat"
-            bgSize="cover"
+            bgSize={{base:"contain", md: 'cover'}}
             pt={"80px"}
             pb={"40px"}
             mb={"80px"}
@@ -72,7 +70,7 @@ const ServicesPage = () => {
             justifyContent="center"
           />
           <Heading
-            fontSize={{ base: "40px", md: "50px" }}
+            fontSize={{ base: "30px", md: "50px" }}
             fontWeight={"300"}
             mb={{ base: "20px", md: "40px" }}
           >
@@ -82,15 +80,16 @@ const ServicesPage = () => {
           <Box>
             <InputGroup mb={"40px"}>
               <InputLeftElement pointerEvents="none">
-                <FiSearch />
+                <FiSearch size={"20px"} />
               </InputLeftElement>
               <Input
                 fontSize={"16px"}
+                py={"20px"}
                 type="text"
                 value={searchTerm}
-                onChange={e => setSearchTerm(e.target.value)}
+                onChange={(e) => setSearchTerm(e.target.value)}
                 placeholder="Поиск по услугам"
-          
+                bg={"white"}
                 focusBorderColor={"brand.main"}
               />
             </InputGroup>
@@ -136,11 +135,11 @@ const ServicesPage = () => {
                 {filteredServices.length === 0 ? (
                   <Heading py="60px">Услуга не найдена</Heading>
                 ) : (
-                  <TabPanels my="60px">
+                  <TabPanels py="60px">
                     {categories.map((category, index) => (
                       <TabPanel key={index}>
                         <SimpleGrid columns={[1, 2]} gap="20px 70px">
-                          {filteredServices.map(service => (
+                          {filteredServices.map((service) => (
                             <Box key={service.id} p="15px">
                               <Text fontWeight="600">{service.name}</Text>
                             </Box>
@@ -155,17 +154,6 @@ const ServicesPage = () => {
           </Box>
         </Container>
       </Box>
-      {/* <Box>
-        <Container maxW={"container.xl"}>
-          <SimpleGrid minChildWidth="300px">
-            {servicesData.length === 0 ? (
-              <Heading>Услуг с таким названием не найдено </Heading>
-            ) : (
-              <ServicesList data={servicesData} />
-            )}
-          </SimpleGrid>
-        </Container>
-      </Box> */}
     </Box>
   );
 };

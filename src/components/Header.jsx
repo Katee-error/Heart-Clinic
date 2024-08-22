@@ -123,28 +123,31 @@ const Header = () => {
                   gap={"30px"}
                   fontSize={"13px"}
                   fontWeight={500}
+                  alignItems={"center"}
                 >
-                  <Flex w={"180px"} gap={"10px"} alignItems={"center"}>
-                    <Box
-                      position={"relative"}
-                      h={"36px"}
-                      w={"36px"}
-                      borderRadius={"100%"}
-                      fill={"white"}
-                      boxShadow={"1px 2px 5px 0 #3a3a9c"}
-                    >
-                      <Image
-                        src={mapIcon}
-                        margin={"8px auto"}
-                        color={"#3a3a9c"}
-                        size={"20px"}
-                      />
-                    </Box>
-                    <Text>
-                      Туп. Каммаева 1-й,
-                      <br /> влд.30
-                    </Text>
-                  </Flex>
+                  <NavLink to="/contact">
+                    <Flex w={"180px"} gap={"10px"} alignItems={"center"}>
+                      <Box
+                        position={"relative"}
+                        h={"36px"}
+                        w={"36px"}
+                        borderRadius={"100%"}
+                        fill={"white"}
+                        boxShadow={"1px 2px 5px 0 #3a3a9c"}
+                      >
+                        <Image
+                          src={mapIcon}
+                          margin={"8px auto"}
+                          color={"#3a3a9c"}
+                          size={"20px"}
+                        />
+                      </Box>
+                      <Text>
+                        Туп. Каммаева 1-й,
+                        <br /> влд.30
+                      </Text>
+                    </Flex>
+                  </NavLink>
                   <Flex w={"180px"} gap={"10px"} alignItems={"center"}>
                     <Box
                       position={"relative"}
@@ -162,8 +165,8 @@ const Header = () => {
                       />
                     </Box>
                     <Text>
-                      +7 (999) 478 00 66 <br />
-                      +7 (999) 478 00 55
+                      <Link href="tel:+79994780066">+7 (999) 478 00 66 </Link><br/>
+                      <Link href="tel:+79994780055">+7 (999) 478 00 55 </Link>
                     </Text>
                   </Flex>
                   <Flex w={"180px"} gap={"10px"} alignItems={"center"}>
@@ -183,8 +186,8 @@ const Header = () => {
                       />
                     </Box>
                     <Text>
-                      пн-пт 8:00-18:00
-                      <br /> сб 9:00-14:00
+                      <Box as="span" fontWeight={700} >пн-пт </Box>8:00-18:00
+                      <br /> <Box  as="span" fontWeight={700}>сб</Box> 9:00-14:00
                     </Text>
                   </Flex>
                 </Flex>

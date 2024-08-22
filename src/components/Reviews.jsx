@@ -52,32 +52,37 @@ const TestimonialSlider = () => {
   return (
     <MotionBox
       my={"120px"}
-      py={{base: "0px", md: "60px"} }
+      py={{ base: "0px", md: "60px" }}
       ref={ref}
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 50 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
     >
       <Box bg={""} pos={"relative"}>
-        <Image src={box} w={"100%"} h={{base: '120px', md: 'auto'}}/>
+        <Image src={box} w={"100%"} h={{ base: "120px", md: "auto" }} />
         <Heading
           mb={"60px"}
-          fontSize={{base: '24px',md:"50px"}}
+          fontSize={{ base: "24px", md: "50px" }}
           fontWeight={300}
           pos={"absolute"}
           top={"10"}
-          left={{base: "10px",md:"20"}}
+          left={{ base: "10px", md: "20" }}
           color={"#fff"}
         >
           {" "}
           Отзывы наших клиентов
         </Heading>
       </Box>
-      <Box width="100%" overflow="hidden" position="relative"mt={{base: '50px', md: "-70px"}} >
+      <Box
+        width="100%"
+        overflow="hidden"
+        position="relative"
+        mt={{ base: "50px", md: "-70px" }}
+      >
         <Flex
           transition="transform 0.5s ease"
           transform={`translateX(-${currentIndex * (100 / 3)}%)`} // Ширина слайда с учетом видимости следующего слайда
-          width={`${testimonials.length * (100 / 2)}%`} // Ширина контейнера для всех слайдов
+          width={`${testimonials.length * (100 / 3)}%`} // Ширина контейнера для всех слайдов
         >
           {testimonials.map((testimonial, index) => (
             <Box
@@ -90,15 +95,17 @@ const TestimonialSlider = () => {
                 bg="white"
                 borderRadius="md"
                 boxShadow="md"
-                border={"1px solid #3a3a9c"}
-                p={6}
+                p={'30px'}
                 mx={2}
-                minHeight="270px"
+                minHeight={{ base: "270px", md: "250px" }}
               >
-                <Text fontSize={{base: '16px', md: '22px'}} mb={2}>{`"${testimonial.text}"`}</Text>
                 <Text
-                  fontWeight="bold"
-                  color="gray.600"
+                  fontSize={{ base: "16px", md: "20px" }}
+                  mb={'15px'}
+                >{`"${testimonial.text}"`}</Text>
+                <Text
+                  fontWeight="700"
+                  color="gray.500"
                 >{`— ${testimonial.author}`}</Text>
               </Box>
             </Box>

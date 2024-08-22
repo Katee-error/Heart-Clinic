@@ -22,11 +22,42 @@ import AutoResizeTextarea from "./../components/AutoResizeTexarea";
 const FormModal = ({ isOpen, onClose }) => {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
+
+ // SENDING FORM
+  const [isLoading, setIsLoading] = useState(false);
+  const [status, setStatus] = useState({});
+
+  const handleChange = (e) => {
+    setFormDetails({
+      ...formDetails,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const formInitialDetails = {
+    fullName: "",
+    phone: "",
+    message: "",
+  };
+
+  const [formDetails, setFormDetails] = useState(formInitialDetails);
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Здесь можно добавить логику отправки формы на сервер
-    setIsSubmitted(true);
+    const whatsappUrl =
+      `https://wa.me/ 
+      +79536995362?text=Имя: ${encodeURIComponent(
+        fullName
+      )}%0AТелефон: ${encodeURIComponent(
+        phone
+      )}%0AСообщение: ${encodeURIComponent(message)}`;
+    window.location.href = whatsappUrl;
   };
+
+  // Valid form
+  const isFormValid =
+    formDetails.fullName && formDetails.phone && formDetails.message;
+
 
   const handleReset = () => {
     setIsSubmitted(false);
@@ -76,8 +107,8 @@ const FormModal = ({ isOpen, onClose }) => {
                   <Input
                     minW={{ base: "200px", md: "350px" }}
                     type="tel"
-                    id="tel"
-                    name="tel"
+                    id="phone"
+                    name="phone"
                     // onChange={handleChange}
                     // value={formDetails.email}
                     fontSize={"xs"}
