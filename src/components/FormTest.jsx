@@ -49,68 +49,25 @@ const ContactForm = () => {
 
   const formInitialDetails = {
     fullName: "",
-    email: "",
+    phone: "",
     message: "",
   };
 
   const [formDetails, setFormDetails] = useState(formInitialDetails);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-
-    try {
-      let response = await fetch(
-        "https://monocure-backend-811ad8ee95c6.herokuapp.com/api",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json;charset=utf-8",
-          },
-          body: JSON.stringify(formDetails),
-        }
-      );
-
-      if (!response.ok) {
-        // Обработка HTTP ошибок
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
-
-      const contentType = response.headers.get("content-type");
-      if (contentType && contentType.includes("application/json")) {
-        let result = await response.json();
-
-        if (result.code === 200) {
-          setStatus({ success: true, message: "Message sent successfully" });
-          toast.success("Form submitted!");
-        } else {
-          setStatus({
-            success: false,
-            message: "Something went wrong, please try again later",
-          });
-          toast.error("Error submitting form!");
-        }
-      } else {
-        setStatus({
-          success: false,
-          message: "Unexpected response from server",
-        });
-        toast.error("Unexpected response from server");
-      }
-    } catch (error) {
-      console.error("Error:", error);
-      setStatus({ success: false, message: "Error submitting form" });
-      toast.error("Error submitting form");
-    }
-
-    setFormDetails({
-      fullName: "",
-      email: "",
-      message: "",
-    });
+    const whatsappUrl = `https://wa.me/`+79536995362`?text=Имя: ${encodeURIComponent(
+      fullName
+    )}%0AТелефон: ${encodeURIComponent(phone)}%0AСообщение: ${encodeURIComponent(
+      message
+    )}`;
+    window.location.href = whatsappUrl;
   };
+
   // Valid form
   const isFormValid =
-    formDetails.fullName && formDetails.email && formDetails.message;
+    formDetails.fullName && formDetails.phone && formDetails.message;
 
   return (
     <MotionBox
@@ -159,11 +116,11 @@ const ContactForm = () => {
                 </FormLabel>
                 <Input
                   minW={"350px"}
-                  type="email"
-                  id="email"
-                  name="email"
+                  type="tel"
+                  id="tel"
+                  name="phone"
                   onChange={handleChange}
-                  value={formDetails.email}
+                  value={formDetails.phone}
                   fontSize={"xs"}
                   placeholder={"+7(999) 999-99-99"}
                   _placeholder={{ fontSize: "xs" }}
@@ -207,7 +164,6 @@ const ContactForm = () => {
                 <Box as={"span"}>
                   Нажимая кнопку "Отправить", вы даете
                   <Link href="" color="#3a3a9c">
-                    {" "}
                     согласие на обработку персональных данных
                   </Link>
                 </Box>
