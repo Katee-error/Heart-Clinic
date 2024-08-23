@@ -28,7 +28,7 @@ const Hero = () => {
         </Text>
         <Text
           fontWeight={300}
-          fontSize={{ base: "16px", md: "24px" }}
+          fontSize={{ base: "16px", md: "20px" }}
           mt={"-10px"}
         >
           Забота о сердце начинается здесь

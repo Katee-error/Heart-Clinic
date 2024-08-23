@@ -63,7 +63,7 @@ const StickyHeader = () => {
   const btnRef = React.useRef();
 
   return (
-    <Box w="100%" bg={"white"} pb={"30px"} boxShadow="sm">
+    <Box w="100%" bg={"white"} >
       {/* DESKTOP */}
       <Flex
         as={"header"}
