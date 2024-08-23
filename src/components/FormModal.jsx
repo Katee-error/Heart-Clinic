@@ -24,7 +24,6 @@ const FormModal = ({ isOpen, onClose }) => {
 
 
  // SENDING FORM
- const [isLoading, setIsLoading] = useState(false);
 
  const [name, setName] = useState("");
  const [phone, setPhone] = useState("");
@@ -37,7 +36,7 @@ const FormModal = ({ isOpen, onClose }) => {
    const message = `Имя: ${name}\nТелефон: ${phone}\nКомментарий: ${comment}`;
 
    // Указываем номер компании (в международном формате, без знака "+")
-   const companyPhoneNumber = "79994780055";
+   const companyPhoneNumber = meta.env.PHONE_COMPANY;
 
    // Сгенерируем ссылку для отправки сообщения
    const whatsappUrl = `https://wa.me/${companyPhoneNumber}?text=${encodeURIComponent(
