@@ -29,7 +29,7 @@ const YandexMap = () => {
 
   const { ref, inView } = useInView({
     triggerOnce: true, // Анимация запускается только один раз
-    threshold: 0.4, // Процент видимой области, после которого запускается анимация
+    threshold: 0.3, // Процент видимой области, после которого запускается анимация
   });
   //use smooth scroll section
   // const { sectionRefs } = useScroll();

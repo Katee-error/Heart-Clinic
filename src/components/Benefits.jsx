@@ -25,7 +25,7 @@ const MotionBox = motion(Box);
 const Benefits = () => {
   const { ref, inView } = useInView({
     triggerOnce: true, // Анимация запускается только один раз
-    threshold: 0.4, // Процент видимой области, после которого запускается анимация
+    threshold: 0.3, // Процент видимой области, после которого запускается анимация
   });
 
   const MotionCard = motion(Card);
@@ -55,10 +55,10 @@ const Benefits = () => {
             Почему нас выбирают?
           </Heading>
         </Box>
-        <Box mt={{ base: "70px", md: "-70px" }} zIndex={"1"} pos={"relative"}>
+        <Box mt={{ base: "30px", md: "-70px" }} zIndex={"1"} pos={"relative"}>
           <SimpleGrid
             minChildWidth="200px"
-            spacing={{ base: "50px", md: "100px" }}
+            spacing={{ base: "30px", md: "100px" }}
           >
             <GridItem>
               <MotionCard

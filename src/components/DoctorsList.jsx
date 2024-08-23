@@ -17,7 +17,7 @@ import {
   TabPanels,
   TabPanel,
 } from "@chakra-ui/react";
-import React, {useState} from "react";
+import React, { useState } from "react";
 
 import specialistics from "../data/OurSpecialists";
 import arrow from "./../assets/icons/arrow-right.svg";
@@ -30,7 +30,6 @@ import DoctorModal from "./ModalWindowDoctors";
 const MotionBox = motion(Box);
 
 const DoctorsList = () => {
-
   const MotionCard = motion(GridItem);
   const { ref, inView } = useInView({
     triggerOnce: true, // Анимация запускается только один раз
@@ -41,7 +40,7 @@ const DoctorsList = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleOpenModal = (doctorId) => {
-    const doctor = doctors.find(doc => doc.id === doctorId);
+    const doctor = doctors.find((doc) => doc.id === doctorId);
     setSelectedDoctor(doctor);
     setIsModalOpen(true);
   };
@@ -54,7 +53,6 @@ const DoctorsList = () => {
   return (
     <MotionBox
       my={"120px"}
-      
       ref={ref}
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 50 }}
@@ -62,17 +60,29 @@ const DoctorsList = () => {
     >
       <Container maxW="container.xl">
         <Flex justifyContent={"space-between"} pb={"60px"}>
-          <Heading fontSize={{base: "40px", md: "50px" }} fontWeight={"300"} maxW={"500px"}>
+          <Heading
+            fontSize={{ base: "40px", md: "50px" }}
+            fontWeight={"300"}
+            maxW={"500px"}
+          >
             Квалифицированные Специалисты
           </Heading>
         </Flex>
 
         <SimpleGrid minChildWidth="250px" p={"20px"} spacing={"40px"}>
           {doctors.map((doctor) => (
-            <DoctorCard key={doctor.id} doctor={doctor} onOpen={handleOpenModal} />
+            <DoctorCard
+              key={doctor.id}
+              doctor={doctor}
+              onOpen={handleOpenModal}
+            />
           ))}
         </SimpleGrid>
-        <DoctorModal doctor={selectedDoctor} isOpen={isModalOpen} onClose={handleCloseModal} />
+        <DoctorModal
+          doctor={selectedDoctor}
+          isOpen={isModalOpen}
+          onClose={handleCloseModal}
+        />
       </Container>
     </MotionBox>
   );

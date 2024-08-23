@@ -8,12 +8,12 @@ const MotionBox = motion(Box);
 const AboutUs = () => {
   const { ref, inView } = useInView({
     triggerOnce: true, // Анимация запускается только один раз
-    threshold: 0.7, // Процент видимой области, после которого запускается анимация
+    threshold: 0.4, // Процент видимой области, после которого запускается анимация
   });
   return (
     <MotionBox
       id="about"
-      my={"120px"}
+      my={{base: '60px',md:"120px"}}
       pt={{'2xs': '0px',md: "60px"}}
       ref={ref}
       initial={{ opacity: 0, y: 50 }}

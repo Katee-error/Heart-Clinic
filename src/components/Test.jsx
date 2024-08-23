@@ -44,7 +44,7 @@ const Test = () => {
         <SimpleGrid
           minChildWidth="270px"
           p={"20px"}
-          spacing={"60px"}
+          gap={{base: '30px',md:"60px"}}
           maxChildHeight="120px"
           alignItems={"center"}
         >

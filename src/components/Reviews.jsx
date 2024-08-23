@@ -6,6 +6,7 @@ import {
   Text,
   IconButton,
   Heading,
+  useBreakpointValue,
   Image,
 } from "@chakra-ui/react";
 import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
@@ -45,9 +46,11 @@ const TestimonialSlider = () => {
   };
 
   const { ref, inView } = useInView({
-    triggerOnce: true, // Анимация запускается только один раз
-    threshold: 0.4, // Процент видимой области, после которого запускается анимация
+    triggerOnce: true,
+    threshold: 0.3,
   });
+
+  const slideWidth = useBreakpointValue({ base: "300px", md: "33.3333%" });
 
   return (
     <MotionBox
@@ -58,7 +61,7 @@ const TestimonialSlider = () => {
       animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 50 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
     >
-      <Box bg={""} pos={"relative"}>
+      <Box pos={"relative"}>
         <Image src={box} w={"100%"} h={{ base: "120px", md: "auto" }} />
         <Heading
           mb={"60px"}
@@ -69,7 +72,6 @@ const TestimonialSlider = () => {
           left={{ base: "10px", md: "20" }}
           color={"#fff"}
         >
-          {" "}
           Отзывы наших клиентов
         </Heading>
       </Box>
@@ -81,13 +83,13 @@ const TestimonialSlider = () => {
       >
         <Flex
           transition="transform 0.5s ease"
-          transform={`translateX(-${currentIndex * (100 / 3)}%)`} // Ширина слайда с учетом видимости следующего слайда
-          width={`${testimonials.length * (100 / 3)}%`} // Ширина контейнера для всех слайдов
+          transform={`translateX(-${currentIndex * 300}px)`} // Сдвиг слайдов на мобильных устройствах
+          width={slideWidth === "300px" ? `${testimonials.length * 300}px` : `${testimonials.length * (100 / 3)}%`} // Ширина контейнера для всех слайдов
         >
           {testimonials.map((testimonial, index) => (
             <Box
               key={index}
-              flex="0 0 33.3333%" // Ширина каждого слайда (1/3 для того чтобы следующий слайд был наполовину виден)
+              flex={slideWidth === "300px" ? "0 0 300px" : "0 0 33.3333%"} // Фиксированная ширина слайда на мобильных устройствах
               p={4}
               boxSizing="border-box"
             >
@@ -97,7 +99,7 @@ const TestimonialSlider = () => {
                 boxShadow="md"
                 p={'30px'}
                 mx={2}
-                minHeight={{ base: "270px", md: "250px" }}
+                minHeight={{ base: "320px", md: "250px" }}
               >
                 <Text
                   fontSize={{ base: "16px", md: "20px" }}
