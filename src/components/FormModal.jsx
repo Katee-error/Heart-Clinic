@@ -18,6 +18,7 @@ import {
 } from "@chakra-ui/react";
 import React, { useState } from "react";
 import AutoResizeTextarea from "./../components/AutoResizeTexarea";
+import InputMask from 'react-input-mask';
 
 const FormModal = ({ isOpen, onClose }) => {
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -96,17 +97,24 @@ const FormModal = ({ isOpen, onClose }) => {
                 <FormLabel htmlFor="" fontSize={"xs"}>
                   Телефон
                 </FormLabel>
-                <Input
-                   minW={{base:"200px", md: '350px'}}
-                  type="tel"
-                  id="tel"
-                  name="phone"
-                  value={phone}
-                  fontSize={"xs"}
-                  placeholder={"+7(999) 999-99-99"}
-                  _placeholder={{ fontSize: "xs" }}
-                  onChange={(e) => setPhone(e.target.value)}
-                />
+                <InputMask
+            mask="+7 (999) 999-99-99"
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
+          >
+            {(inputProps) => (
+              <Input
+                {...inputProps}
+                minW={{base:"200px", md: '350px'}}
+                type="tel"
+                id="tel"
+                name="phone"
+                fontSize={"xs"}
+                placeholder="+7 (___) ___-__-__"
+                _placeholder={{ fontSize: "xs" }}
+              />
+            )}
+          </InputMask>
               </FormControl>
               <FormControl isRequired>
                 <FormLabel fontSize={"xs"} htmlFor="message">

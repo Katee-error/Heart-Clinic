@@ -23,6 +23,8 @@ import AutoResizeTextarea from "./AutoResizeTexarea";
 import { toast } from "react-toastify";
 import formImg from "./../assets/all/form-img.jpg";
 import { useScroll } from "./ScrollContext";
+import InputMask from 'react-input-mask';
+
 const MotionBox = motion(Box);
 
 const ContactForm = () => {
