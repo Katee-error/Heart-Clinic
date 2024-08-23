@@ -36,11 +36,11 @@ const YandexMap = () => {
 
   return (
     <MotionBox
-     
       ref={ref}
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 50 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
+      mb={'120px'}
     >
       <Location address={address} />
       <Card
@@ -52,7 +52,7 @@ const YandexMap = () => {
         w={"80%"}
         borderRadius={"20px"}
         pos={"relative"}
-        mt={{base: '0px', md:"-120px"}}
+        mt={{ base: "0px", md: "-120px" }}
       >
         <CardBody
           id="contact"
@@ -68,9 +68,9 @@ const YandexMap = () => {
                 alignItems={"start"}
                 justifyContent={"space-between"}
                 flexDirection={{ base: "column", md: "row" }}
-                gap={{base: '20px'}}
+                gap={{ base: "20px" }}
               >
-                <VStack fontSize={"xxs"} alignItems={{ md:"start"}}>
+                <VStack fontSize={"xxs"} alignItems={{ md: "start" }}>
                   <Text color={"brand.main"} fontWeight={700}>
                     Телефон
                   </Text>
@@ -98,13 +98,23 @@ const YandexMap = () => {
                   </Text>
                 </VStack>
               </Flex>
-              <Text my={"30px"} fontSize={"xxs"} color={"gray.500"} display={{base: 'none', md: 'block'}}>
+              <Text
+                my={"30px"}
+                fontSize={"xxs"}
+                color={"gray.500"}
+                display={{ base: "none", md: "block" }}
+              >
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit,
                 reiciendis quasi sit, libero earum non sequi vitae cumque
                 nesciunt ullam placeat eveniet maiores asperiores fugiat dolorem
                 quos ad aperiam nobis.
               </Text>
-              <Flex justifyContent={"space-between"} alignItems={"center"} gap={'20px'} mt={{base: '30px', md: '0'}}>
+              <Flex
+                justifyContent={"space-between"}
+                alignItems={"center"}
+                gap={"20px"}
+                mt={{ base: "30px", md: "0" }}
+              >
                 <MotionButton
                   h={"60px"}
                   w={"200px"}

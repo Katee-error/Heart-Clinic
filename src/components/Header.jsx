@@ -274,6 +274,7 @@ const Header = () => {
                       _hover={{ bgColor: "hover.button", color: "black" }}
                       whileHover={{ scale: 1.05 }}
                       color={"white"}
+                      onClick={() => setIsModalOpen(true)} // Open modal window
                     >
                       Записаться
                     </MotionButton>

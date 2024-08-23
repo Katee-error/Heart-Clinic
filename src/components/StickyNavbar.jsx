@@ -24,6 +24,7 @@ import { NavLink } from "react-router-dom";
 const StickyNavbar = () => {
  
   const [isOpen, setIsOpen] = useState(null);
+  
   return (
     <Flex
       as={"nav"}
