@@ -23,7 +23,7 @@ import AutoResizeTextarea from "./AutoResizeTexarea";
 import { toast } from "react-toastify";
 import formImg from "./../assets/all/form-img.jpg";
 import { useScroll } from "./ScrollContext";
-import InputMask from 'react-input-mask';
+import InputMask from "react-input-mask";
 
 const MotionBox = motion(Box);
 
@@ -33,7 +33,6 @@ const ContactForm = () => {
     threshold: 0.6, // Процент видимой области, после которого запускается анимация
   });
   const MotionButton = motion(Button);
-
 
   // SENDING FORM
   const [isLoading, setIsLoading] = useState(false);
@@ -49,7 +48,7 @@ const ContactForm = () => {
     const message = `Имя: ${name}\nТелефон: ${phone}\nКомментарий: ${comment}`;
 
     // Указываем номер компании (в международном формате, без знака "+")
-    const companyPhoneNumber = '79994780055';
+    const companyPhoneNumber = "79994780055";
 
     // Сгенерируем ссылку для отправки сообщения
     const whatsappUrl = `https://wa.me/${companyPhoneNumber}?text=${encodeURIComponent(
@@ -61,8 +60,7 @@ const ContactForm = () => {
   };
 
   // Valid form
-  const isFormValid =
-    name && phone && comment;
+  const isFormValid = name && phone && comment;
 
   return (
     <MotionBox
@@ -93,7 +91,7 @@ const ContactForm = () => {
                   ФИО
                 </FormLabel>
                 <Input
-                  minW={{base:"200px", md: '350px'}}
+                  minW={{ base: "200px", md: "350px" }}
                   type="text"
                   id="name"
                   name="name"
@@ -109,17 +107,24 @@ const ContactForm = () => {
                 <FormLabel htmlFor="" fontSize={"xs"}>
                   Телефон
                 </FormLabel>
-                <Input
-                  minW={{base:"200px", md: '350px'}}
-                  type="tel"
-                  id="tel"
-                  name="phone"
+                <InputMask
+                  mask="+7 (999) 999-99-99"
                   value={phone}
-                  fontSize={"xs"}
-                  placeholder={"+7(999) 999-99-99"}
-                  _placeholder={{ fontSize: "xs" }}
                   onChange={(e) => setPhone(e.target.value)}
-                />
+                >
+                  {(inputProps) => (
+                    <Input
+                      {...inputProps}
+                      minW={{ base: "200px", md: "350px" }}
+                      type="tel"
+                      id="tel"
+                      name="phone"
+                      fontSize={"xs"}
+                      placeholder="+7 (___) ___-__-__"
+                      _placeholder={{ fontSize: "xs" }}
+                    />
+                  )}
+                </InputMask>
               </FormControl>
               <FormControl isRequired>
                 <FormLabel fontSize={"xs"} htmlFor="message">

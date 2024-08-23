@@ -18,39 +18,37 @@ import {
 } from "@chakra-ui/react";
 import React, { useState } from "react";
 import AutoResizeTextarea from "./../components/AutoResizeTexarea";
-import InputMask from 'react-input-mask';
+import InputMask from "react-input-mask";
 
 const FormModal = ({ isOpen, onClose }) => {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
+  // SENDING FORM
 
- // SENDING FORM
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [comment, setComment] = useState("");
 
- const [name, setName] = useState("");
- const [phone, setPhone] = useState("");
- const [comment, setComment] = useState("");
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
- const handleSubmit = (e) => {
-   e.preventDefault();
+    // Формируем сообщение для отправки в WhatsApp
+    const message = `Имя: ${name}\nТелефон: ${phone}\nКомментарий: ${comment}`;
 
-   // Формируем сообщение для отправки в WhatsApp
-   const message = `Имя: ${name}\nТелефон: ${phone}\nКомментарий: ${comment}`;
+    // Указываем номер компании (в международном формате, без знака "+")
+    const companyPhoneNumber = "79994780055";
 
-   // Указываем номер компании (в международном формате, без знака "+")
-   const companyPhoneNumber = '79994780055';
+    // Сгенерируем ссылку для отправки сообщения
+    const whatsappUrl = `https://wa.me/${companyPhoneNumber}?text=${encodeURIComponent(
+      message
+    )}`;
 
-   // Сгенерируем ссылку для отправки сообщения
-   const whatsappUrl = `https://wa.me/${companyPhoneNumber}?text=${encodeURIComponent(
-     message
-   )}`;
+    // Открываем ссылку
+    window.open(whatsappUrl, "_blank");
+  };
 
-   // Открываем ссылку
-   window.open(whatsappUrl, "_blank");
- };
-
- // Valid form
- const isFormValid =
-   name && phone && comment;
+  // Valid form
+  const isFormValid = name && phone && comment;
 
   const handleReset = () => {
     setIsSubmitted(false);
@@ -76,60 +74,60 @@ const FormModal = ({ isOpen, onClose }) => {
           ) : (
             <form onSubmit={handleSubmit}>
               <VStack align={"start"} spacing="25px">
-              <FormControl isRequired>
-                <FormLabel htmlFor="ФИО" fontSize={"xs"}>
-                  ФИО
-                </FormLabel>
-                <Input
-                  minW={{base:"200px", md: '350px'}}
-                  type="text"
-                  id="name"
-                  name="name"
-                  fontSize={"xs"}
-                  value={name}
-                  placeholder={"Иван Иванов"}
-                  _placeholder={{ fontSize: "xs" }}
-                  onChange={(e) => setName(e.target.value)}
-                />
-              </FormControl>
+                <FormControl isRequired>
+                  <FormLabel htmlFor="ФИО" fontSize={"xs"}>
+                    ФИО
+                  </FormLabel>
+                  <Input
+                    minW={{ base: "200px", md: "350px" }}
+                    type="text"
+                    id="name"
+                    name="name"
+                    fontSize={"xs"}
+                    value={name}
+                    placeholder={"Иван Иванов"}
+                    _placeholder={{ fontSize: "xs" }}
+                    onChange={(e) => setName(e.target.value)}
+                  />
+                </FormControl>
 
-              <FormControl isRequired>
-                <FormLabel htmlFor="" fontSize={"xs"}>
-                  Телефон
-                </FormLabel>
-                <InputMask
-            mask="+7 (999) 999-99-99"
-            value={phone}
-            onChange={(e) => setPhone(e.target.value)}
-          >
-            {(inputProps) => (
-              <Input
-                {...inputProps}
-                minW={{base:"200px", md: '350px'}}
-                type="tel"
-                id="tel"
-                name="phone"
-                fontSize={"xs"}
-                placeholder="+7 (___) ___-__-__"
-                _placeholder={{ fontSize: "xs" }}
-              />
-            )}
-          </InputMask>
-              </FormControl>
-              <FormControl isRequired>
-                <FormLabel fontSize={"xs"} htmlFor="message">
-                  Комментарий
-                </FormLabel>
-                <AutoResizeTextarea
-                  id="comment"
-                  fontSize={"xs"}
-                  type="text"
-                  name="comment"
-                  value={comment}
-                  placeholder={"Введите комментарий..."}
-                  onChange={(e) => setComment(e.target.value)}
-                />
-              </FormControl>
+                <FormControl isRequired>
+                  <FormLabel htmlFor="" fontSize={"xs"}>
+                    Телефон
+                  </FormLabel>
+                  <InputMask
+                    mask="+7 (999) 999-99-99"
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                  >
+                    {(inputProps) => (
+                      <Input
+                        {...inputProps}
+                        minW={{ base: "200px", md: "350px" }}
+                        type="tel"
+                        id="tel"
+                        name="phone"
+                        fontSize={"xs"}
+                        placeholder="+7 (___) ___-__-__"
+                        _placeholder={{ fontSize: "xs" }}
+                      />
+                    )}
+                  </InputMask>
+                </FormControl>
+                <FormControl isRequired>
+                  <FormLabel fontSize={"xs"} htmlFor="message">
+                    Комментарий
+                  </FormLabel>
+                  <AutoResizeTextarea
+                    id="comment"
+                    fontSize={"xs"}
+                    type="text"
+                    name="comment"
+                    value={comment}
+                    placeholder={"Введите комментарий..."}
+                    onChange={(e) => setComment(e.target.value)}
+                  />
+                </FormControl>
 
                 <Text
                   textAlign={"center"}
