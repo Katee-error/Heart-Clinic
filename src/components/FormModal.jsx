@@ -24,40 +24,33 @@ const FormModal = ({ isOpen, onClose }) => {
 
 
  // SENDING FORM
-  const [isLoading, setIsLoading] = useState(false);
-  const [status, setStatus] = useState({});
+ const [isLoading, setIsLoading] = useState(false);
 
-  const handleChange = (e) => {
-    setFormDetails({
-      ...formDetails,
-      [e.target.name]: e.target.value,
-    });
-  };
+ const [name, setName] = useState("");
+ const [phone, setPhone] = useState("");
+ const [comment, setComment] = useState("");
 
-  const formInitialDetails = {
-    fullName: "",
-    phone: "",
-    message: "",
-  };
+ const handleSubmit = (e) => {
+   e.preventDefault();
 
-  const [formDetails, setFormDetails] = useState(formInitialDetails);
+   // Формируем сообщение для отправки в WhatsApp
+   const message = `Имя: ${name}\nТелефон: ${phone}\nКомментарий: ${comment}`;
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // const whatsappUrl =
-    //   `https://wa.me/ 
-    //   +79536995362?text=Имя: ${encodeURIComponent(
-    //     fullName
-    //   )}%0AТелефон: ${encodeURIComponent(
-    //     phone
-    //   )}%0AСообщение: ${encodeURIComponent(message)}`;
-    // window.location.href = whatsappUrl;
-  };
+   // Указываем номер компании (в международном формате, без знака "+")
+   const companyPhoneNumber = "79994780055";
 
-  // Valid form
-  const isFormValid =
-    formDetails.fullName && formDetails.phone && formDetails.message;
+   // Сгенерируем ссылку для отправки сообщения
+   const whatsappUrl = `https://wa.me/${companyPhoneNumber}?text=${encodeURIComponent(
+     message
+   )}`;
 
+   // Открываем ссылку
+   window.open(whatsappUrl, "_blank");
+ };
+
+ // Valid form
+ const isFormValid =
+   name && phone && comment;
 
   const handleReset = () => {
     setIsSubmitted(false);
@@ -83,53 +76,53 @@ const FormModal = ({ isOpen, onClose }) => {
           ) : (
             <form onSubmit={handleSubmit}>
               <VStack align={"start"} spacing="25px">
-                <FormControl isRequired>
-                  <FormLabel htmlFor="ФИО" fontSize={"xs"}>
-                    ФИО
-                  </FormLabel>
-                  <Input
-                    minW={{ base: "200px", md: "350px" }}
-                    type="text"
-                    // onChange={handleChange}
-                    id="fullName"
-                    name="fullName"
-                    fontSize={"xs"}
-                    // value={formDetails.fullName}
-                    placeholder={"Иван Иванов"}
-                    _placeholder={{ fontSize: "xs" }}
-                  />
-                </FormControl>
+              <FormControl isRequired>
+                <FormLabel htmlFor="ФИО" fontSize={"xs"}>
+                  ФИО
+                </FormLabel>
+                <Input
+                  minW={"350px"}
+                  type="text"
+                  id="name"
+                  name="name"
+                  fontSize={"xs"}
+                  value={name}
+                  placeholder={"Иван Иванов"}
+                  _placeholder={{ fontSize: "xs" }}
+                  onChange={(e) => setName(e.target.value)}
+                />
+              </FormControl>
 
-                <FormControl isRequired>
-                  <FormLabel htmlFor="" fontSize={"xs"}>
-                    Телефон
-                  </FormLabel>
-                  <Input
-                    minW={{ base: "200px", md: "350px" }}
-                    type="tel"
-                    id="phone"
-                    name="phone"
-                    // onChange={handleChange}
-                    // value={formDetails.email}
-                    fontSize={"xs"}
-                    placeholder={"+7(999) 999-99-99"}
-                    _placeholder={{ fontSize: "xs" }}
-                  />
-                </FormControl>
-                <FormControl isRequired>
-                  <FormLabel fontSize={"xs"} htmlFor="message">
-                    Комментарий
-                  </FormLabel>
-                  <AutoResizeTextarea
-                    // onChange={handleChange}
-                    id="message"
-                    fontSize={"xs"}
-                    type="text"
-                    name="message"
-                    // value={formDetails.message}
-                    placeholder={"Введите ваш вопрос"}
-                  />
-                </FormControl>
+              <FormControl isRequired>
+                <FormLabel htmlFor="" fontSize={"xs"}>
+                  Телефон
+                </FormLabel>
+                <Input
+                  minW={"350px"}
+                  type="tel"
+                  id="tel"
+                  name="phone"
+                  value={phone}
+                  fontSize={"xs"}
+                  placeholder={"+7(999) 999-99-99"}
+                  _placeholder={{ fontSize: "xs" }}
+                  onChange={(e) => setPhone(e.target.value)}
+                />
+              </FormControl>
+              <FormControl isRequired>
+                <FormLabel fontSize={"xs"} htmlFor="message">
+                  Комментарий
+                </FormLabel>
+                <AutoResizeTextarea
+                  id="comment"
+                  fontSize={"xs"}
+                  type="text"
+                  name="comment"
+                  value={comment}
+                  placeholder={"Введите комментарий..."}
+                  onChange={(e) => setComment(e.target.value)}
+                />
+              </FormControl>
 
                 <Text
                   textAlign={"center"}

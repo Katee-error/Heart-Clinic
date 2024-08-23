@@ -32,43 +32,35 @@ const ContactForm = () => {
   });
   const MotionButton = motion(Button);
 
-  //use smooth scroll section
-  //const { sectionRefs } = useScroll();
 
   // SENDING FORM
   const [isLoading, setIsLoading] = useState(false);
-  const [status, setStatus] = useState({});
 
-  const handleChange = (e) => {
-    setFormDetails({
-      ...formDetails,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  const formInitialDetails = {
-    fullName: "",
-    phone: "",
-    message: "",
-  };
-
-  const [formDetails, setFormDetails] = useState(formInitialDetails);
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [comment, setComment] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const whatsappUrl =
-      `https://wa.me/` 
-      +79536995362`?text=Имя: ${encodeURIComponent(
-        fullName
-      )}%0AТелефон: ${encodeURIComponent(
-        phone
-      )}%0AСообщение: ${encodeURIComponent(message)}`;
-    window.location.href = whatsappUrl;
+
+    // Формируем сообщение для отправки в WhatsApp
+    const message = `Имя: ${name}\nТелефон: ${phone}\nКомментарий: ${comment}`;
+
+    // Указываем номер компании (в международном формате, без знака "+")
+    const companyPhoneNumber = "79994780055";
+
+    // Сгенерируем ссылку для отправки сообщения
+    const whatsappUrl = `https://wa.me/${companyPhoneNumber}?text=${encodeURIComponent(
+      message
+    )}`;
+
+    // Открываем ссылку
+    window.open(whatsappUrl, "_blank");
   };
 
   // Valid form
   const isFormValid =
-    formDetails.fullName && formDetails.phone && formDetails.message;
+    name && phone && comment;
 
   return (
     <MotionBox
@@ -101,13 +93,13 @@ const ContactForm = () => {
                 <Input
                   minW={"350px"}
                   type="text"
-                  onChange={handleChange}
-                  id="fullName"
-                  name="fullName"
+                  id="name"
+                  name="name"
                   fontSize={"xs"}
-                  value={formDetails.fullName}
+                  value={name}
                   placeholder={"Иван Иванов"}
                   _placeholder={{ fontSize: "xs" }}
+                  onChange={(e) => setName(e.target.value)}
                 />
               </FormControl>
 
@@ -120,11 +112,11 @@ const ContactForm = () => {
                   type="tel"
                   id="tel"
                   name="phone"
-                  onChange={handleChange}
-                  value={formDetails.phone}
+                  value={phone}
                   fontSize={"xs"}
                   placeholder={"+7(999) 999-99-99"}
                   _placeholder={{ fontSize: "xs" }}
+                  onChange={(e) => setPhone(e.target.value)}
                 />
               </FormControl>
               <FormControl isRequired>
@@ -132,13 +124,13 @@ const ContactForm = () => {
                   Комментарий
                 </FormLabel>
                 <AutoResizeTextarea
-                  onChange={handleChange}
-                  id="message"
+                  id="comment"
                   fontSize={"xs"}
                   type="text"
-                  name="message"
-                  value={formDetails.message}
-                  placeholder={"Введите ваш вопрос"}
+                  name="comment"
+                  value={comment}
+                  placeholder={"Введите комментарий..."}
+                  onChange={(e) => setComment(e.target.value)}
                 />
               </FormControl>
 
