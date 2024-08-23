@@ -13,11 +13,13 @@ import Footer from "./../components/Footer";
 import Questions from "../components/Questions";
 import TestimonialsMarquee from "./../components/Reviews";
 import StickyNav from "../components/StickyHeader";
+import Hero from "../components/Hero";
 
 const Home = () => {
   return (
     <Box>
-      <HeroSlider />
+      <Hero/>
+      {/* <HeroSlider /> */}
       <AboutUs />
       <Benefits />
       <Test />

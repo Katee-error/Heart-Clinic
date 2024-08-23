@@ -44,14 +44,14 @@ const FormModal = ({ isOpen, onClose }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const whatsappUrl =
-      `https://wa.me/ 
-      +79536995362?text=Имя: ${encodeURIComponent(
-        fullName
-      )}%0AТелефон: ${encodeURIComponent(
-        phone
-      )}%0AСообщение: ${encodeURIComponent(message)}`;
-    window.location.href = whatsappUrl;
+    // const whatsappUrl =
+    //   `https://wa.me/ 
+    //   +79536995362?text=Имя: ${encodeURIComponent(
+    //     fullName
+    //   )}%0AТелефон: ${encodeURIComponent(
+    //     phone
+    //   )}%0AСообщение: ${encodeURIComponent(message)}`;
+    // window.location.href = whatsappUrl;
   };
 
   // Valid form

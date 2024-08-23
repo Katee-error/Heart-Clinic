@@ -6,10 +6,13 @@ import { motion } from "framer-motion";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-import slide01 from "./../assets/slider/slide-1.jpg";
-import slide02 from "./../assets/slider/slide-2.jpg";
-import slide03 from "./../assets/slider/slide-3.jpg";
-import slide05 from "./../assets/slider/slide-5.jpg";
+
+import slide02 from "./../assets/slider/slide-6.jpg";
+import slide03 from "./../assets/slider/slide-7.jpg";
+import slide05 from "./../assets/slider/slide-8.jpg";
+import slide06 from "./../assets/slider/slide-9.jpg";
+import slide07 from "./../assets/slider/slide-10.jpg";
+import slide08 from "./../assets/slider/slide-11.jpg";
 
 const HeroSlider = () => {
   const settings = {
@@ -19,12 +22,12 @@ const HeroSlider = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 4000,
+    autoplaySpeed: 1000,
     fade: false, // Оставляем отключенным, чтобы слайды не затухали
     cssEase: "ease", // Задаем тип анимации для плавного перелистывания
   };
 
-  const images = [slide01, slide02, slide03, slide05];
+  const images = [slide02, slide03, slide05, slide06, slide07, slide08];
   const texts = [
     "Cкидка 15% на все виды чек-апа",
     "Комплексное обследование сердечно-сосудистой системы",
@@ -40,7 +43,7 @@ const HeroSlider = () => {
       height={{ base: "300px", "2xs": "500px", md: "700px" }}
       overflow="hidden"
       position="relative"
-      py={{ base: "0", md: "60px" }}
+      // py={{ base: "0", md: "60px" }}
     >
       <Slider {...settings}>
         {images.map((image, index) => (
