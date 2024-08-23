@@ -81,7 +81,7 @@ const FormModal = ({ isOpen, onClose }) => {
                   ФИО
                 </FormLabel>
                 <Input
-                  minW={"350px"}
+                  minW={{base:"200px", md: '350px'}}
                   type="text"
                   id="name"
                   name="name"
@@ -98,7 +98,7 @@ const FormModal = ({ isOpen, onClose }) => {
                   Телефон
                 </FormLabel>
                 <Input
-                  minW={"350px"}
+                   minW={{base:"200px", md: '350px'}}
                   type="tel"
                   id="tel"
                   name="phone"

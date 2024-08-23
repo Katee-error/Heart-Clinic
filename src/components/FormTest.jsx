@@ -91,7 +91,7 @@ const ContactForm = () => {
                   ФИО
                 </FormLabel>
                 <Input
-                  minW={"350px"}
+                  minW={{base:"200px", md: '350px'}}
                   type="text"
                   id="name"
                   name="name"
@@ -108,7 +108,7 @@ const ContactForm = () => {
                   Телефон
                 </FormLabel>
                 <Input
-                  minW={"350px"}
+                  minW={{base:"200px", md: '350px'}}
                   type="tel"
                   id="tel"
                   name="phone"
