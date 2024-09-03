@@ -41,23 +41,48 @@ const ContactForm = () => {
   const [phone, setPhone] = useState("");
   const [comment, setComment] = useState("");
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const message = `Имя: ${name}\nТелефон: ${phone}\nКомментарий: ${comment}`;
 
-    // Формируем сообщение для отправки в WhatsApp
-    const message = `Имя: ${name}\nТелефон: ${phone}\nКомментарий: ${comment}`;
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        
+        try {
+            const response = await fetch('https://heart-backend-66ebd61af25e.herokuapp.com//send-whatsapp', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ message }),
+            });
 
-    // Указываем номер компании (в международном формате, без знака "+")
-    const companyPhoneNumber = "79994780055";
+            if (response.ok) {
+                alert('Сообщение успешно отправлено!');
+            } else {
+                alert('Ошибка при отправке сообщения');
+            }
+        } catch (error) {
+            console.error('Ошибка:', error);
+            alert('Произошла ошибка при отправке сообщения');
+        }
+    };
 
-    // Сгенерируем ссылку для отправки сообщения
-    const whatsappUrl = `https://wa.me/${companyPhoneNumber}?text=${encodeURIComponent(
-      message
-    )}`;
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
 
-    // Открываем ссылку
-    window.open(whatsappUrl, "_blank");
-  };
+  //   // Формируем сообщение для отправки в WhatsApp
+  //   const message = `Имя: ${name}\nТелефон: ${phone}\nКомментарий: ${comment}`;
+
+  //   // Указываем номер компании (в международном формате, без знака "+")
+  //   const companyPhoneNumber = "79994780055";
+
+  //   // Сгенерируем ссылку для отправки сообщения
+  //   const whatsappUrl = `https://wa.me/${companyPhoneNumber}?text=${encodeURIComponent(
+  //     message
+  //   )}`;
+
+  //   // Открываем ссылку
+  //   window.open(whatsappUrl, "_blank");
+  // };
 
   // Valid form
   const isFormValid = name && phone && comment;
@@ -170,7 +195,7 @@ const ContactForm = () => {
               </Text>
             </VStack>
           </form>
-          <Box maxW={"50%"} mt={"25px"}>
+          <Box maxW={"50%"} mt={"25px"} display={{base: 'none', md: 'block'}}>
             <Image
               src={formImg}
               borderRadius={"20px"}
