@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "proxy": "https://heart-backend-66ebd61af25e.herokuapp.com/send-message",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

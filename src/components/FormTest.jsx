@@ -49,7 +49,7 @@ const ContactForm = () => {
     setErrorMessage("");
 
     try {
-      const response = await fetch('https://heart-backend-66ebd61af25e.herokuapp.com/send-whatsapp', {
+      const response = await fetch('https://heart-backend-66ebd61af25e.herokuapp.com/send-message', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
