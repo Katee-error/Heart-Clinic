@@ -47,7 +47,7 @@ const ContactForm = () => {
         event.preventDefault();
         
         try {
-            const response = await fetch('https://heart-backend-66ebd61af25e.herokuapp.com//send-whatsapp', {
+            const response = await fetch('https://heart-backend-66ebd61af25e.herokuapp.com/send-whatsapp', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
