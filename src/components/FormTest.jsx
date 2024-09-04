@@ -36,35 +36,48 @@ const ContactForm = () => {
 
   // SENDING FORM
   const [isLoading, setIsLoading] = useState(false);
-
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [comment, setComment] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const message = `Имя: ${name}\nТелефон: ${phone}\nКомментарий: ${comment}`;
 
-    const handleSubmit = async (event) => {
-        event.preventDefault();
-        
-        try {
-            const response = await fetch('https://heart-backend-66ebd61af25e.herokuapp.com/send-whatsapp', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ message }),
-            });
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    setIsLoading(true);
+    setErrorMessage("");
 
-            if (response.ok) {
-                alert('Сообщение успешно отправлено!');
-            } else {
-                alert('Ошибка при отправке сообщения');
-            }
-        } catch (error) {
-            console.error('Ошибка:', error);
-            alert('Произошла ошибка при отправке сообщения');
-        }
-    };
+    try {
+      const response = await fetch('https://heart-backend-66ebd61af25e.herokuapp.com/send-whatsapp', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ message }),
+      });
+
+      if (response.ok) {
+        alert('Сообщение успешно отправлено!');
+        // Optionally reset the form here
+        setName("");
+        setPhone("");
+        setComment("");
+      } else {
+        const errorData = await response.json();
+        setErrorMessage(`Ошибка: ${errorData.message || 'Ошибка при отправке сообщения'}`);
+      }
+    } catch (error) {
+      console.error('Ошибка:', error);
+      setErrorMessage('Произошла ошибка при отправке сообщения');
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  // Valid form
+  const isFormValid = name && phone && comment;
+
 
   // const handleSubmit = (e) => {
   //   e.preventDefault();
@@ -83,10 +96,6 @@ const ContactForm = () => {
   //   // Открываем ссылку
   //   window.open(whatsappUrl, "_blank");
   // };
-
-  // Valid form
-  const isFormValid = name && phone && comment;
-
   return (
     <MotionBox
       id="form"
