@@ -19,8 +19,6 @@ import {
 } from "@chakra-ui/react";
 import React, { useState } from "react";
 
-import specialistics from "../data/OurSpecialists";
-import arrow from "./../assets/icons/arrow-right.svg";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import doctors from "../data/doctors";

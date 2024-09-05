@@ -84,7 +84,7 @@ const Footer = () => {
             <VStack alignItems={"start"} spacing={"20px"}>
               <Heading fontSize={"16px"}>Пациентам</Heading>
               <VStack alignItems={"start"} fontSize={"14px"} color={"gary.500"}>
-                <NavLink to="/services">
+                <NavLink to="/servicesCost">
                   <Link
                     _hover={{
                       textDecoration: "none",
@@ -92,16 +92,6 @@ const Footer = () => {
                     }}
                   >
                     Услуги клиники
-                  </Link>
-                </NavLink>
-                <NavLink to="/servicesCost" border={"none"}>
-                  <Link
-                    _hover={{
-                      textDecoration: "none",
-                      color: "hover.link",
-                    }}
-                  >
-                    Цены
                   </Link>
                 </NavLink>
                 <NavLink to="/oms" border={"none"}>

@@ -72,12 +72,7 @@ const Test = () => {
                   <Heading fontSize={"20px"}>Медпомощь по ОМС</Heading>
                   <Text color={"gray.500"} fontSize={"14px"}>
                     {" "}
-                    Пациенты Медицинского центра «Клиника Сердца» имеют
-                    возможность получить бесплатное обследование и лечение по
-                    полису обязательного медицинского страхования. Для планового
-                    обследования и лечения необходимо получить направление по
-                    форме 057/у от лечащего (участкового) врача, а также
-                    предъявить паспорт и полис ОМС.
+                    Пациенты Медицинского центра «Клиника Сердца» имеют возможность получить бесплатное обследование и лечение по полису обязательного медицинского страхования. Для планового обследования и лечения необходимо получить направление по форме 057/у от лечащего (участкового) врача, а также предъявить паспорт и полис ОМС.
                   </Text>
                 </Stack>
               </CardBody>
@@ -91,11 +86,7 @@ const Test = () => {
                   <Heading fontSize={"20px"}>Лабораторные анализы</Heading>
                   <Text color={"gray.500"} fontSize={"14px"}>
                     {" "}
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Necessitatibus voluptatibus totam, numquam incidunt culpa id
-                    commodi iusto fugit voluptas quibusdam perferendis vel
-                    doloribus amet eum similique tenetur blanditiis quaerat
-                    dignissimos.
+                    Лабораторные методы исследования применяются для выявления различных патологий в организме человека.
                   </Text>
                 </Stack>
               </CardBody>
@@ -109,11 +100,7 @@ const Test = () => {
                   <Heading fontSize={"20px"}>УЗИ сердца и сосудов</Heading>
                   <Text color={"gray.500"} fontSize={"14px"}>
                     {" "}
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Necessitatibus voluptatibus totam, numquam incidunt culpa id
-                    commodi iusto fugit voluptas quibusdam perferendis vel
-                    doloribus amet eum similique tenetur blanditiis quaerat
-                    dignissimos.
+                    Безболезненное и эффективное ультразвуковое обследование сердца, которое позволяет выявить отклонения в работе сердечно-сосудистой системе.
                   </Text>
                 </Stack>
               </CardBody>
@@ -127,11 +114,7 @@ const Test = () => {
                   <Heading fontSize={"20px"}>Консультации специалистов</Heading>
                   <Text color={"gray.500"} fontSize={"14px"}>
                     {" "}
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Necessitatibus voluptatibus totam, numquam incidunt culpa id
-                    commodi iusto fugit voluptas quibusdam perferendis vel
-                    doloribus amet eum similique tenetur blanditiis quaerat
-                    dignissimos.
+                    Самый первый и важный этап при оказании медицинской помощи пациенту, для определения дальнейшего лечения
                   </Text>
                 </Stack>
               </CardBody>
@@ -145,11 +128,7 @@ const Test = () => {
                   <Heading fontSize={"20px"}>Дневной стационар</Heading>
                   <Text color={"gray.500"} fontSize={"14px"}>
                     {" "}
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Necessitatibus voluptatibus totam, numquam incidunt culpa id
-                    commodi iusto fugit voluptas quibusdam perferendis vel
-                    doloribus amet eum similique tenetur blanditiis quaerat
-                    dignissimos.
+                    Для пациентов, которым требуется послеоперационное наблюдение врачей предоставляется Комфортабельные и уютные палаты без ночного пребывания
                   </Text>
                 </Stack>
               </CardBody>

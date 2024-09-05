@@ -72,11 +72,7 @@ const Benefits = () => {
                     Квалифицированные специалисты
                   </Heading>
                   <Text fontSize={"14px"}>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Rem, provident culpa excepturi quae modi voluptatibus
-                    deserunt dolor, beatae, minus adipisci reprehenderit
-                    nesciunt aliquid! Veritatis nihil reprehenderit, unde saepe
-                    repellendus inventore.
+                    Врачи и сотрудники нашей клиники являются лучшими специалистами в сердечно-сосудистой области. Опыт медицинского персонала «Клиники Сердца» позволяет помочь пациентам с самыми сложными диагнозами, а постоянное изучение новых технологий и тенденций в медицине, регулярное повышение квалификации и участие во всероссийских и всемирных конференциях дает возможность использовать современные способы лечения.
                   </Text>
                 </CardBody>
               </MotionCard>
@@ -93,11 +89,7 @@ const Benefits = () => {
                     Современное оборудование
                   </Heading>
                   <Text fontSize={"14px"}>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Rem, provident culpa excepturi quae modi voluptatibus
-                    deserunt dolor, beatae, minus adipisci reprehenderit
-                    nesciunt aliquid! Veritatis nihil reprehenderit, unde saepe
-                    repellendus inventore.
+                    «Клиника Сердца» оснащена передовым оборудованием для диагностики и лечения всей сердечно-сосудистой системы человека. Современная лаборатория позволяет сделать все необходимые для диагностики анализы на месте. Более того, в клинике применяется специальная система подготовки медицинского оборудования и инструментария для приема пациентов, а также ведется постоянный мониторинг за санитарно-гигиеническим состоянием всех кабинетов.
                   </Text>
                 </CardBody>
               </MotionCard>
@@ -111,14 +103,10 @@ const Benefits = () => {
                 <CardBody>
                   <Image src={en} w={"50px"} h={"50px"} mb={"15px"} />
                   <Heading fontSize={"16px"} mb={"10px"}>
-                    Бесплатные консультации
+                    Главное для нас – решение Вашей проблемы!
                   </Heading>
                   <Text fontSize={"14px"}>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Rem, provident culpa excepturi quae modi voluptatibus
-                    deserunt dolor, beatae, minus adipisci reprehenderit
-                    nesciunt aliquid! Veritatis nihil reprehenderit, unde saepe
-                    repellendus inventore.
+                    Врачи «Клиники Сердца» назначают только те обследования, которые необходимы для пациента, без навязывания ненужных процедур. Здоровье и благополучие наших пациентов – это первоочередная задача клиники.
                   </Text>
                 </CardBody>
               </MotionCard>

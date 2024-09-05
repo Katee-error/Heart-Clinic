@@ -1,14 +1,12 @@
 import React from "react";
 import {
   Box,
-  Container,
   Flex,
   Text,
   Link,
   Button,
   Image,
   VStack,
-  HStack,
   Card,
   CardBody,
 } from "@chakra-ui/react";
@@ -18,7 +16,6 @@ import build from "./../assets/location/build.webp";
 import { motion } from "framer-motion";
 import telegram from "./../assets/icons/social/telegram.svg";
 import whatsap from "./../assets/icons/social/whatsapp.svg";
-// import { useScroll } from "./ScrollContext";
 import { useInView } from "react-intersection-observer";
 
 const MotionBox = motion(Box);
@@ -31,8 +28,6 @@ const YandexMap = () => {
     triggerOnce: true, // Анимация запускается только один раз
     threshold: 0.3, // Процент видимой области, после которого запускается анимация
   });
-  //use smooth scroll section
-  // const { sectionRefs } = useScroll();
 
   return (
     <MotionBox
@@ -56,7 +51,6 @@ const YandexMap = () => {
       >
         <CardBody
           id="contact"
-          // ref={sectionRefs["contact"]}
         >
           <Flex
             gap={"50px"}

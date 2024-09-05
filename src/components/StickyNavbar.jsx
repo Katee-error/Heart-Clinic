@@ -8,13 +8,6 @@ import {
   MenuItem,
   MenuButton,
   MenuList,
-  Drawer,
-  DrawerBody,
-  DrawerContent,
-  DrawerOverlay,
-  DrawerCloseButton,
-  useDisclosure,
-  DrawerFooter,
   Link,
 } from "@chakra-ui/react";
 import { FiChevronDown } from "react-icons/fi";
@@ -29,8 +22,7 @@ const StickyNavbar = () => {
     <Flex
       as={"nav"}
       color={"brand.main"}
-      // border={"1px solid #3a3a9c"}
-      gap={"30px"}
+      gap={"50px"}
       fontWeight={700}
       fontSize={"xs"}
       alignItems={"center"}
@@ -43,14 +35,9 @@ const StickyNavbar = () => {
             Главная
           </Link>
         </NavLink>
-        <NavLink to="/services">
+        <NavLink to="/servicesCost">
           <Link _hover={{ textDecoration: "none", color: "hover.link" }}>
             Услуги клиники
-          </Link>
-        </NavLink>
-        <NavLink to="/servicesCost" border={"none"}>
-          <Link _hover={{ textDecoration: "none", color: "hover.link" }}>
-            Цены
           </Link>
         </NavLink>
         <NavLink to="/doctors" border={"none"}>
@@ -73,7 +60,7 @@ const StickyNavbar = () => {
             Контакты
           </Link>
         </NavLink>
-        <Link border={"none"}>
+        {/* <Link border={"none"}>
           <Menu>
             <MenuButton
               fontSize={"16px"}
@@ -112,7 +99,7 @@ const StickyNavbar = () => {
               </NavLink>
             </MenuList>
           </Menu>
-        </Link>
+        </Link> */}
     </Flex>
   );
 };

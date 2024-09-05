@@ -1,9 +1,6 @@
-import doctor1 from "./../assets/specialistics/doctor1.jpg";
-import doctor2 from "./../assets/specialistics/doctor2.jpg";
-import doctor3 from "./../assets/specialistics/doctor3.jpg";
-import doctor4 from "./../assets/specialistics/doctor4.jpg";
-import doctor5 from "./../assets/specialistics/doctor5.jpg";
-import doctor6 from "./../assets/specialistics/doctor6.jpg";
+import doctor1 from "./../assets/specialistics/Shagane.webp";
+import doctor2 from "./../assets/specialistics/Hiriev.webp";
+import doctor3 from "./../assets/specialistics/Magomed.webp";
 
 const doctors = [
   {

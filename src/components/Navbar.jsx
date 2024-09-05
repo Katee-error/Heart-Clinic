@@ -1,21 +1,12 @@
 import React, { useState } from "react";
 import {
   Box,
-  Container,
   Flex,
-  VStack,
   Button,
   Menu,
   MenuItem,
   MenuButton,
   MenuList,
-  Drawer,
-  DrawerBody,
-  DrawerContent,
-  DrawerOverlay,
-  DrawerCloseButton,
-  useDisclosure,
-  DrawerFooter,
   Link,
 } from "@chakra-ui/react";
 import { NavLink } from "react-router-dom";
@@ -53,14 +44,9 @@ const Navbar = () => {
             Главная
           </Link>
         </NavLink>
-        <NavLink to="/services">
+        <NavLink to="/servicesCost">
           <Link _hover={{ textDecoration: "none", color: "hover.link" }}>
             Услуги клиники
-          </Link>
-        </NavLink>
-        <NavLink to="/servicesCost" border={"none"}>
-          <Link _hover={{ textDecoration: "none", color: "hover.link" }}>
-            Цены
           </Link>
         </NavLink>
         <NavLink to="/doctors" border={"none"}>
@@ -83,7 +69,7 @@ const Navbar = () => {
             Контакты
           </Link>
         </NavLink>
-        <Link border={"none"}>
+        {/* <Link border={"none"} display={"none"}>
           <Menu>
             <MenuButton
               fontSize={"16px"}
@@ -122,7 +108,7 @@ const Navbar = () => {
               </NavLink>
             </MenuList>
           </Menu>
-        </Link>
+        </Link> */}
       </Flex>
     </Box>
   );

@@ -4,17 +4,11 @@ import { useLocation } from "react-router-dom";
 
 import {
   Box,
-  Container,
   Flex,
   Image,
   Text,
-  useColorModeValue,
   IconButton,
   Button,
-  Menu,
-  MenuItem,
-  MenuButton,
-  MenuList,
   Drawer,
   DrawerBody,
   DrawerContent,
@@ -24,11 +18,6 @@ import {
   DrawerFooter,
   Link,
   VStack,
-  Accordion,
-  AccordionItem,
-  AccordionButton,
-  AccordionIcon,
-  AccordionPanel,
 } from "@chakra-ui/react";
 
 import { motion } from "framer-motion";
@@ -41,17 +30,16 @@ import clockIcon from "./../assets/header-icons/clock.svg";
 import { FiMenu } from "react-icons/fi";
 
 import { NavLink } from "react-router-dom";
-import { FiChevronDown } from "react-icons/fi";
 
-import Navbar from "./Navbar";
 import StickyNavbar from "./StickyNavbar";
 import FormModal from "./FormModal";
+import { useScroll } from "./StickyContext";
 
-// import { NavLink } from "react-router-dom";
 const StickyHeader = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [isModalOpen, setIsModalOpen] = useState(false); //modal window
   const [activeMenu, setActiveMenu] = useState(null);
+  const isStickyVisible = useScroll(); // плавное появление навигации
 
   const handleOpenModal = () => {
     onClose(); // Закрываем боковое меню
@@ -63,7 +51,7 @@ const StickyHeader = () => {
   const btnRef = React.useRef();
 
   return (
-    <Box w="100%" bg={"white"} >
+    <Box w="100%" bg={"white"}>
       {/* DESKTOP */}
       <Flex
         as={"header"}
@@ -71,6 +59,17 @@ const StickyHeader = () => {
         gap={"40px"}
         alignItems={"center"}
         display={{ base: "none", md: "flex" }}
+        position="fixed"
+        top={0}
+        left={0}
+        width="100%"
+        backgroundColor="white"
+        boxShadow="sm"
+        padding="20px"
+        zIndex={10}
+        opacity={isStickyVisible ? 1 : 0} // Плавное появление
+        transform={`translateY(${isStickyVisible ? 0 : "-20px"})`} // Плавный сдвиг сверху
+        transition="all 0.5s ease-in-out" // Плавный переход
       >
         <Link as={NavLink} to="/">
           <Image src={logo} alt="logo" w={"170px"} objectFit={"contain"} />
@@ -89,18 +88,27 @@ const StickyHeader = () => {
           _hover={{ bgColor: "hover.button", color: "black" }}
           whileHover={{ scale: 1.05 }}
           color={"white"}
-           onClick={handleOpenModal}
+          onClick={handleOpenModal}
         >
           Записаться
         </MotionButton>
       </Flex>
 
       {/* Mobile */}
-      {/* Mobile */}
       <Flex
         display={{ base: "flex", md: "none" }}
         alignItems={"center"}
         justifyContent={"space-between"}
+        position="fixed"
+        top={0}
+        left={0}
+        p={'20px'}
+        width="100%"
+        bg={'white'}
+        transform={`translateY(${isStickyVisible ? 0 : "-2px"})`} // Плавный сдвиг сверху
+        transition="all 0.5s ease-in-out" // Плавный переход
+        zIndex={10}
+        boxShadow="sm"
       >
         <Link to="/">
           <Image src={logoMobile} alt="logo" w={"70px"} />
@@ -194,7 +202,7 @@ const StickyHeader = () => {
                       Главная
                     </Link>
                   </NavLink>
-                  <NavLink to="/services">
+                  <NavLink to="/servicesCost">
                     <Link
                       onClick={onClose}
                       _hover={{
@@ -203,17 +211,6 @@ const StickyHeader = () => {
                       }}
                     >
                       Услуги клиники
-                    </Link>
-                  </NavLink>
-                  <NavLink to="/servicesCost" border={"none"}>
-                    <Link
-                      onClick={onClose}
-                      _hover={{
-                        textDecoration: "none",
-                        color: "hover.link",
-                      }}
-                    >
-                      Цены
                     </Link>
                   </NavLink>
                   <NavLink to="/doctors" border={"none"}>

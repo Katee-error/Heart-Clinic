@@ -20,9 +20,7 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
 import AutoResizeTextarea from "./AutoResizeTexarea";
-import { toast } from "react-toastify";
 import formImg from "./../assets/all/form-img.jpg";
-import { useScroll } from "./ScrollContext";
 import InputMask from "react-input-mask";
 
 const MotionBox = motion(Box);
@@ -36,66 +34,32 @@ const ContactForm = () => {
 
   // SENDING FORM
   const [isLoading, setIsLoading] = useState(false);
+
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [comment, setComment] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
 
-  const message = `Имя: ${name}\nТелефон: ${phone}\nКомментарий: ${comment}`;
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    setIsLoading(true);
-    setErrorMessage("");
+    // Формируем сообщение для отправки в WhatsApp
+    const message = `Имя: ${name}\nТелефон: ${phone}\nКомментарий: ${comment}`;
 
-    try {
-      const response = await fetch('https://heart-backend-66ebd61af25e.herokuapp.com/send-message', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ message }),
-      });
+    // Указываем номер компании (в международном формате, без знака "+")
+    const companyPhoneNumber = "79994780055";
 
-      if (response.ok) {
-        alert('Сообщение успешно отправлено!');
-        // Optionally reset the form here
-        setName("");
-        setPhone("");
-        setComment("");
-      } else {
-        const errorData = await response.json();
-        setErrorMessage(`Ошибка: ${errorData.message || 'Ошибка при отправке сообщения'}`);
-      }
-    } catch (error) {
-      console.error('Ошибка:', error);
-      setErrorMessage('Произошла ошибка при отправке сообщения');
-    } finally {
-      setIsLoading(false);
-    }
+    // Сгенерируем ссылку для отправки сообщения
+    const whatsappUrl = `https://wa.me/${companyPhoneNumber}?text=${encodeURIComponent(
+      message
+    )}`;
+
+    // Открываем ссылку
+    window.open(whatsappUrl, "_blank");
   };
 
   // Valid form
   const isFormValid = name && phone && comment;
 
-
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-
-  //   // Формируем сообщение для отправки в WhatsApp
-  //   const message = `Имя: ${name}\nТелефон: ${phone}\nКомментарий: ${comment}`;
-
-  //   // Указываем номер компании (в международном формате, без знака "+")
-  //   const companyPhoneNumber = "79994780055";
-
-  //   // Сгенерируем ссылку для отправки сообщения
-  //   const whatsappUrl = `https://wa.me/${companyPhoneNumber}?text=${encodeURIComponent(
-  //     message
-  //   )}`;
-
-  //   // Открываем ссылку
-  //   window.open(whatsappUrl, "_blank");
-  // };
   return (
     <MotionBox
       id="form"
