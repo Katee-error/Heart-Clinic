@@ -128,7 +128,7 @@ const HeroSlider = () => {
     </Box>
   ) : (
     <Box>
-      <Skeleton h={'700px'} w={'100%'}></Skeleton>
+      <Skeleton h={{ base: '300px',md:'700px'}} w={'100%'}></Skeleton>
     </Box>
   );
 };
