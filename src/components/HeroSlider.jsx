@@ -1,5 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Box, Image, Text, Button, Container } from "@chakra-ui/react";
+import {
+  Box,
+  Image,
+  Text,
+  Button,
+  Container,
+  Skeleton,
+} from "@chakra-ui/react";
 import Slider from "react-slick";
 import { motion } from "framer-motion";
 import FormModal from "./FormModal";
@@ -25,7 +32,7 @@ const HeroSlider = () => {
     cssEase: "ease",
     pauseOnHover: false,
   };
-  
+
   const sliderRef = useRef(null);
 
   // useEffect(() => {
@@ -39,8 +46,26 @@ const HeroSlider = () => {
   const MotionButton = motion(Button);
   const [isModalOpen, setIsModalOpen] = useState(false); //modal window
 
+  const [imagesLoaded, setImagesLoaded] = useState(false);
 
-  return (
+  useEffect(() => {
+    const loadImages = () => {
+      let loaded = 0;
+      images.forEach((image) => {
+        const img = new window.Image();
+        img.src = image;
+        img.onload = () => {
+          loaded++;
+          if (loaded === images.length) {
+            setImagesLoaded(true);
+          }
+        };
+      });
+    };
+    loadImages();
+  }, [images]);
+
+  return imagesLoaded ? (
     <Box
       id="hero"
       width="100vw"
@@ -100,6 +125,10 @@ const HeroSlider = () => {
         ))}
       </Slider>
       <FormModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+    </Box>
+  ) : (
+    <Box>
+      <Skeleton h={'700px'} w={'100%'}></Skeleton>
     </Box>
   );
 };
