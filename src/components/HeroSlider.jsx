@@ -58,7 +58,7 @@ const HeroSlider = () => {
               textAlign="center"
               zIndex={1000}
               p="20px"
-              width={{ base: "100%", md: "60%" }}
+              width={{ base: "100%", md: "70%" }}
             >
               <Text fontWeight={500} fontSize={{ base: "40px", md: "80px" }}>
                 Клиника Сердца
