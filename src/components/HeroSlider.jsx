@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Box, Image, Text, Button } from "@chakra-ui/react";
+import { Box, Image, Text, Button, Container } from "@chakra-ui/react";
 import Slider from "react-slick";
 import { motion } from "framer-motion";
 import FormModal from "./FormModal";
@@ -31,12 +31,6 @@ const HeroSlider = () => {
 
   const sliderRef = useRef(null);
 
-useEffect(() => {
-  if (sliderRef.current) {
-    sliderRef.current.slickGoTo(0);
-  }
-}, []); // После загрузки всех изображений
-
   return (
     <Box
       id="hero"
@@ -44,21 +38,27 @@ useEffect(() => {
       height={{ base: "300px", "2xs": "500px", md: "800px" }}
       overflow="hidden"
       position="relative"
-      textAlign={"center"}
-      mt={{base:'50px', md: '0'}}
+      textAlign="center"
+      mt={{ base: "50px", md: "0" }}
     >
       <Slider {...settings}>
         {images.map((image, index) => (
-          <Box key={index}>
-            <Image src={image} alt={`Slide ${index + 1}`} pos={"relative"} />
+          <Box key={index} position="relative">
+            <Image
+              src={image}
+              alt={`Slide ${index + 1}`}
+              width="100%"
+              height="100%"
+            />
             <Box
-              mt={{ base: "-170px", md: "-200px" }}
-              ml={{ base: "8px", md: "300px" }}
-              textAlign={"center"}
-              zIndex={100}
-              position={"absolute"}
-              top={{ base: "200px", md: 400 }}
-              p={"40px"}
+              position="absolute"
+              top="50%"
+              left="50%"
+              transform="translate(-50%, -50%)"
+              textAlign="center"
+              zIndex={1000}
+              p="20px"
+              width={{ base: "100%", md: "60%" }}
             >
               <Text fontWeight={500} fontSize={{ base: "40px", md: "80px" }}>
                 Клиника Сердца
@@ -66,24 +66,23 @@ useEffect(() => {
               <Text
                 fontWeight={500}
                 fontSize={{ base: "16px", md: "24px" }}
-                mt={"-10px"}
+                mt="-10px"
               >
                 Забота о сердце начинается здесь
               </Text>
               <MotionButton
                 p={{ base: "10px 20px", md: "25px 30px" }}
-                borderRadius={"10px"}
-                fontSize={"16px"}
+                borderRadius="10px"
+                fontSize="16px"
                 fontWeight={600}
-                border={"1px solid #3a3a9c"}
-                bg={"white"}
-                boxShadow={"1px 2px 5px 0 #3a3a9c"}
-                //   bg={"brand.main"}
+                border="1px solid #3a3a9c"
+                bg="white"
+                boxShadow="1px 2px 5px 0 #3a3a9c"
                 _hover={{ bgColor: "hover.button", color: "black" }}
                 whileHover={{ scale: 1.05 }}
-                color={"black"}
-                onClick={() => setIsModalOpen(true)} // Open modal window
-                margin={{ base: "20px 0", md: "30px 0" }}
+                color="black"
+                onClick={() => setIsModalOpen(true)}
+                mt="20px"
               >
                 Записаться
               </MotionButton>
