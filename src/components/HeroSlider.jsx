@@ -20,16 +20,25 @@ const HeroSlider = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 4000,
-    fade: false, // Оставляем отключенным, чтобы слайды не затухали
-    cssEase: "ease", // Задаем тип анимации для плавного перелистывания
+    autoplaySpeed: 3000,
+    fade: false,
+    cssEase: "ease",
+    pauseOnHover: false,
   };
+  
+  const sliderRef = useRef(null);
+
+  // useEffect(() => {
+  //   // Запускаем автоплей вручную, когда компонент монтируется
+  //   if (sliderRef.current) {
+  //     sliderRef.current.slickPlay();
+  //   }
+  // }, []);
 
   const images = [slide01, slide02, slide03, slide04];
   const MotionButton = motion(Button);
   const [isModalOpen, setIsModalOpen] = useState(false); //modal window
 
-  const sliderRef = useRef(null);
 
   return (
     <Box
@@ -41,7 +50,7 @@ const HeroSlider = () => {
       textAlign="center"
       mt={{ base: "50px", md: "0" }}
     >
-      <Slider {...settings}>
+      <Slider {...settings} ref={sliderRef}>
         {images.map((image, index) => (
           <Box key={index} position="relative">
             <Image
