@@ -62,7 +62,7 @@ const StickyHeader = () => {
         backgroundColor="white"
         boxShadow="sm"
         padding="20px"
-        zIndex={10}
+        zIndex={isStickyVisible ? 100 : 0}
         opacity={isStickyVisible ? 1 : 0} // Плавное появление
         transform={`translateY(${isStickyVisible ? 0 : "-20px"})`} // Плавный сдвиг сверху
         transition="all 0.5s ease-in-out" // Плавный переход
