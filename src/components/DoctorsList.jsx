@@ -1,23 +1,12 @@
 import {
   Box,
   Heading,
-  Text,
   Flex,
-  Card,
-  Stack,
-  CardBody,
-  Image,
-  Button,
   Container,
-  GridItem,
   SimpleGrid,
-  Tabs,
-  Tab,
-  TabList,
-  TabPanels,
-  TabPanel,
+  
 } from "@chakra-ui/react";
-import React, { useState } from "react";
+import { useState } from "react";
 
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
@@ -28,7 +17,7 @@ import DoctorModal from "./ModalWindowDoctors";
 const MotionBox = motion(Box);
 
 const DoctorsList = () => {
-  const MotionCard = motion(GridItem);
+  
   const { ref, inView } = useInView({
     triggerOnce: true, // Анимация запускается только один раз
     threshold: 0.3, // Процент видимой области, после которого запускается анимация

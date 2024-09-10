@@ -9,16 +9,14 @@ import {
   Stack,
   Heading,
   Text,
-  Button,
 } from "@chakra-ui/react";
-import React from "react";
+
 import test1 from "./../assets/all/test-1.jpg";
-import test2 from "./../assets/all/test-2.jpg";
-import test3 from "./../assets/all/test-3.jpg";
-import test4 from "./../assets/all/test-4.jpg";
+import Polis from "./../assets/all/polis.jpg";
+import Laba from "./../assets/all/laba.jpg";
+import Dnevnoy from "./../assets/all/dnevnoy.jpg";
 import test5 from "./../assets/all/test-5.jpg";
 
-import arrow from "./../assets/icons/arrow-right.svg";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
@@ -50,7 +48,7 @@ const Test = () => {
         >
           <GridItem>
             <Box>
-              <Text color={"brand.main"} fontWeight={600} fontSize={"18px"}>
+              <Text color={"brand.main"} fontWeight={600} fontSize={"18px"} display={'none'}>
                 НАПРАВЛЕНИЯ
               </Text>
               <Heading
@@ -67,7 +65,7 @@ const Test = () => {
           <GridItem >
             <MotionCard maxW="sm" whileHover={{ scale: 1.08 }}  h={'400px'}>
               <CardBody>
-                <Image src={test2} h={"100px"} w={"100%"} objectFit={"cover"} />
+                <Image src={Polis} h={"100px"} w={"100%"} objectFit={"cover"} />
                 <Stack mt="6" spacing="3">
                   <Heading fontSize={"20px"}>Медпомощь по ОМС</Heading>
                   <Text color={"gray.500"} fontSize={"14px"}>
@@ -81,7 +79,7 @@ const Test = () => {
           <GridItem >
             <MotionCard maxW="sm" whileHover={{ scale: 1.08 }} h={'400px'}>
               <CardBody>
-                <Image src={test3} h={"100px"} w={"100%"} objectFit={"cover"} />
+                <Image src={Laba} h={"100px"} w={"100%"} objectFit={"cover"} />
                 <Stack mt="6" spacing="3">
                   <Heading fontSize={"20px"}>Лабораторные анализы</Heading>
                   <Text color={"gray.500"} fontSize={"14px"}>
@@ -123,7 +121,7 @@ const Test = () => {
           <GridItem>
             <MotionCard maxW="sm" whileHover={{ scale: 1.08 }} h={'400px'}>
               <CardBody>
-                <Image src={test4} h={"100px"} w={"100%"} objectFit={"cover"} />
+                <Image src={Dnevnoy} h={"100px"} w={"100%"} objectFit={"cover"} />
                 <Stack mt="6" spacing="3">
                   <Heading fontSize={"20px"}>Дневной стационар</Heading>
                   <Text color={"gray.500"} fontSize={"14px"}>

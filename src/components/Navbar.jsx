@@ -2,15 +2,11 @@ import React, { useState } from "react";
 import {
   Box,
   Flex,
-  Button,
-  Menu,
-  MenuItem,
-  MenuButton,
-  MenuList,
+
   Link,
 } from "@chakra-ui/react";
 import { NavLink } from "react-router-dom";
-import { FiChevronDown } from "react-icons/fi";
+
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(null);
@@ -69,46 +65,7 @@ const Navbar = () => {
             Контакты
           </Link>
         </NavLink>
-        {/* <Link border={"none"} display={"none"}>
-          <Menu>
-            <MenuButton
-              fontSize={"16px"}
-              fontWeight={600}
-              color={"white"}
-              as={Button}
-              bg={"none"}
-              rightIcon={<FiChevronDown />}
-              _hover={{ bg: "none", boxShadow: "transparent" }}
-              _active={{ bg: "none", boxShadow: "none" }}
-              _focus={{ bg: "none", boxShadow: "none" }}
-            >
-              Еще
-            </MenuButton>
-            <MenuList
-              mt={"7px"}
-              pos={"absolute"}
-              left={"-100px"}
-              minW={"300px"}
-              color={"brand.main"}
-              fontWeight={500}
-              gap={"20px"}
-              py={"10px"}
-            >
-              <NavLink to="" border={"none"}>
-                <MenuItem>Download</MenuItem>
-              </NavLink>
-              <NavLink to="" border={"none"}>
-                <MenuItem>Download</MenuItem>
-              </NavLink>
-              <NavLink to="" border={"none"}>
-                <MenuItem>Download</MenuItem>
-              </NavLink>
-              <NavLink to="" border={"none"}>
-                <MenuItem>Download</MenuItem>
-              </NavLink>
-            </MenuList>
-          </Menu>
-        </Link> */}
+        
       </Flex>
     </Box>
   );

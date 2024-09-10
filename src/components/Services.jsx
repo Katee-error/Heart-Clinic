@@ -11,10 +11,9 @@ import {
   TabPanels,
   Tab,
   TabPanel,
-  TabIndicator,
-  Divider,
+
 } from "@chakra-ui/react";
-import React, { useState } from "react";
+import  { useState } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import services from "../data/services";

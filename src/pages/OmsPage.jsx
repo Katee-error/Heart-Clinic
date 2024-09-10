@@ -1,4 +1,3 @@
-import React from "react";
 import {
   Box,
   Container,
@@ -10,6 +9,7 @@ import {
   AccordionButton,
   AccordionIcon,
   AccordionPanel,
+  Link,
 } from "@chakra-ui/react";
 import oms from "../data/oms";
 
@@ -25,7 +25,7 @@ const OmsPage = () => {
           ОМС
         </Heading>
         <Box mb={"60px"}>
-          <Text w={"70%"} fontSize={"20px"}>
+          <Text w={"70%"} fontSize={"18px"}>
             Обследование и лечение по полису ОМС Пациенты МЦ «Клиника Сердца»
             имеют возможность получить бесплатное обследование и лечение по
             полису обязательного медицинского страхования. Для планового
@@ -62,10 +62,9 @@ const OmsPage = () => {
                 </AccordionButton>
               </h2>
               <AccordionPanel py={"20px"}>
-                <Text px={"20px"}>
-                  С дополнительной информацией можно ознакломиться по ссылке
-                  {item.link}
-                </Text>
+                <Link href={item.link} isExternal>
+                  С дополнительной информацией можно ознакомиться по ссылке
+                </Link>
               </AccordionPanel>
             </AccordionItem>
           ))}

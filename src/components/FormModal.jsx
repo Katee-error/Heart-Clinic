@@ -138,7 +138,7 @@ const FormModal = ({ isOpen, onClose }) => {
                   <Box as={"span"}>
                     Нажимая кнопку "Отправить", вы даете
                     <Link href="" color="#3a3a9c">
-                      {" "}
+                     <br/>
                       согласие на обработку персональных данных
                     </Link>
                   </Box>

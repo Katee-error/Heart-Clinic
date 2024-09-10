@@ -1,4 +1,3 @@
-import React, { Suspense } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 import Routers from "../router/Routers";
@@ -9,7 +8,7 @@ const Layout = () => {
   return (
     <Flex flexDirection={"column"} minH={"100vh"} overflowX={"hidden"}>
       <Header />
-      <StickyHeader/>
+      <StickyHeader />
       <div>
         <Routers />
       </div>

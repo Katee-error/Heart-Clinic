@@ -1,4 +1,3 @@
-import React from "react";
 import {
   Box,
   Container,
@@ -9,59 +8,20 @@ import {
   Card,
   CardBody,
   Text,
-  Flex,
-  Button,
   VStack,
+  Link,
 } from "@chakra-ui/react";
 import doctor from "./../assets/about-us/icons/doctor.png";
-import en from "./../assets/about-us/icons/en.png";
 import letter from "./../assets/about-us/icons/letter.png";
 import stethoscope from "./../assets/about-us/icons/stethoscope.png";
 
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-
 import { motion } from "framer-motion";
-
-import about01 from "./../assets/about-us/about01.webp";
-import about02 from "./../assets/about-us/about02.jpg";
-import about03 from "./../assets/about-us/about03.jpg";
-import about04 from "./../assets/about-us/about04.jpg";
-import about05 from "./../assets/about-us/about05.jpg";
-import about06 from "./../assets/about-us/about06.jpg";
-import about07 from "./../assets/about-us/about07.jpg";
-import about08 from "./../assets/about-us/about08.jpg";
 
 const AboutUsPage = () => {
   const MotionCard = motion(Card);
 
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 1500,
-    fade: false, // Оставляем отключенным, чтобы слайды не затухали
-    cssEase: "ease", // Задаем тип анимации для плавного перелистывания
-  };
-
-  const images = [
-    about01,
-    about02,
-    about03,
-    about04,
-    about05,
-    about06,
-    about07,
-    about08,
-  ];
-
-  const MotionButton = motion(Button);
   return (
-    <Box py={{md:'60px'}}>
+    <Box py={{ md: "60px" }}>
       <Container maxW="container.xl">
         <Heading
           fontSize={{ base: "40px", md: "50px" }}
@@ -70,16 +30,16 @@ const AboutUsPage = () => {
         >
           О нашей клинике
         </Heading>
-        <VStack alignItems={'start'} spacing={'20px'} fontSize={"20px"} >
+        <VStack alignItems={"start"} spacing={"20px"} fontSize={"18px"}>
           <Text w={"70%"}>
             Медицинский центр «Клиника Сердца» - это современная клиника,
             предоставляющая медицинские услуги по диагностике и лечению
             заболеваний сердца и сосудов, а также по другим областям медицины.
           </Text>
           <Text>
-            - Наша клиника оснащена самым современным оборудованием. Врачи клиники
-            имеют многолетний опыт диагностики и лечения сердечно-сосудистых
-            заболеваний.
+            - Наша клиника оснащена самым современным оборудованием. Врачи
+            клиники имеют многолетний опыт диагностики и лечения
+            сердечно-сосудистых заболеваний.
           </Text>
           <Text>
             - Лаборатория Клиники Сердца позволяет сдать различные комплексы
@@ -89,6 +49,20 @@ const AboutUsPage = () => {
             - В клинике есть стандартная и VIP палаты дневного стационара для
             послеоперационной реабилитации.
           </Text>
+          <Link
+            color={"blue"}
+            href="../../src/assets/files/about_us.pdf"
+            isExternal
+          >
+            О нашей клинике
+          </Link>
+          <Link
+            color={"blue"}
+            href="../../src/assets/files/license.pdf"
+            isExternal
+          >
+            Лицензия клиники
+          </Link>
         </VStack>
         <Box my={{ base: "70px", md: "70px" }}>
           <SimpleGrid minChildWidth="230px" spacing={{ base: "50px" }}>
@@ -104,11 +78,14 @@ const AboutUsPage = () => {
                     Квалифицированные специалисты
                   </Heading>
                   <Text fontSize={"14px"}>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Rem, provident culpa excepturi quae modi voluptatibus
-                    deserunt dolor, beatae, minus adipisci reprehenderit
-                    nesciunt aliquid! Veritatis nihil reprehenderit, unde saepe
-                    repellendus inventore.
+                    Врачи и сотрудники нашей клиники являются лучшими
+                    специалистами в сердечно-сосудистой области. Опыт
+                    медицинского персонала «Клиники Сердца» позволяет помочь
+                    пациентам с самыми сложными диагнозами, а постоянное
+                    изучение новых технологий и тенденций в медицине, регулярное
+                    повышение квалификации и участие во всероссийских и
+                    всемирных конференциях дает возможность использовать
+                    современные способы лечения.
                   </Text>
                 </CardBody>
               </MotionCard>
@@ -125,11 +102,14 @@ const AboutUsPage = () => {
                     Современное оборудование
                   </Heading>
                   <Text fontSize={"14px"}>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Rem, provident culpa excepturi quae modi voluptatibus
-                    deserunt dolor, beatae, minus adipisci reprehenderit
-                    nesciunt aliquid! Veritatis nihil reprehenderit, unde saepe
-                    repellendus inventore.
+                    «Клиника Сердца» оснащена передовым оборудованием для
+                    диагностики и лечения всей сердечно-сосудистой системы
+                    человека. Современная лаборатория позволяет сделать все
+                    необходимые для диагностики анализы на месте. Более того, в
+                    клинике применяется специальная система подготовки
+                    медицинского оборудования и инструментария для приема
+                    пациентов, а также ведется постоянный мониторинг за
+                    санитарно-гигиеническим состоянием всех кабинетов.
                   </Text>
                 </CardBody>
               </MotionCard>
@@ -143,63 +123,37 @@ const AboutUsPage = () => {
                 <CardBody minH={"350px"}>
                   <Image src={letter} w={"50px"} h={"50px"} mb={"15px"} />
                   <Heading fontSize={"16px"} mb={"10px"}>
-                    Широкий спектр услуг
+                    Главное для нас – решение Вашей проблемы!
                   </Heading>
                   <Text fontSize={"14px"}>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Rem, provident culpa excepturi quae modi voluptatibus
-                    deserunt dolor, beatae, minus adipisci reprehenderit
-                    nesciunt aliquid! Veritatis nihil reprehenderit, unde saepe
-                    repellendus inventore.
+                    Врачи «Клиники Сердца» назначают только те обследования,
+                    которые необходимы для пациента, без навязывания ненужных
+                    процедур. Здоровье и благополучие наших пациентов – это
+                    первоочередная задача клиники.
                   </Text>
                 </CardBody>
               </MotionCard>
             </GridItem>{" "}
-            <GridItem>
-              <MotionCard
-                maxW="sm"
-                border={"1px solid #3a3a9c"}
-                whileHover={{ scale: 1.08 }}
-              >
-                <CardBody minH={"350px"}>
-                  <Image src={en} w={"50px"} h={"50px"} mb={"15px"} />
-                  <Heading fontSize={"16px"} mb={"10px"}>
-                    Бесплатные консультации
-                  </Heading>
-                  <Text fontSize={"14px"}>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Rem, provident culpa excepturi quae modi voluptatibus
-                    deserunt dolor, beatae, minus adipisci reprehenderit
-                    nesciunt aliquid! Veritatis nihil reprehenderit, unde saepe
-                    repellendus inventore.
-                  </Text>
-                </CardBody>
-              </MotionCard>
-            </GridItem>
           </SimpleGrid>
         </Box>
         <Box
+          display={"none"}
           id="hero"
-          width={{base: '100%', md: '80%'}}
-          height={{ base: "300px", "2xs": "500px", md: "500px" }}
+          width={{ base: "100%", md: "80%" }}
+          height={{
+            base: "300px",
+            xs: "565px",
+            sm: "600px",
+            md: "650px",
+            lg: "700px",
+            xl: "900px",
+          }}
           overflow="hidden"
           position="relative"
           py={{ base: "0", md: "60px" }}
           m={"0 auto"}
           borderRadius={"20px"}
-        >
-          <Slider {...settings}>
-            {images.map((image, index) => (
-              <Box key={index}>
-                <Image
-                  src={image}
-                  alt={`Slide ${index + 1}`}
-                  pos={"relative"}
-                />
-              </Box>
-            ))}
-          </Slider>
-        </Box>
+        ></Box>
       </Container>
     </Box>
   );

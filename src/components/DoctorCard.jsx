@@ -1,8 +1,6 @@
-import React from "react";
 import {
   Box,
   Text,
-  Button,
   GridItem,
   Card,
   CardBody,
@@ -20,7 +18,6 @@ const DoctorCard = ({ doctor, onOpen }) => {
       whileHover={{ scale: 1.08 }}
       onClick={() => onOpen(doctor.id)}
       cursor="pointer"
-
     >
       <Card maxW="sm">
         <CardBody>

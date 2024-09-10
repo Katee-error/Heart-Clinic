@@ -1,50 +1,26 @@
-import React from "react";
-import { useRef, useEffect, useState } from "react";
+import { useState } from "react";
 import { Link as RouterLink } from "react-router-dom";
 
-import {
-  Box,
-  Flex,
-  Image,
-  Text,
-  IconButton,
-  Button,
-  Drawer,
-  DrawerBody,
-  DrawerContent,
-  DrawerOverlay,
-  DrawerCloseButton,
-  useDisclosure,
-  Link,
-  VStack,
-} from "@chakra-ui/react";
+import { Box, Flex, Image, Text, Button, Link } from "@chakra-ui/react";
 
 import { motion } from "framer-motion";
 
 import logo from "./../assets/logo/logo.png";
-import logoMobile from "./../assets/logo/logo-mobile.png";
+
 import mapIcon from "./../assets/header-icons/map.svg";
 import phoneIcon from "./../assets/header-icons/phone.svg";
 import clockIcon from "./../assets/header-icons/clock.svg";
 import calendarIcon from "./../assets/header-icons/calendar.svg";
+import Telegram from './../assets/header-icons/Telegram.svg'
 
 import Navbar from "./Navbar";
 import FormModal from "./FormModal";
 import { NavLink } from "react-router-dom";
-import { FiMenu } from "react-icons/fi";
 
 const Header = () => {
-  const { onOpen, isOpen, onClose } = useDisclosure();
   const [isModalOpen, setIsModalOpen] = useState(false); //modal window
 
-  const handleOpenModal = () => {
-    onClose(); // Закрываем боковое меню
-    setIsModalOpen(true); // Открываем модальное окно
-  };
-
-  const MotionBox = motion(Box);
   const MotionButton = motion(Button);
-  const btnRef = React.useRef();
 
   return (
     <Box
@@ -55,7 +31,7 @@ const Header = () => {
       width="100%"
       backgroundColor="white"
       py="20px"
-      px={'10px'}
+      px={"10px"}
       zIndex={5}
     >
       <Box>
@@ -142,7 +118,8 @@ const Header = () => {
                     src={clockIcon}
                     margin={"8px auto"}
                     color={"#3a3a9c"}
-                    size={"20px"}
+                    width="20px"
+                    height="20px"
                   />
                 </Box>
                 <Text>
@@ -157,6 +134,29 @@ const Header = () => {
                   9:00-14:00
                 </Text>
               </Flex>
+              <Link href="https://t.me/clinicaserdca">
+                <Flex w={"180px"} gap={"10px"} alignItems={"center"}>
+                  <Box
+                    position={"relative"}
+                    h={"36px"}
+                    w={"36px"}
+                    borderRadius={"100%"}
+                    fill={"white"}
+                    boxShadow={"1px 2px 5px 0 #3a3a9c"}
+                  >
+                    <Image
+                      src={Telegram}
+                      margin={"8px auto"}
+                      color={"#3a3a9c"}
+                    />
+                  </Box>
+                  <Link href="https://t.me/clinicaserdca">
+                    <Text as="span" fontWeight={700}>
+                      @clinicaserdca
+                    </Text>
+                  </Link>
+                </Flex>
+              </Link>
             </Flex>
             <Link as={RouterLink} href="#form">
               <MotionButton
@@ -178,8 +178,6 @@ const Header = () => {
           </Flex>
         </Flex>
 
-        {/* Mobile */}
-        
         <Navbar />
       </Box>
 

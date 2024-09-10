@@ -1,6 +1,5 @@
 import React from "react";
-import { useRef, useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useState } from "react";
 
 import {
   Box,
@@ -15,7 +14,6 @@ import {
   DrawerOverlay,
   DrawerCloseButton,
   useDisclosure,
-  DrawerFooter,
   Link,
   VStack,
 } from "@chakra-ui/react";
@@ -38,7 +36,6 @@ import { useScroll } from "./StickyContext";
 const StickyHeader = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [isModalOpen, setIsModalOpen] = useState(false); //modal window
-  const [activeMenu, setActiveMenu] = useState(null);
   const isStickyVisible = useScroll(); // плавное появление навигации
 
   const handleOpenModal = () => {
@@ -46,7 +43,6 @@ const StickyHeader = () => {
     setIsModalOpen(true); // Открываем модальное окно
   };
 
-  const MotionBox = motion(Box);
   const MotionButton = motion(Button);
   const btnRef = React.useRef();
 
@@ -102,9 +98,9 @@ const StickyHeader = () => {
         position="fixed"
         top={0}
         left={0}
-        p={'20px'}
+        p={"20px"}
         width="100%"
-        bg={'white'}
+        bg={"white"}
         transform={`translateY(${isStickyVisible ? 0 : "-2px"})`} // Плавный сдвиг сверху
         transition="all 0.5s ease-in-out" // Плавный переход
         zIndex={10}
@@ -257,35 +253,7 @@ const StickyHeader = () => {
                       Контакты
                     </Link>
                   </NavLink>
-                  {/* <Link border={"none"}>
-                            Eще
-                            <Menu>
-                
-                              <MenuList
-                                mt={"7px"}
-                                pos={"absolute"}
-                                left={"-100px"}
-                                minW={"300px"}
-                                color={"brand.main"}
-                                fontWeight={500}
-                                gap={"20px"}
-                                py={"10px"}
-                              >
-                                <NavLink to="" border={"none"}>
-                                  <MenuItem onClick={onClose}>Download</MenuItem>
-                                </NavLink>
-                                <NavLink to="" border={"none"}>
-                                  <MenuItem onClick={onClose}>Download</MenuItem>
-                                </NavLink>
-                                <NavLink to="" border={"none"}>
-                                  <MenuItem onClick={onClose}>Download</MenuItem>
-                                </NavLink>
-                                <NavLink to="" border={"none"}>
-                                  <MenuItem onClick={onClose}>Download</MenuItem>
-                                </NavLink>
-                              </MenuList>
-                            </Menu>
-                          </Link> */}
+
                   <MotionButton
                     mt={"30px"}
                     p={"20px"}

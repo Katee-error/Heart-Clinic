@@ -1,10 +1,9 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import {
   Box,
   Image,
   Text,
   Button,
-  Container,
   Skeleton,
 } from "@chakra-ui/react";
 import Slider from "react-slick";
@@ -14,20 +13,27 @@ import FormModal from "./FormModal";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-import slide01 from "./../assets/slider/slide-4.jpg";
-import slide02 from "./../assets/slider/slide-2.jpg";
-import slide03 from "./../assets/slider/slide-3.jpg";
-import slide04 from "./../assets/slider/slide-1.jpg";
+import slide01 from "./../assets/slider/slide-1.png";
+import slide02 from "./../assets/slider/slide-2.png";
+import slide03 from "./../assets/slider/slide-3.png";
+import slide04 from "./../assets/slider/slide-4.png";
+import slide05 from "./../assets/slider/slide-5.png";
+import slide06 from "./../assets/slider/slide-6.png";
+import slide07 from "./../assets/slider/slide-7.png";
+import slide08 from "./../assets/slider/slide-8.png";
+import slide09 from "./../assets/slider/slide-9.png";
+import slide10 from "./../assets/slider/slide-10.png";
+import slide11 from "./../assets/slider/slide-11.png";
 
 const HeroSlider = () => {
   const settings = {
-    dots: true,
+    dots: false,
     infinite: true,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 3000,
+    autoplaySpeed: 3500,
     fade: false,
     cssEase: "ease",
     pauseOnHover: false,
@@ -35,14 +41,7 @@ const HeroSlider = () => {
 
   const sliderRef = useRef(null);
 
-  // useEffect(() => {
-  //   // Запускаем автоплей вручную, когда компонент монтируется
-  //   if (sliderRef.current) {
-  //     sliderRef.current.slickPlay();
-  //   }
-  // }, []);
-
-  const images = [slide01, slide02, slide03, slide04];
+  const images = [slide01, slide02, slide03, slide04, slide05, slide06, slide07, slide08, slide09, slide10, slide11];
   const MotionButton = motion(Button);
   const [isModalOpen, setIsModalOpen] = useState(false); //modal window
 
@@ -68,12 +67,14 @@ const HeroSlider = () => {
   return imagesLoaded ? (
     <Box
       id="hero"
-      width="100vw"
-      height={{ base: "300px", "2xs": "500px", md: "800px" }}
+      width={{ base: '94vw', md: '80vw'}}
+      height={{ base: "300px", xs: '565px', sm:'600px', md: "650px", lg: '700px', xl: '850px' }}
       overflow="hidden"
       position="relative"
       textAlign="center"
       mt={{ base: "50px", md: "0" }}
+      mx={'auto'}
+
     >
       <Slider {...settings} ref={sliderRef}>
         {images.map((image, index) => (
@@ -83,6 +84,7 @@ const HeroSlider = () => {
               alt={`Slide ${index + 1}`}
               width="100%"
               height="100%"
+              borderRadius={'20px'}
             />
             <Box
               position="absolute"
@@ -94,7 +96,7 @@ const HeroSlider = () => {
               p="20px"
               width={{ base: "100%", md: "70%" }}
             >
-              <Text fontWeight={500} fontSize={{ base: "40px", md: "80px" }}>
+              <Text fontWeight={500} fontSize={{ base: "30px", md: "80px" }}>
                 Клиника Сердца
               </Text>
               <Text

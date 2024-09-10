@@ -8,9 +8,8 @@ import {
   Text,
   VStack,
   Button,
-  useColorModeValue,
 } from "@chakra-ui/react";
-import { React, useState } from "react";
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import logo from "./../assets/logo/logo.png";
 import telegram from "./../assets/icons/social/telegram.svg";
