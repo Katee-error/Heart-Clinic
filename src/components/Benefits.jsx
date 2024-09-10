@@ -60,7 +60,7 @@ const Benefits = () => {
           >
             <GridItem>
               <MotionCard
-                 h={{md:"400px"}}
+                minH={{ md: "400px" }}
                 maxW="sm"
                 border={"1px solid #3a3a9c"}
                 whileHover={{ scale: 1.08 }}
@@ -85,7 +85,7 @@ const Benefits = () => {
             </GridItem>{" "}
             <GridItem>
               <MotionCard
-              h={{md:"400px"}}
+                minH={{ md: "400px" }}
                 maxW="sm"
                 border={"1px solid #3a3a9c"}
                 whileHover={{ scale: 1.08 }}
@@ -110,7 +110,7 @@ const Benefits = () => {
             </GridItem>{" "}
             <GridItem>
               <MotionCard
-                h={{md:"400px"}}
+                minH={{ md: "400px" }}
                 maxW="sm"
                 border={"1px solid #3a3a9c"}
                 whileHover={{ scale: 1.08 }}
