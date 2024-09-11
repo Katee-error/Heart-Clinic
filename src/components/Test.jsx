@@ -9,14 +9,16 @@ import {
   Stack,
   Heading,
   Text,
+  Button,
 } from "@chakra-ui/react";
-
+import React from "react";
 import test1 from "./../assets/all/test-1.jpg";
 import Polis from "./../assets/all/polis.jpg";
 import Laba from "./../assets/all/laba.jpg";
 import Dnevnoy from "./../assets/all/dnevnoy.jpg";
 import test5 from "./../assets/all/test-5.jpg";
 
+import arrow from "./../assets/icons/arrow-right.svg";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 

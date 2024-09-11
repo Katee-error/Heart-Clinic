@@ -1,9 +1,10 @@
+import React from "react";
 import { YMaps, Map, Placemark } from "@pbe/react-yandex-maps";
 import { Box } from "@chakra-ui/react";
 
 const Location = ({ address }) => {
   return (
-    <Box height="500px" width="100%" mb={"50px"}>
+    <Box height="500px" width="100%" mb={'50px'}>
       <YMaps>
         <Map
           defaultState={{

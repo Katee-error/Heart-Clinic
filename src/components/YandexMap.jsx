@@ -1,4 +1,4 @@
-
+import React from "react";
 import {
   Box,
   Flex,
@@ -35,29 +35,27 @@ const YandexMap = () => {
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 50 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      mb={'120px'}
+      mb={"120px"}
     >
       <Location address={address} />
       <Card
         maxW={"1000px"}
         bg={"#fff"}
         // border={"1px solid #3a3a9c"}
-        p={{ base: "20px", md: "50px" }}
+        p={{ base: "20px", md: "30px" }}
         m={"0 auto"}
         w={"80%"}
         borderRadius={"20px"}
         pos={"relative"}
         mt={{ base: "0px", md: "-120px" }}
       >
-        <CardBody
-          id="contact"
-        >
+        <CardBody id="contact">
           <Flex
             gap={"50px"}
             justifyContent={"space-between"}
             flexDirection={{ base: "column", md: "row" }}
           >
-            <Box>
+            <VStack spacing={'40px'} alignItems={'start'}>
               <Flex
                 alignItems={"start"}
                 justifyContent={"space-between"}
@@ -92,17 +90,6 @@ const YandexMap = () => {
                   </Text>
                 </VStack>
               </Flex>
-              <Text
-                my={"30px"}
-                fontSize={"xxs"}
-                color={"gray.500"}
-                display={{ base: "none", md: "block" }}
-              >
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit,
-                reiciendis quasi sit, libero earum non sequi vitae cumque
-                nesciunt ullam placeat eveniet maiores asperiores fugiat dolorem
-                quos ad aperiam nobis.
-              </Text>
               <Flex
                 justifyContent={"space-between"}
                 alignItems={"center"}
@@ -127,7 +114,7 @@ const YandexMap = () => {
                   Связаться с нами
                 </MotionButton>
                 <Flex gap={"20px"}>
-                  <Link>
+                  <Link href="https://t.me/clinicaserdca">
                     <Image src={telegram} w={"36px"} />
                   </Link>
                   <Link>
@@ -135,7 +122,7 @@ const YandexMap = () => {
                   </Link>
                 </Flex>
               </Flex>
-            </Box>
+            </VStack>
             <Image
               src={build}
               borderRadius={"20px"}
