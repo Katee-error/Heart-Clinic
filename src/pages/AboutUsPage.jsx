@@ -51,14 +51,14 @@ const AboutUsPage = () => {
           </Text>
           <Link
             color={"blue"}
-            href="../../src/assets/files/about_us.pdf"
+            href="./about_us.pdf"
             isExternal
           >
             О нашей клинике
           </Link>
           <Link
             color={"blue"}
-            href="../../src/assets/files/license.pdf"
+            href="./license.pdf"
             isExternal
           >
             Лицензия клиники
