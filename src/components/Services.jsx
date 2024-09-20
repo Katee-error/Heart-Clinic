@@ -11,13 +11,12 @@ import {
   TabPanels,
   Tab,
   TabPanel,
-
 } from "@chakra-ui/react";
-import  { useState } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import services from "../data/services";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 const MotionBox = motion(Box);
 
@@ -59,7 +58,7 @@ const Services = () => {
       transition={{ duration: 0.6, ease: "easeOut" }}
     >
       <Container maxW={"container.xl"}>
-        <Flex justifyContent={'space-between'} alignItems={'start'} >
+        <Flex justifyContent={"space-between"} alignItems={"start"}>
           <Heading
             mb={{ base: "40px", md: "60px" }}
             fontSize={{ base: "40px", md: "50px" }}
@@ -68,12 +67,12 @@ const Services = () => {
           >
             Услуги клиники
           </Heading>
-          <Link to='/services'>
+          <Link to="/services">
             <MotionButton
               h={"40px"}
               w={"150px"}
               p={"10px 20px"}
-              mt={'15px'}
+              mt={"15px"}
               borderRadius={"10px"}
               fontSize={"14px"}
               fontWeight={700}
@@ -132,10 +131,9 @@ const Services = () => {
                     gap={{ base: "20px" }}
                   >
                     <Box w={{ base: "100%", md: "50%" }}>
-                      <Heading mb={"30px"} fontWeight={400} fontSize={"md"}>
+                      <Heading mb={"30px"} fontWeight={400} fontSize={"30px"}>
                         {service.title}
                       </Heading>
-                      <Text color={"gray.500"}>{service.desc}</Text>
                     </Box>
                     <Box>
                       <MotionImage

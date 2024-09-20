@@ -220,6 +220,17 @@ const StickyHeader = () => {
                       Наши врачи
                     </Link>
                   </NavLink>
+                  <NavLink to="/promotion" border={"none"}>
+                    <Link
+                      onClick={onClose}
+                      _hover={{
+                        textDecoration: "none",
+                        color: "hover.link",
+                      }}
+                    >
+                     Акции
+                    </Link>
+                  </NavLink>
                   <NavLink to="/oms" border={"none"}>
                     <Link
                       onClick={onClose}

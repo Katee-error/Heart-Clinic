@@ -17,9 +17,8 @@ import Polis from "./../assets/all/polis.jpg";
 import Laba from "./../assets/all/laba.jpg";
 import Dnevnoy from "./../assets/all/dnevnoy.jpg";
 import test5 from "./../assets/all/test-5.jpg";
-
-import arrow from "./../assets/icons/arrow-right.svg";
 import { motion } from "framer-motion";
+
 import { useInView } from "react-intersection-observer";
 
 const MotionBox = motion(Box);

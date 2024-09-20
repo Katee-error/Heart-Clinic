@@ -172,7 +172,7 @@ const ServicesPage = () => {
                         </SimpleGrid>
                       </TabPanel>
                     ))}
-                    yr
+                  
                   </TabPanels>
                 )}
               </Tabs>

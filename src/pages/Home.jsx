@@ -1,4 +1,3 @@
-
 import { Box } from "@chakra-ui/react";
 
 import AboutUs from "../components/AboutUs";
@@ -10,6 +9,7 @@ import Benefits from "../components/Benefits";
 import Test from "../components/Test";
 import HeroSlider from "../components/HeroSlider";
 import TestimonialsMarquee from "./../components/Reviews";
+import PromotionList from "../components/PromotionList";
 
 const Home = () => {
   return (
@@ -20,6 +20,7 @@ const Home = () => {
       <Test />
       <Services />
       <OurDoctors />
+      <PromotionList />
       <TestimonialsMarquee />
       <ContactForm />
 

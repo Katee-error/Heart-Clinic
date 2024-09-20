@@ -1,12 +1,6 @@
 import React, { useState } from "react";
-import {
-  Box,
-  Flex,
-
-  Link,
-} from "@chakra-ui/react";
+import { Box, Flex, Link } from "@chakra-ui/react";
 import { NavLink } from "react-router-dom";
-
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(null);
@@ -50,6 +44,11 @@ const Navbar = () => {
             Наши врачи
           </Link>
         </NavLink>
+        <NavLink to="/promotion" border={"none"}>
+          <Link _hover={{ textDecoration: "none", color: "hover.link" }}>
+            Акции
+          </Link>
+        </NavLink>
         <NavLink to="/oms" border={"none"}>
           <Link _hover={{ textDecoration: "none", color: "hover.link" }}>
             ОМС
@@ -65,7 +64,6 @@ const Navbar = () => {
             Контакты
           </Link>
         </NavLink>
-        
       </Flex>
     </Box>
   );
