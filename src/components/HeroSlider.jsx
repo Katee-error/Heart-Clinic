@@ -50,19 +50,22 @@ const HeroSlider = () => {
   useEffect(() => {
     const loadImages = () => {
       let loaded = 0;
-      images.forEach((image) => {
+      const firstTwoImages = images.slice(0, 2); 
+  
+      firstTwoImages.forEach((image) => {
         const img = new window.Image();
         img.src = image;
         img.onload = () => {
           loaded++;
-          if (loaded === images.length) {
-            setImagesLoaded(true);
+          if (loaded === firstTwoImages.length) {
+            setImagesLoaded(true); 
           }
         };
       });
     };
+  
     loadImages();
-  }, [images]);
+  }, [images]); 
 
   return imagesLoaded ? (
     <Box
