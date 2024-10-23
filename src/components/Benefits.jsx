@@ -15,7 +15,6 @@ import { useInView } from "react-intersection-observer";
 import doctor from "./../assets/about-us/icons/doctor.webp";
 import en from "./../assets/about-us/icons/en.webp";
 import stethoscope from "./../assets/about-us/icons/stethoscope.webp";
-import box from "./../assets/slider/box-ben.webp";
 
 const MotionBox = motion(Box);
 
@@ -37,8 +36,13 @@ const Benefits = () => {
       transition={{ duration: 0.6, ease: "easeOut" }}
     >
       <Container maxW="container.xl">
-        <Box pos={"relative"}>
-          <Image src={box} alt="box" w={"100%"} h={{ base: "120px", md: "auto" }} loading="lazy" />
+        <Box
+          pos={"relative"}
+          w={"100%"}
+          h={{ base: "120px", md: "300px" }}
+          borderRadius={'10px'}
+          bgColor={"brand.main"}
+        >
           <Heading
             mb={"60px"}
             fontSize={{ base: "24px", md: "50px" }}
@@ -66,7 +70,14 @@ const Benefits = () => {
                 whileHover={{ scale: 1.08 }}
               >
                 <CardBody>
-                  <Image src={doctor} alt="doctor" w={"50px"} h={"50px"} mb={"15px"} loading="lazy" />
+                  <Image
+                    src={doctor}
+                    alt="doctor"
+                    w={"50px"}
+                    h={"50px"}
+                    mb={"15px"}
+                    loading="lazy"
+                  />
                   <Heading fontSize={"16px"} mb={"10px"}>
                     Квалифицированные специалисты
                   </Heading>
@@ -91,7 +102,14 @@ const Benefits = () => {
                 whileHover={{ scale: 1.08 }}
               >
                 <CardBody>
-                  <Image src={stethoscope} w={"50px"} h={"50px"} mb={"15px"} loading="lazy" alt="stethoscope" />
+                  <Image
+                    src={stethoscope}
+                    w={"50px"}
+                    h={"50px"}
+                    mb={"15px"}
+                    loading="lazy"
+                    alt="stethoscope"
+                  />
                   <Heading fontSize={"16px"} mb={"10px"}>
                     Современное оборудование
                   </Heading>
@@ -116,7 +134,14 @@ const Benefits = () => {
                 whileHover={{ scale: 1.08 }}
               >
                 <CardBody>
-                  <Image src={en} w={"50px"} h={"50px"} mb={"15px"} loading="lazy" alt="enviroment"  />
+                  <Image
+                    src={en}
+                    w={"50px"}
+                    h={"50px"}
+                    mb={"15px"}
+                    loading="lazy"
+                    alt="enviroment"
+                  />
                   <Heading fontSize={"16px"} mb={"10px"}>
                     Главное для нас – решение Вашей проблемы!
                   </Heading>

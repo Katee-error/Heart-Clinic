@@ -9,7 +9,6 @@ import {
   Image,
 } from "@chakra-ui/react";
 import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
-import box from "./../assets/slider/box-ben.webp";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
@@ -60,8 +59,12 @@ const TestimonialSlider = () => {
       animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 50 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
     >
-      <Box pos={"relative"}>
-        <Image src={box} alt="box" w={"100%"} h={{ base: "120px", md: "auto" }} loading="lazy" />
+      <Box
+        pos={"relative"}
+        w={"100%"}
+        h={{ base: "120px", md: "270px" }}
+        bgColor={"brand.main"}
+      >
         <Heading
           mb={"60px"}
           fontSize={{ base: "24px", md: "50px" }}
