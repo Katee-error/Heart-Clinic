@@ -1,8 +1,6 @@
 import { Routes, Route, Navigate } from "react-router-dom";
-import { lazy, Suspense } from "react";
-import { Skeleton } from "@chakra-ui/react";
+import { lazy } from "react";
 import Home from './../pages/Home'
-// Lazy loading the components
 
 const ServicesCostPage = lazy(() => import("../pages/ServicesCostPage"));
 const AboutUsPage = lazy(() => import("../pages/AboutUsPage"));
@@ -14,11 +12,6 @@ const PromotionDetail = lazy(() => import("../pages/PromotionDetail"));
 
 const Routers = () => {
   return (
-    <Suspense
-      fallback={
-        <Skeleton h={{ base: "300px", md: "700px" }} w={"100%"}></Skeleton>
-      }
-    >
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="*" element={<Navigate to="/" />} />
@@ -30,7 +23,6 @@ const Routers = () => {
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/doctors" element={<DoctorsPages />} />
       </Routes>
-    </Suspense>
   );
 };
 
