@@ -1,9 +1,9 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import { Skeleton } from "@chakra-ui/react";
-
+import Home from './../pages/Home'
 // Lazy loading the components
-const Home = lazy(() => import("../pages/Home"));
+
 const ServicesCostPage = lazy(() => import("../pages/ServicesCostPage"));
 const AboutUsPage = lazy(() => import("../pages/AboutUsPage"));
 const OmsPage = lazy(() => import("../pages/OmsPage"));

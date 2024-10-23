@@ -1,46 +1,26 @@
 import { Box } from "@chakra-ui/react";
-import { lazy } from "react";
 import HeroSlider from "../components/HeroSlider";
-import LazyLoad from "../components/LazyLoad"; // Import LazyLoad
-
-// Lazy loading other components
-const AboutUs = lazy(() => import("../components/AboutUs"));
-const OurDoctors = lazy(() => import("../components/DoctorsList"));
-const ContactForm = lazy(() => import("../components/FormTest"));
-const YandexMap = lazy(() => import("../components/YandexMap"));
-const Benefits = lazy(() => import("../components/Benefits"));
-const Test = lazy(() => import("../components/Test"));
-const PromotionList = lazy(() => import("../components/PromotionList"));
-const TestimonialsMarquee = lazy(() => import("./../components/Reviews"));
+import AboutUs from "../components/AboutUs";
+import OurDoctors from "../components/DoctorsList";
+import ContactForm from "../components/FormTest";
+import YandexMap from "../components/YandexMap";
+import Benefits from "../components/Benefits";
+import Test from "../components/Test";
+import TestimonialsMarquee from "./../components/Reviews";
+import PromotionList from "../components/PromotionList";
 
 const Home = () => {
   return (
     <Box>
-      <HeroSlider />
-      <LazyLoad>
-        <AboutUs />
-      </LazyLoad>
-      <LazyLoad>
-        <Benefits />
-      </LazyLoad>
-      <LazyLoad>
-        <Test />
-      </LazyLoad>
-      <LazyLoad>
-        <OurDoctors />
-      </LazyLoad>
-      <LazyLoad>
-        <PromotionList />
-      </LazyLoad>
-      <LazyLoad>
-        <TestimonialsMarquee />
-      </LazyLoad>
-      <LazyLoad>
-        <ContactForm />
-      </LazyLoad>
-      <LazyLoad>
-        <YandexMap />
-      </LazyLoad>
+    <HeroSlider />
+    <AboutUs />
+    <Benefits />
+    <Test />
+    <OurDoctors />
+    <PromotionList />
+    <TestimonialsMarquee />
+    <ContactForm />
+    <YandexMap />
     </Box>
   );
 };
