@@ -13,17 +13,17 @@ const FormModal = React.lazy(() => import("./FormModal"));
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-import slide01 from "./../assets/slider/slide-1.png";
-import slide02 from "./../assets/slider/slide-2.png";
-import slide03 from "./../assets/slider/slide-3.png";
-import slide04 from "./../assets/slider/slide-4.png";
-import slide05 from "./../assets/slider/slide-5.png";
-import slide06 from "./../assets/slider/slide-6.png";
-import slide07 from "./../assets/slider/slide-7.png";
-import slide08 from "./../assets/slider/slide-8.png";
-import slide09 from "./../assets/slider/slide-9.png";
-import slide10 from "./../assets/slider/slide-10.png";
-import slide11 from "./../assets/slider/slide-11.png";
+import slide01 from "./../assets/slider/slide-1.webp";
+import slide02 from "./../assets/slider/slide-2.webp";
+import slide03 from "./../assets/slider/slide-3.webp";
+import slide04 from "./../assets/slider/slide-4.webp";
+import slide05 from "./../assets/slider/slide-5.webp";
+import slide06 from "./../assets/slider/slide-6.webp";
+import slide07 from "./../assets/slider/slide-7.webp";
+import slide08 from "./../assets/slider/slide-8.webp";
+import slide09 from "./../assets/slider/slide-9.webp";
+import slide10 from "./../assets/slider/slide-10.webp";
+import slide11 from "./../assets/slider/slide-11.webp";
 
 const HeroSlider = () => {
   const settings = {
