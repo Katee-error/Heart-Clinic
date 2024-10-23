@@ -67,10 +67,11 @@ const YandexMap = ({ address, coordinates }) => {
                   <Text color={"brand.main"} fontWeight={700}>
                     Телефон
                   </Text>
-                  <Link>
-                    +7 (999) 478 00 66 <br />
-                    +7 (999) 478 00 55
-                  </Link>
+                  <Text>
+                  <Link href="tel:+79994780066">+7 (999) 478 00 66 </Link>
+                  <br />
+                  <Link href="tel:+79994780055">+7 (999) 478 00 55 </Link>
+                </Text>
                 </VStack>
                 <VStack fontSize={"xxs"} alignItems={"start"}>
                   <Text color={"brand.main"} fontWeight={700}>
