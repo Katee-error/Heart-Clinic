@@ -15,7 +15,7 @@ const AboutUs = () => {
   return (
     <MotionBox
       id="about"
-      m={{ base: "60px 0", md: "60px 0 120px" }}
+      m={{ base: "10px 0 60px", md: "60px 0 100px" }}
       fontSize={{ base: "20px", sm: "24px", md: "30px" }}
       ref={ref}
       fontWeight={"300"}
