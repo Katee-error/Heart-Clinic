@@ -20,14 +20,12 @@ import whatsap from "./../assets/icons/social/whatsapp.svg";
 import { useInView } from "react-intersection-observer";
 
 const MotionBox = motion(Box);
+const MotionButton = motion(Button);
 
-const YandexMap = () => {
-  const address = "367009, г. Махачкала Туп. Каммаева 1-й, влд.30";
-  const MotionButton = motion(Button);
-
+const YandexMap = ({ address, coordinates }) => {
   const { ref, inView } = useInView({
-    triggerOnce: true, // Анимация запускается только один раз
-    threshold: 0.3, // Процент видимой области, после которого запускается анимация
+    triggerOnce: true,
+    threshold: 0.3,
   });
   const [isModalOpen, setIsModalOpen] = useState(false); //modal window
 
@@ -39,11 +37,10 @@ const YandexMap = () => {
       transition={{ duration: 0.6, ease: "easeOut" }}
       mb={"120px"}
     >
-      <Location address={address} />
+      <Location address={address} coordinates={coordinates} />
       <Card
         maxW={"1000px"}
         bg={"#fff"}
-        // border={"1px solid #3a3a9c"}
         p={{ base: "20px", md: "30px" }}
         m={"0 auto"}
         w={"80%"}
@@ -108,16 +105,14 @@ const YandexMap = () => {
                   fontWeight={600}
                   border={"1px solid #3a3a9c"}
                   bg={"transparent"}
-                  // bg={"#C7323D"}
                   _hover={{ bgColor: "hover.button" }}
                   whileHover={{ scale: 1.05 }}
-                  // color={'white'}
                   onClick={() => setIsModalOpen(true)}
                 >
                   Связаться с нами
                 </MotionButton>
                 <Flex gap={"20px"}>
-                  <Link href="https://t.me/clinicaserdca">
+                  <Link href="https://t.me/clinicaserdca" isExternal>
                     <Image
                       src={telegram}
                       alt="telegram"
@@ -126,10 +121,13 @@ const YandexMap = () => {
                       loading="lazy"
                     />
                   </Link>
-                  <Link href="https://api.whatsapp.com/send/?phone=79994780055">
+                  <Link
+                    href="https://api.whatsapp.com/send/?phone=79994780055"
+                    isExternal
+                  >
                     <Image
                       src={whatsap}
-                      alt="whatsap"
+                      alt="whatsapp"
                       w={"36px"}
                       h={"auto"}
                       loading="lazy"
