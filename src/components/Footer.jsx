@@ -11,7 +11,7 @@ import {
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
-import logo from "./../assets/logo/logo.png";
+import logo from "./../assets/logo/logo.webp";
 import telegram from "./../assets/icons/social/telegram.svg";
 import whatsap from "./../assets/icons/social/whatsapp.svg";
 import { motion } from "framer-motion";
@@ -127,7 +127,7 @@ const Footer = () => {
                   </Link>
                 </Flex>
               </VStack>
-              <Box display={{base: 'block', md: 'none'}}>
+              <Box display={{ base: "block", md: "none" }}>
                 <MotionButton
                   p={"20px"}
                   borderRadius={"10px"}

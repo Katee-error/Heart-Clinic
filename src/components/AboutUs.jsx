@@ -12,8 +12,9 @@ const AboutUs = () => {
   return (
     <MotionBox
       id="about"
-      my={{ base: "60px", md: "120px" }}
-      pt={{ "2xs": "0px", md: "60px" }}
+      mb={{ base: "60px", md: "120px" }}
+      mt={{base: '80px'}}
+      pt={{ "2xs": "0px", }}
       ref={ref}
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 50 }}

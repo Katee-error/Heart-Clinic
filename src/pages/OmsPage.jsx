@@ -10,12 +10,21 @@ import {
   AccordionIcon,
   AccordionPanel,
   Link,
+  Button
 } from "@chakra-ui/react";
+import { useState } from "react";
 import oms from "../data/oms";
+import { motion } from "framer-motion";
+import FormModal from "../components/FormModal";
+import { FiArrowRight } from "react-icons/fi";
 
 const OmsPage = () => {
+
+  const [isModalOpen, setIsModalOpen] = useState(false); //modal window
+  const MotionButton = motion(Button);
+
   return (
-    <Box py={{ md: "60px" }}>
+    <Box py={{base: '80px', md: "60px" }}>
       <Container maxW="container.xl">
         <Heading
           fontSize={{ base: "40px", md: "50px" }}
@@ -25,7 +34,7 @@ const OmsPage = () => {
           ОМС
         </Heading>
         <Box mb={"60px"}>
-          <Text w={"70%"} fontSize={"18px"}>
+          <Text w={['100%',"70%"]} fontSize={"18px"} mb={'20px'}>
             Обследование и лечение по полису ОМС Пациенты МЦ «Клиника Сердца»
             имеют возможность получить бесплатное обследование и лечение по
             полису обязательного медицинского страхования. Для планового
@@ -33,6 +42,22 @@ const OmsPage = () => {
             057/у от лечащего (участкового) врача, а также предъявить паспорт и
             полис ОМС.
           </Text>
+          <MotionButton
+          p={"25px 30px"}
+          borderRadius={"10px"}
+          fontSize={"16px"}
+          fontWeight={600}
+          border={"1px solid #3a3a9c"}
+          // bg={"transparent"}
+          bg={"brand.main"}
+          _hover={{ bgColor: "hover.button", color: "black" }}
+          whileHover={{ scale: 1.05 }}
+          color={"white"}
+          onClick={setIsModalOpen}
+        >
+          Записаться
+     
+        </MotionButton>
         </Box>
         <Text fontSize={"30px"} mb={"20px"}>
           Документы по ОМС
@@ -70,6 +95,7 @@ const OmsPage = () => {
           ))}
         </Accordion>
       </Container>
+      <FormModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </Box>
   );
 };

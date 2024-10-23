@@ -5,13 +5,13 @@ import { Box, Flex, Image, Text, Button, Link } from "@chakra-ui/react";
 
 import { motion } from "framer-motion";
 
-import logo from "./../assets/logo/logo.png";
+import logo from "./../assets/logo/logo.webp";
 
 import mapIcon from "./../assets/header-icons/map.svg";
 import phoneIcon from "./../assets/header-icons/phone.svg";
 import clockIcon from "./../assets/header-icons/clock.svg";
 import calendarIcon from "./../assets/header-icons/calendar.svg";
-import Telegram from './../assets/header-icons/Telegram.svg'
+import Telegram from "./../assets/header-icons/Telegram.svg";
 
 import Navbar from "./Navbar";
 import FormModal from "./FormModal";
@@ -30,7 +30,7 @@ const Header = () => {
       left={0}
       width="100%"
       backgroundColor="white"
-      py="20px"
+      pt="20px"
       px={"10px"}
       zIndex={5}
     >

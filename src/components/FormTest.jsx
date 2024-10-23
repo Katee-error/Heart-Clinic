@@ -18,7 +18,7 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
 import AutoResizeTextarea from "./AutoResizeTexarea";
-import formImg from "./../assets/all/form-img.jpg";
+import formImg from "./../assets/all/form-img.webp";
 import InputMask from "react-input-mask";
 
 const MotionBox = motion(Box);
@@ -40,6 +40,7 @@ const ContactForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    ym(98379175, "reachGoal", "otpravka_formy");
     // Формируем сообщение для отправки в WhatsApp
     const message = `Имя: ${name}\nТелефон: ${phone}\nКомментарий: ${comment}`;
 
@@ -158,15 +159,13 @@ const ContactForm = () => {
               <Divider w={"70%"} borderBottomWidth={"1px"} m={"0 auto"} />
               <Text textAlign={"center"} fontWeight={500} m={"0 auto"}>
                 <Box as={"span"}>
-                  Нажимая кнопку "Отправить", вы даете
-                  <Link href="" color="#3a3a9c">
-                    согласие на обработку персональных данных
-                  </Link>
+                  Нажимая кнопку "Отправить", вы даете согласие на обработку
+                  персональных данных
                 </Box>
               </Text>
             </VStack>
           </form>
-          <Box maxW={"50%"} mt={"25px"} display={{base: 'none', md: 'block'}}>
+          <Box maxW={"50%"} mt={"25px"} display={{ base: "none", md: "block" }}>
             <Image
               src={formImg}
               borderRadius={"20px"}

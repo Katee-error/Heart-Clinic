@@ -12,10 +12,10 @@ import {
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
-import doctor from "./../assets/about-us/icons/doctor.png";
-import en from "./../assets/about-us/icons/en.png";
-import stethoscope from "./../assets/about-us/icons/stethoscope.png";
-import box from "./../assets/slider/box-ben.png";
+import doctor from "./../assets/about-us/icons/doctor.webp";
+import en from "./../assets/about-us/icons/en.webp";
+import stethoscope from "./../assets/about-us/icons/stethoscope.webp";
+import box from "./../assets/slider/box-ben.webp";
 
 const MotionBox = motion(Box);
 

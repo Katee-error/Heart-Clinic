@@ -32,6 +32,7 @@ const FormModal = ({ isOpen, onClose }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    ym(98379175,'reachGoal','otpravka_formy') // метрика для от правки 
     // Формируем сообщение для отправки в WhatsApp
     const message = `Имя: ${name}\nТелефон: ${phone}\nКомментарий: ${comment}`;
 

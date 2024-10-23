@@ -14,16 +14,19 @@ import {
   TabPanels,
   Tab,
   TabPanel,
+  Button,
 } from "@chakra-ui/react";
 import servicesAll from "../data/servicesDetail";
 import { FiSearch } from "react-icons/fi";
 import { FaRubleSign } from "react-icons/fa6";
+import FormModal from "./../components/FormModal";
 
 const ServicesPage = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("Все услуги");
   const [currentIndex, setCurrentIndex] = useState(0);
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isModalOpen, setIsModalOpen] = useState(false); //modal window
 
   // Фильтрация услуг по названию
   const searchedServices = servicesAll.filter((service) =>
@@ -46,11 +49,14 @@ const ServicesPage = () => {
 
   const handleTabClick = (index) => {
     setCurrentIndex(index);
-    setSelectedCategory(categories[index]);
-  };
+    const selectedCategory = categories[index];
 
-  const handleTabChange = (index) => {
+    // Если выбрана категория "Все услуги", сбрасываем фильтры
+    if (selectedCategory === "Все услуги") {
+      setSearchTerm(""); // Сбросить поисковый запрос
+    }
     setActiveIndex(index);
+    setSelectedCategory(selectedCategory);
   };
 
   return (
@@ -58,9 +64,9 @@ const ServicesPage = () => {
       <Box>
         <Container maxW="container.xl">
           <Box
-            h={{base:"200px", md: '400px'}}
+            h={{ base: "200px", md: "400px" }}
             borderRadius={"0px 0px 20px 20px "}
-            bgImage="url('/cost-3.jpg')"
+            bgImage="url('/cost-3.webp')"
             bgPosition="center bottom"
             bgRepeat="no-repeat"
             bgSize="cover"
@@ -81,8 +87,8 @@ const ServicesPage = () => {
 
           <Box>
             <InputGroup mb={"40px"}>
-              <InputLeftElement pointerEvents="none" px={'10px'}>
-                <FiSearch size={'20px'}/>
+              <InputLeftElement pointerEvents="none" px={"10px"}>
+                <FiSearch size={"20px"} />
               </InputLeftElement>
               <Input
                 fontSize={"16px"}
@@ -116,7 +122,7 @@ const ServicesPage = () => {
                         color={"gray.500"}
                         mr={"20px"}
                         position="relative"
-                        onClick={() => handleTabChange(index)}
+                        onClick={() => handleTabClick(index)}
                       >
                         {category}
                         {activeIndex === index && (
@@ -146,24 +152,29 @@ const ServicesPage = () => {
                               key={service.id}
                               p="20px 30px"
                               boxShadow={"sm"}
-                              
                               bg={"white"}
                               borderRadius={"10px"}
+                              onClick={() => setIsModalOpen(true)}
+                              cursor={'pointer'}
+                            //  _hover={{bg: 'gray.200'}}
+                            
                             >
                               <Flex
                                 justifyContent={"space-between"}
                                 alignItems={"center"}
-                                gap={'10px'}
+                                gap={"10px"}
                               >
-                                <Text fontWeight="600" whiteSpace={'wrap'}>{service.name}</Text>
+                                <Text fontWeight="600" whiteSpace={"wrap"}>
+                                  {service.name}
+                                </Text>
                                 <Flex
                                   color={"brand.main"}
                                   gap={"5px"}
                                   alignItems={"center"}
-                            
-                             
                                 >
-                                  <Text fontWeight={700} whiteSpace={'nowrap'}>{service.cost}</Text>
+                                  <Text fontWeight={700} whiteSpace={"nowrap"}>
+                                    {service.cost}
+                                  </Text>
                                   <FaRubleSign />
                                 </Flex>
                               </Flex>
@@ -172,7 +183,6 @@ const ServicesPage = () => {
                         </SimpleGrid>
                       </TabPanel>
                     ))}
-                  
                   </TabPanels>
                 )}
               </Tabs>
@@ -180,6 +190,7 @@ const ServicesPage = () => {
           </Box>
         </Container>
       </Box>
+      <FormModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </Box>
   );
 };

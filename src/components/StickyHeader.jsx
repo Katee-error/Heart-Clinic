@@ -20,8 +20,8 @@ import {
 
 import { motion } from "framer-motion";
 
-import logo from "./../assets/logo/logo.png";
-import logoMobile from "./../assets/logo/logo-mobile.png";
+import logo from "./../assets/logo/logo.webp";
+import logoMobile from "./../assets/logo/logo-mobile.webp";
 import mapIcon from "./../assets/header-icons/map.svg";
 import phoneIcon from "./../assets/header-icons/phone.svg";
 import clockIcon from "./../assets/header-icons/clock.svg";
@@ -106,10 +106,10 @@ const StickyHeader = () => {
         zIndex={10}
         boxShadow="sm"
       >
-        <Link to="/">
+        <NavLink to="/home">
           <Image src={logoMobile} alt="logo" w={"70px"} />
-        </Link>
-
+        </NavLink>
+        
         <Flex alignItems={"center"} gap={"10px"}>
           <Flex gap={"30px"} alignItems={"center"}>
             <Flex
@@ -228,7 +228,7 @@ const StickyHeader = () => {
                         color: "hover.link",
                       }}
                     >
-                     Акции
+                      Акции
                     </Link>
                   </NavLink>
                   <NavLink to="/oms" border={"none"}>

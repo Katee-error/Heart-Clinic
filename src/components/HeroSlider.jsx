@@ -1,11 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import {
-  Box,
-  Image,
-  Text,
-  Button,
-  Skeleton,
-} from "@chakra-ui/react";
+import { Box, Image, Text, Button, Skeleton } from "@chakra-ui/react";
 import Slider from "react-slick";
 import { motion } from "framer-motion";
 import FormModal from "./FormModal";
@@ -13,17 +7,17 @@ import FormModal from "./FormModal";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-import slide01 from "./../assets/slider/slide-1.png";
-import slide02 from "./../assets/slider/slide-2.png";
-import slide03 from "./../assets/slider/slide-3.png";
-import slide04 from "./../assets/slider/slide-4.png";
-import slide05 from "./../assets/slider/slide-5.png";
-import slide06 from "./../assets/slider/slide-6.png";
-import slide07 from "./../assets/slider/slide-7.png";
-import slide08 from "./../assets/slider/slide-8.png";
-import slide09 from "./../assets/slider/slide-9.png";
-import slide10 from "./../assets/slider/slide-10.png";
-import slide11 from "./../assets/slider/slide-11.png";
+import slide01 from "./../assets/slider/slide-1.webp";
+import slide02 from "./../assets/slider/slide-2.webp";
+import slide03 from "./../assets/slider/slide-3.webp";
+import slide04 from "./../assets/slider/slide-4.webp";
+import slide05 from "./../assets/slider/slide-5.webp";
+import slide06 from "./../assets/slider/slide-6.webp";
+import slide07 from "./../assets/slider/slide-7.webp";
+import slide08 from "./../assets/slider/slide-8.webp";
+import slide09 from "./../assets/slider/slide-9.webp";
+import slide10 from "./../assets/slider/slide-10.webp";
+import slide11 from "./../assets/slider/slide-11.webp";
 
 const HeroSlider = () => {
   const settings = {
@@ -41,7 +35,19 @@ const HeroSlider = () => {
 
   const sliderRef = useRef(null);
 
-  const images = [slide01, slide02, slide03, slide04, slide05, slide06, slide07, slide08, slide09, slide10, slide11];
+  const images = [
+    slide01,
+    slide02,
+    slide03,
+    slide04,
+    slide05,
+    slide06,
+    slide07,
+    slide08,
+    slide09,
+    slide10,
+    slide11,
+  ];
   const MotionButton = motion(Button);
   const [isModalOpen, setIsModalOpen] = useState(false); //modal window
 
@@ -50,34 +56,40 @@ const HeroSlider = () => {
   useEffect(() => {
     const loadImages = () => {
       let loaded = 0;
-      const firstTwoImages = images.slice(0, 2); 
-  
+      const firstTwoImages = images.slice(0, 2);
+
       firstTwoImages.forEach((image) => {
         const img = new window.Image();
         img.src = image;
         img.onload = () => {
           loaded++;
           if (loaded === firstTwoImages.length) {
-            setImagesLoaded(true); 
+            setImagesLoaded(true);
           }
         };
       });
     };
-  
+
     loadImages();
-  }, [images]); 
+  }, [images]);
 
   return imagesLoaded ? (
     <Box
       id="hero"
-      width={{ base: '94vw', md: '80vw'}}
-      height={{ base: "300px", xs: '565px', sm:'600px', md: "650px", lg: '700px', xl: '850px' }}
+      width={{ base: "94vw", md: "80vw" }}
+      height={{
+        base: "300px",
+        xs: "565px",
+        sm: "600px",
+        md: "650px",
+        lg: "700px",
+        xl: "850px",
+      }}
       overflow="hidden"
       position="relative"
       textAlign="center"
       mt={{ base: "50px", md: "0" }}
-      mx={'auto'}
-
+      mx={"auto"}
     >
       <Slider {...settings} ref={sliderRef}>
         {images.map((image, index) => (
@@ -87,7 +99,7 @@ const HeroSlider = () => {
               alt={`Slide ${index + 1}`}
               width="100%"
               height="100%"
-              borderRadius={'20px'}
+              borderRadius={"20px"}
             />
             <Box
               position="absolute"
@@ -133,7 +145,7 @@ const HeroSlider = () => {
     </Box>
   ) : (
     <Box>
-      <Skeleton h={{ base: '300px',md:'700px'}} w={'100%'}></Skeleton>
+      <Skeleton h={{ base: "300px", md: "700px" }} w={"100%"}></Skeleton>
     </Box>
   );
 };

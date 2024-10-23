@@ -4,7 +4,7 @@ import AboutUs from "../components/AboutUs";
 import OurDoctors from "../components/DoctorsList";
 import ContactForm from "../components/FormTest";
 import YandexMap from "../components/YandexMap";
-import Services from "../components/Services";
+// import Services from "../components/Services";
 import Benefits from "../components/Benefits";
 import Test from "../components/Test";
 import HeroSlider from "../components/HeroSlider";
@@ -18,7 +18,7 @@ const Home = () => {
       <AboutUs />
       <Benefits />
       <Test />
-      <Services />
+      {/* <Services /> */}
       <OurDoctors />
       <PromotionList />
       <TestimonialsMarquee />

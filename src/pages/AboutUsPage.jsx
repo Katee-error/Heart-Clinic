@@ -11,9 +11,9 @@ import {
   VStack,
   Link,
 } from "@chakra-ui/react";
-import doctor from "./../assets/about-us/icons/doctor.png";
-import letter from "./../assets/about-us/icons/letter.png";
-import stethoscope from "./../assets/about-us/icons/stethoscope.png";
+import doctor from "./../assets/about-us/icons/doctor.webp";
+import letter from "./../assets/about-us/icons/letter.webp";
+import stethoscope from "./../assets/about-us/icons/stethoscope.webp";
 
 import { motion } from "framer-motion";
 
@@ -49,18 +49,10 @@ const AboutUsPage = () => {
             - В клинике есть стандартная и VIP палаты дневного стационара для
             послеоперационной реабилитации.
           </Text>
-          <Link
-            color={"blue"}
-            href="./about_us.pdf"
-            isExternal
-          >
+          <Link color={"blue"} href="./about_us.pdf" isExternal>
             О нашей клинике
           </Link>
-          <Link
-            color={"blue"}
-            href="./license.pdf"
-            isExternal
-          >
+          <Link color={"blue"} href="./license.pdf" isExternal>
             Лицензия клиники
           </Link>
         </VStack>

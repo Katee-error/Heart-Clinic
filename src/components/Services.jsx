@@ -43,7 +43,7 @@ const Services = () => {
   return (
     <MotionBox
       id="services"
-      bgImage="url('/services.jpg')"
+      bgImage="url('/services.webp')"
       bgPosition="center"
       bgRepeat="no-repeat"
       bgSize="cover"

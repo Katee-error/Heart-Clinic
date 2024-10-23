@@ -10,7 +10,7 @@ import {
   Image,
 } from "@chakra-ui/react";
 import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
-import box from "./../assets/slider/box-ben.png";
+import box from "./../assets/slider/box-ben.webp";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
@@ -84,7 +84,11 @@ const TestimonialSlider = () => {
         <Flex
           transition="transform 0.5s ease"
           transform={`translateX(-${currentIndex * 300}px)`} // Сдвиг слайдов на мобильных устройствах
-          width={slideWidth === "300px" ? `${testimonials.length * 300}px` : `${testimonials.length * (100 / 3)}%`} // Ширина контейнера для всех слайдов
+          width={
+            slideWidth === "300px"
+              ? `${testimonials.length * 300}px`
+              : `${testimonials.length * (100 / 3)}%`
+          } // Ширина контейнера для всех слайдов
         >
           {testimonials.map((testimonial, index) => (
             <Box
@@ -97,13 +101,13 @@ const TestimonialSlider = () => {
                 bg="white"
                 borderRadius="md"
                 boxShadow="md"
-                p={'30px'}
+                p={"30px"}
                 mx={2}
                 minHeight={{ base: "320px", md: "250px" }}
               >
                 <Text
                   fontSize={{ base: "16px", md: "20px" }}
-                  mb={'15px'}
+                  mb={"15px"}
                 >{`"${testimonial.text}"`}</Text>
                 <Text
                   fontWeight="700"

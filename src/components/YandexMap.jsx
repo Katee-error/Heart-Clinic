@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {
   Box,
   Flex,
@@ -11,6 +11,7 @@ import {
   CardBody,
 } from "@chakra-ui/react";
 import Location from "./Location";
+import FormModal from "./FormModal";
 
 import build from "./../assets/location/build.webp";
 import { motion } from "framer-motion";
@@ -28,6 +29,7 @@ const YandexMap = () => {
     triggerOnce: true, // Анимация запускается только один раз
     threshold: 0.3, // Процент видимой области, после которого запускается анимация
   });
+  const [isModalOpen, setIsModalOpen] = useState(false); //modal window
 
   return (
     <MotionBox
@@ -110,6 +112,7 @@ const YandexMap = () => {
                   _hover={{ bgColor: "hover.button" }}
                   whileHover={{ scale: 1.05 }}
                   // color={'white'}
+                  onClick={() => setIsModalOpen(true)}
                 >
                   Связаться с нами
                 </MotionButton>
@@ -117,7 +120,7 @@ const YandexMap = () => {
                   <Link href="https://t.me/clinicaserdca">
                     <Image src={telegram} w={"36px"} />
                   </Link>
-                  <Link>
+                  <Link href="https://api.whatsapp.com/send/?phone=79994780055">
                     <Image src={whatsap} w={"36px"} />
                   </Link>
                 </Flex>
@@ -133,7 +136,9 @@ const YandexMap = () => {
           </Flex>
         </CardBody>
       </Card>
+      <FormModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </MotionBox>
+    
   );
 };
 

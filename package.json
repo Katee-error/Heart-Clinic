@@ -3,7 +3,6 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "proxy": "https://heart-backend-66ebd61af25e.herokuapp.com/send-message",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -27,6 +26,7 @@
     "react-scroll": "^1.9.0",
     "react-slick": "^0.30.2",
     "react-toastify": "^10.0.5",
+    "react-yandex-metrika": "^2.6.0",
     "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
