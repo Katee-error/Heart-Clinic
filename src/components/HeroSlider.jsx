@@ -34,6 +34,9 @@ const HeroSlider = () => {
   };
 
   const sliderRef = useRef(null);
+  const MotionButton = motion(Button);
+  const [isModalOpen, setIsModalOpen] = useState(false); // modal window
+  const [imagesLoaded, setImagesLoaded] = useState(false);
 
   const images = [
     slide01,
@@ -48,26 +51,22 @@ const HeroSlider = () => {
     slide10,
     slide11,
   ];
-  const MotionButton = motion(Button);
-  const [isModalOpen, setIsModalOpen] = useState(false); //modal window
-
-  const [imagesLoaded, setImagesLoaded] = useState(false);
 
   useEffect(() => {
-    const loadImages = () => {
-      let loaded = 0;
-      const firstTwoImages = images.slice(0, 2);
+    const loadImages = async () => {
+      const loadImage = (src) => {
+        return new Promise((resolve) => {
+          const img = new window.Image(); // Ensure we're using the global Image object
+          img.src = src;
+          img.onload = resolve;
+          img.onerror = resolve; // Resolve even if there's an error
+        });
+      };
 
-      firstTwoImages.forEach((image) => {
-        const img = new window.Image();
-        img.src = image;
-        img.onload = () => {
-          loaded++;
-          if (loaded === firstTwoImages.length) {
-            setImagesLoaded(true);
-          }
-        };
-      });
+      const imagePromises = images.map(loadImage);
+
+      await Promise.all(imagePromises);
+      setImagesLoaded(true);
     };
 
     loadImages();
@@ -95,7 +94,7 @@ const HeroSlider = () => {
         {images.map((image, index) => (
           <Box key={index} position="relative">
             <Image
-              loading="lazy"
+              loading="lazy" // lazy load images
               src={image}
               alt={`Slide ${index + 1}`}
               width="100%"
