@@ -14,7 +14,7 @@ import calendarIcon from "./../assets/header-icons/calendar.svg";
 import Telegram from "./../assets/header-icons/Telegram.svg";
 
 import Navbar from "./Navbar";
-import FormModal from "./FormModal";
+const FormModal = React.lazy(() => import("./FormModal"));
 import { NavLink } from "react-router-dom";
 
 const Header = () => {

@@ -30,7 +30,7 @@ import { FiMenu } from "react-icons/fi";
 import { NavLink } from "react-router-dom";
 
 import StickyNavbar from "./StickyNavbar";
-import FormModal from "./FormModal";
+const FormModal = React.lazy(() => import("./FormModal"));
 import { useScroll } from "./StickyContext";
 import ButtonMain from "./ButtonMain";
 
