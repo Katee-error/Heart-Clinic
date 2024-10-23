@@ -50,7 +50,7 @@ const HeroSlider = () => {
   useEffect(() => {
     const loadImages = () => {
       let loaded = 0;
-      const firstTwoImages = images.slice(0, 2); 
+      const firstTwoImages = images.slice(0, 1); 
   
       firstTwoImages.forEach((image) => {
         const img = new window.Image();
