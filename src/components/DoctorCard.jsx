@@ -7,13 +7,16 @@ import {
   Image,
   Stack,
   Heading,
-  Button
+  Button,
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
-
+import FormModal from "./FormModal";
+import { useState } from "react";
 const DoctorCard = ({ doctor, onOpen }) => {
   const MotionCard = motion(GridItem);
-  const MotionButton = motion(Button)
+  const MotionButton = motion(Button);
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     <MotionCard
@@ -22,7 +25,21 @@ const DoctorCard = ({ doctor, onOpen }) => {
       cursor="pointer"
     >
       <Card maxW="sm">
-        <CardBody>
+        <CardBody position={"relative"}>
+          <Box
+            position={"absolute"}
+            borderRadius={"10px"}
+            fontSize={"14px"}
+            fontWeight={700}
+            p={"10px "}
+            display={"inline-block"}
+            w={"30%"}
+            border={"1px solid #3a3a9c"}
+            bg={"white"}
+            boxShadow={"1px 2px 5px 0 #3a3a9c"}
+          >
+            Опыт {doctor.experience}
+          </Box>
           <Image
             borderRadius="lg"
             src={doctor.img}
@@ -33,37 +50,31 @@ const DoctorCard = ({ doctor, onOpen }) => {
           <Stack mt="6" spacing="3">
             <Heading fontSize={"20px"}>{doctor.name}</Heading>
             <Text color={"gray.500"}>{doctor.shortSpeciality}</Text>
-            <Box
-              bg={"brand.main"}
+
+            <Button
+              mt={"20px"}
+              p={"30px"}
+              borderRadius={"20px"}
+              boxShadow={"1px 2px 5px 0 #3a3a9c"}
+              fontSize={"16px"}
               color={"white"}
-              borderRadius={"10px"}
-              fontWeight={600}
-              p={"10px "}
-              display={"inline-block"}
-              w={"40%"}
+              fontWeight={700}
+              border={"1px solid #3a3a9c"}
+              bg={"brand.main"}
+              _hover={{ bgColor: "hover.button", color: "black" }}
+              onClick={(e) => {
+                e.stopPropagation(); // Останавливаем всплытие события, чтобы карточка не срабатывала
+                setIsModalOpen(true); // Открываем модальное окно для записи на приём
+              }} // Open modal window
             >
-              Опыт {doctor.experience}
-            </Box>
-            <MotionButton
-                p={"30px"}
-                borderRadius={"20px"}
-                boxShadow={"1px 2px 5px 0 #3a3a9c"}
-                fontSize={"14px"}
-                fontWeight={700}
-                border={"1px solid #3a3a9c"}
-                bg={"transparent"}
-                _hover={{ bgColor: "hover.button" }}
-                whileHover={{ scale: 1.05 }}
-                onClick={() => setIsModalOpen(true)} // Open modal window
-              >
-                {/* <Image src={calendarIcon} mr={"10px"} /> */}
-                Записаться на прием
-              </MotionButton>
+              {/* <Image src={calendarIcon} mr={"10px"} /> */}
+              Записаться на прием
+            </Button>
           </Stack>
         </CardBody>
       </Card>
+      <FormModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </MotionCard>
-    
   );
 };
 
