@@ -1,14 +1,12 @@
 import { Routes, Route, Navigate } from "react-router-dom";
-import { lazy } from "react";
-import Home from './../pages/Home'
-
-const ServicesCostPage = lazy(() => import("../pages/ServicesCostPage"));
-const AboutUsPage = lazy(() => import("../pages/AboutUsPage"));
-const OmsPage = lazy(() => import("../pages/OmsPage"));
-const ContactPage = lazy(() => import("../pages/ContactPage"));
-const DoctorsPages = lazy(() => import("../pages/DoctorsPages"));
-const Promotion = lazy(() => import("../pages/Promotion"));
-const PromotionDetail = lazy(() => import("../pages/PromotionDetail"));
+import Home from "../pages/Home";
+import ServicesCostPage from "../pages/ServicesCostPage";
+import AboutUsPage from "../pages/AboutUsPage";
+import OmsPage from "../pages/OmsPage";
+import ContactPage from "../pages/ContactPage";
+import DoctorsPages from "../pages/DoctorsPages";
+import Promotion from "../pages/Promotion";
+import PromotionDetail from "../pages/PromotionDetail";
 
 const Routers = () => {
   return (

@@ -10,19 +10,15 @@ import {
   AccordionIcon,
   AccordionPanel,
   Link,
-  Button
 } from "@chakra-ui/react";
 import { useState } from "react";
 import oms from "../data/oms";
-import { motion } from "framer-motion";
 import FormModal from "../components/FormModal";
-import { FiArrowRight } from "react-icons/fi";
 import ButtonMain from "../components/ButtonMain";
 
 const OmsPage = () => {
 
   const [isModalOpen, setIsModalOpen] = useState(false); //modal window
-  const MotionButton = motion(Button);
 
   return (
     <Box py={{base: '80px', md: "60px" }}>

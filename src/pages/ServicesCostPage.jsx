@@ -14,7 +14,6 @@ import {
   TabPanels,
   Tab,
   TabPanel,
-  Button,
 } from "@chakra-ui/react";
 import servicesAll from "../data/servicesDetail";
 import { FiSearch } from "react-icons/fi";

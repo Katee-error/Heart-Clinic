@@ -5,8 +5,6 @@ import {
   Container,
   Image,
   Text,
-  Button,
-  HStack,
 } from "@chakra-ui/react";
 
 import promotion from "../data/promotion";
