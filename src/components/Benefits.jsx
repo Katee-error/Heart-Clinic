@@ -9,6 +9,7 @@ import {
   CardBody,
   Text,
 } from "@chakra-ui/react";
+import React from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useMediaQuery } from "@chakra-ui/react";
@@ -50,7 +51,7 @@ const Benefits = () => {
   ];
 
   const MotionCard = React.memo(motion(Card));
-  
+
   const isMobile = useMediaQuery("(max-width: 768px)");
   return (
     <MotionBox
