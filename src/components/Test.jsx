@@ -9,7 +9,6 @@ import {
   Stack,
   Heading,
   Text,
-  Button,
   Link,
 } from "@chakra-ui/react";
 import React from "react";
@@ -51,7 +50,6 @@ const Test = () => {
           minChildWidth="270px"
           p={"20px"}
           gap={{ base: "30px", md: "60px" }}
-          maxChildHeight="140px"
           alignItems={"center"}
         >
           <GridItem>

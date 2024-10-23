@@ -1,7 +1,7 @@
-import { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Box, Image, Text, Skeleton } from "@chakra-ui/react";
 import Slider from "react-slick";
-import FormModal from "./FormModal";
+const FormModal = React.lazy(() => import("./FormModal"));
 import ButtonMain from "./ButtonMain";
 
 import "slick-carousel/slick/slick.css";
