@@ -95,6 +95,7 @@ const HeroSlider = () => {
         {images.map((image, index) => (
           <Box key={index} position="relative">
             <Image
+            loading="lazy"
               src={image}
               alt={`Slide ${index + 1}`}
               width="100%"

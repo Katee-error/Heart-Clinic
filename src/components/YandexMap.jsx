@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import {
   Box,
   Flex,
@@ -57,7 +57,7 @@ const YandexMap = () => {
             justifyContent={"space-between"}
             flexDirection={{ base: "column", md: "row" }}
           >
-            <VStack spacing={'40px'} alignItems={'start'}>
+            <VStack spacing={"40px"} alignItems={"start"}>
               <Flex
                 alignItems={"start"}
                 justifyContent={"space-between"}
@@ -118,15 +118,16 @@ const YandexMap = () => {
                 </MotionButton>
                 <Flex gap={"20px"}>
                   <Link href="https://t.me/clinicaserdca">
-                    <Image src={telegram} w={"36px"} />
+                    <Image src={telegram} w={"36px"} loading="lazy" />
                   </Link>
                   <Link href="https://api.whatsapp.com/send/?phone=79994780055">
-                    <Image src={whatsap} w={"36px"} />
+                    <Image src={whatsap} w={"36px"} loading="lazy" />
                   </Link>
                 </Flex>
               </Flex>
             </VStack>
             <Image
+              loading="lazy"
               src={build}
               borderRadius={"20px"}
               w={{ base: "100%", md: "40%" }}
@@ -138,7 +139,6 @@ const YandexMap = () => {
       </Card>
       <FormModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </MotionBox>
-    
   );
 };
 

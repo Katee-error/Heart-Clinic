@@ -172,6 +172,7 @@ const ContactForm = () => {
               w={"100%"}
               h={"400px"}
               objectFit={"cover"}
+              loading="lazy"
             />
           </Box>
         </Flex>

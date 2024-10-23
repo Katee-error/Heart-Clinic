@@ -32,6 +32,7 @@ const DoctorModal = ({ doctor, isOpen, onClose }) => {
             flexDirection={{ base: "column", md: "row" }}
           >
             <Image
+              loading="lazy"
               src={doctor.img}
               w={"auto"}
               h={"600px"}
@@ -99,11 +100,9 @@ const DoctorModal = ({ doctor, isOpen, onClose }) => {
                   _hover={{ bgColor: "hover.button", color: "black" }}
                   onClick={(e) => {
                     e.stopPropagation();
-                    //  handleOpenFormModal()
                     setIsModalOpen(true);
                   }}
                 >
-                  {/* <Image src={calendarIcon} mr={"10px"} /> */}
                   Записаться на прием
                 </Button>
               </ModalBody>

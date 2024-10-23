@@ -62,7 +62,7 @@ const TestimonialSlider = () => {
       transition={{ duration: 0.6, ease: "easeOut" }}
     >
       <Box pos={"relative"}>
-        <Image src={box} w={"100%"} h={{ base: "120px", md: "auto" }} />
+        <Image src={box} w={"100%"} h={{ base: "120px", md: "auto" }} loading="lazy" />
         <Heading
           mb={"60px"}
           fontSize={{ base: "24px", md: "50px" }}

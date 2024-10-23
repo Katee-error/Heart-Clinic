@@ -38,7 +38,7 @@ const Benefits = () => {
     >
       <Container maxW="container.xl">
         <Box pos={"relative"}>
-          <Image src={box} w={"100%"} h={{ base: "120px", md: "auto" }} />
+          <Image src={box} w={"100%"} h={{ base: "120px", md: "auto" }} loading="lazy" />
           <Heading
             mb={"60px"}
             fontSize={{ base: "24px", md: "50px" }}
@@ -66,7 +66,7 @@ const Benefits = () => {
                 whileHover={{ scale: 1.08 }}
               >
                 <CardBody>
-                  <Image src={doctor} w={"50px"} h={"50px"} mb={"15px"} />
+                  <Image src={doctor} w={"50px"} h={"50px"} mb={"15px"} loading="lazy" />
                   <Heading fontSize={"16px"} mb={"10px"}>
                     Квалифицированные специалисты
                   </Heading>
@@ -91,7 +91,7 @@ const Benefits = () => {
                 whileHover={{ scale: 1.08 }}
               >
                 <CardBody>
-                  <Image src={stethoscope} w={"50px"} h={"50px"} mb={"15px"} />
+                  <Image src={stethoscope} w={"50px"} h={"50px"} mb={"15px"} loading="lazy" />
                   <Heading fontSize={"16px"} mb={"10px"}>
                     Современное оборудование
                   </Heading>
@@ -116,7 +116,7 @@ const Benefits = () => {
                 whileHover={{ scale: 1.08 }}
               >
                 <CardBody>
-                  <Image src={en} w={"50px"} h={"50px"} mb={"15px"} />
+                  <Image src={en} w={"50px"} h={"50px"} mb={"15px"} loading="lazy" />
                   <Heading fontSize={"16px"} mb={"10px"}>
                     Главное для нас – решение Вашей проблемы!
                   </Heading>

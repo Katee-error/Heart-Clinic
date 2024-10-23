@@ -137,6 +137,7 @@ const Services = () => {
                     </Box>
                     <Box>
                       <MotionImage
+                      loading="lazy"
                         src={service.img}
                         borderRadius={"20px"}
                         whileHover={{ scale: 1.05 }}

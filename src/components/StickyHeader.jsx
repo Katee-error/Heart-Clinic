@@ -68,7 +68,7 @@ const StickyHeader = () => {
         transition="all 0.5s ease-in-out" // Плавный переход
       >
         <Link as={NavLink} to="/">
-          <Image src={logo} alt="logo" w={"170px"} objectFit={"contain"} />
+          <Image src={logo} alt="logo" w={"170px"} objectFit={"contain"} loading="lazy" />
         </Link>
 
         <StickyNavbar />
@@ -121,21 +121,21 @@ const StickyHeader = () => {
               display={{ base: "none", sm: "flex", lg: "none" }}
             >
               <Flex gap={"8px"} alignItems={"center"}>
-                <Image src={mapIcon} color={"#3a3a9c"} w={"25px"} />
+                <Image src={mapIcon} color={"#3a3a9c"} w={"25px"} loading="lazy" />
                 <Text>
                   Туп. Каммаева 1-й,
                   <br /> влд.30
                 </Text>
               </Flex>
               <Flex gap={"8px"} alignItems={"center"}>
-                <Image src={phoneIcon} color={"#3a3a9c"} w={"25px"} />
+                <Image src={phoneIcon} color={"#3a3a9c"} w={"25px"} loading="lazy" />
                 <Text>
                   +7 (999) 478 00 66 <br />
                   +7 (999) 478 00 55
                 </Text>
               </Flex>
               <Flex gap={"8px"} alignItems={"center"}>
-                <Image src={clockIcon} color={"#3a3a9c"} w={"25px"} />
+                <Image src={clockIcon} color={"#3a3a9c"} w={"25px"} loading="lazy" />
                 <Text>
                   пн-пт 8:00-18:00
                   <br /> сб 9:00-14:00

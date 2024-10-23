@@ -45,6 +45,7 @@ const Header = () => {
         >
           <Link as={NavLink} to="/">
             <Image
+            loading="lazy"
               src={logo}
               alt="logo"
               w={"210px"}
@@ -71,6 +72,7 @@ const Header = () => {
                     boxShadow={"1px 2px 5px 0 #3a3a9c"}
                   >
                     <Image
+                    loading="lazy"
                       src={mapIcon}
                       margin={"8px auto"}
                       color={"#3a3a9c"}
@@ -93,6 +95,7 @@ const Header = () => {
                   boxShadow={"1px 2px 5px 0 #3a3a9c"}
                 >
                   <Image
+                  loading="lazy"
                     src={phoneIcon}
                     margin={"8px auto"}
                     color={"#3a3a9c"}
@@ -115,6 +118,7 @@ const Header = () => {
                   boxShadow={"1px 2px 5px 0 #3a3a9c"}
                 >
                   <Image
+                  loading="lazy"
                     src={clockIcon}
                     margin={"8px auto"}
                     color={"#3a3a9c"}
@@ -145,6 +149,7 @@ const Header = () => {
                     boxShadow={"1px 2px 5px 0 #3a3a9c"}
                   >
                     <Image
+                    loading="lazy"
                       src={Telegram}
                       margin={"8px auto"}
                       color={"#3a3a9c"}
@@ -171,7 +176,7 @@ const Header = () => {
                 whileHover={{ scale: 1.05 }}
                 onClick={() => setIsModalOpen(true)} // Open modal window
               >
-                <Image src={calendarIcon} mr={"10px"} />
+                <Image src={calendarIcon} mr={"10px"} loading="lazy" />
                 Записаться на прием
               </MotionButton>
             </Link>

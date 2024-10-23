@@ -65,7 +65,7 @@ const AboutUsPage = () => {
                 whileHover={{ scale: 1.08 }}
               >
                 <CardBody minH={"350px"}>
-                  <Image src={doctor} w={"50px"} h={"50px"} mb={"15px"} />
+                  <Image src={doctor} w={"50px"} h={"50px"} mb={"15px"} loading="lazy" />
                   <Heading fontSize={"16px"} mb={"10px"}>
                     Квалифицированные специалисты
                   </Heading>
@@ -89,7 +89,7 @@ const AboutUsPage = () => {
                 whileHover={{ scale: 1.08 }}
               >
                 <CardBody minH={"350px"}>
-                  <Image src={stethoscope} w={"50px"} h={"50px"} mb={"15px"} />
+                  <Image src={stethoscope} w={"50px"} h={"50px"} mb={"15px"} loading="lazy"/>
                   <Heading fontSize={"16px"} mb={"10px"}>
                     Современное оборудование
                   </Heading>
@@ -113,7 +113,7 @@ const AboutUsPage = () => {
                 whileHover={{ scale: 1.08 }}
               >
                 <CardBody minH={"350px"}>
-                  <Image src={letter} w={"50px"} h={"50px"} mb={"15px"} />
+                  <Image src={letter} w={"50px"} h={"50px"} mb={"15px"} loading="lazy" />
                   <Heading fontSize={"16px"} mb={"10px"}>
                     Главное для нас – решение Вашей проблемы!
                   </Heading>

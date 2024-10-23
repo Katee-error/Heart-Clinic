@@ -46,6 +46,7 @@ const DoctorCard = ({ doctor, onOpen }) => {
             w={"auto"}
             h={"250px"}
             m={"0 auto"}
+            loading="lazy"
           />
           <Stack mt="6" spacing="3">
             <Heading fontSize={"20px"}>{doctor.name}</Heading>

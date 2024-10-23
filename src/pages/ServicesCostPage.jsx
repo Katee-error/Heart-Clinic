@@ -76,6 +76,7 @@ const ServicesPage = () => {
             display="flex"
             alignItems="center"
             justifyContent="center"
+            loading="lazy"
           />
           <Heading
             fontSize={{ base: "30px", md: "50px" }}

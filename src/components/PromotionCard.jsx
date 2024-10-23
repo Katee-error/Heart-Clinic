@@ -21,6 +21,7 @@ const PromotionCard = ({ promotion }) => {
           <CardBody>
             <Box position={"relative"} w={"100%"} height={"auto"}>
               <Image
+              loading="lazy"
                 borderRadius="lg"
                 src={promotion.img}
                 w={"100%"}
