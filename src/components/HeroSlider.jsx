@@ -1,8 +1,8 @@
 import { useState, useEffect, useRef } from "react";
-import { Box, Image, Text, Button, Skeleton } from "@chakra-ui/react";
+import { Box, Image, Text, Skeleton } from "@chakra-ui/react";
 import Slider from "react-slick";
-import { motion } from "framer-motion";
 import FormModal from "./FormModal";
+import ButtonMain from "./ButtonMain";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -27,14 +27,13 @@ const HeroSlider = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 3500,
+    autoplaySpeed: 3800,
     fade: false,
     cssEase: "ease",
     pauseOnHover: false,
   };
 
   const sliderRef = useRef(null);
-  const MotionButton = motion(Button);
   const [isModalOpen, setIsModalOpen] = useState(false); // modal window
   const [imagesLoaded, setImagesLoaded] = useState(false);
 
@@ -121,22 +120,13 @@ const HeroSlider = () => {
               >
                 Забота о сердце начинается здесь
               </Text>
-              <MotionButton
-                p={{ base: "10px 20px", md: "25px 30px" }}
-                borderRadius="10px"
-                fontSize="16px"
-                fontWeight={600}
-                border="1px solid #3a3a9c"
-                bg="white"
-                boxShadow="1px 2px 5px 0 #3a3a9c"
-                _hover={{ bgColor: "white" }}
-                whileHover={{ scale: 1.05 }}
-                color="black"
+              <ButtonMain
                 onClick={() => setIsModalOpen(true)}
-                mt="20px"
-              >
-                Записаться
-              </MotionButton>
+                mt={"20px"}
+                colorScheme="white"
+                colorTextScheme="black"
+                hoverColor="white"
+              />
             </Box>
           </Box>
         ))}

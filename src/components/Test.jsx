@@ -21,33 +21,37 @@ import test5 from "./../assets/all/test-5.webp";
 import { motion } from "framer-motion";
 import { NavLink } from "react-router-dom";
 import { FiArrowRight } from "react-icons/fi";
+import { useMediaQuery } from "@chakra-ui/react";
 
 import { useInView } from "react-intersection-observer";
 
 const MotionBox = motion(Box);
 
 const Test = () => {
+  const isMobile = useMediaQuery("(max-width: 768px)");
+
   const { ref, inView } = useInView({
     triggerOnce: true, // Анимация запускается только один раз
-    threshold: 0.3, // Процент видимой области, после которого запускается анимация
+    threshold: 0.2, // Процент видимой области, после которого запускается анимация
   });
 
-  const MotionCard = motion(Card);
+  const MotionCard = React.memo(motion(Card));
+
   return (
     <MotionBox
       my={"120px"}
       py={{ base: "0px", md: "60px" }}
       ref={ref}
-      initial={{ opacity: 0, y: 50 }}
-      animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 50 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
+      initial={{ opacity: 0, y: isMobile ? 0 : 50 }} 
+      animate={{ opacity: inView ? 1 : 0, y: inView && !isMobile ? 0 : 50 }}
+      transition={{ duration: isMobile ? 0.3 : 0.6, ease: "easeOut" }} 
     >
       <Container maxW={"container.xl"}>
         <SimpleGrid
           minChildWidth="270px"
           p={"20px"}
           gap={{ base: "30px", md: "60px" }}
-          maxChildHeight="120px"
+          maxChildHeight="140px"
           alignItems={"center"}
         >
           <GridItem>
@@ -72,7 +76,7 @@ const Test = () => {
             </Box>
           </GridItem>
           <GridItem>
-            <MotionCard maxW="sm" whileHover={{ scale: 1.08 }} h={"400px"}>
+            <MotionCard maxW="sm" whileHover={{ scale: 1.08 }} h={"430px"}>
               <CardBody>
                 <Image
                   src={Polis}

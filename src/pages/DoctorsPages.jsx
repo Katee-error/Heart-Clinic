@@ -4,7 +4,8 @@ import DoctorsList from "../components/DoctorsList";
 const DoctorsPages = () => {
   return (
     <Box>
-      <Container maxW="container.xl">
+      <Container maxW="container.xl" >
+        <Box mb={'-60px'}/>
         <DoctorsList />
       </Container>
     </Box>

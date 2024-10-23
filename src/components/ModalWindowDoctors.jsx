@@ -1,5 +1,5 @@
 import formatTextWithLineBreaks from "../services/split";
-import { useState } from "react";
+import React, { useState } from "react";
 import {
   Modal,
   ModalOverlay,
@@ -14,7 +14,7 @@ import {
   Box,
   Button,
 } from "@chakra-ui/react";
-import FormModal from "./FormModal";
+const FormModal = React.lazy(() => import("./FormModal"));
 
 const DoctorModal = ({ doctor, isOpen, onClose }) => {
   if (!doctor) return null; // Возвращаем null, если doctor не определен
@@ -25,19 +25,22 @@ const DoctorModal = ({ doctor, isOpen, onClose }) => {
     <>
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
-        <ModalContent maxW="1000px" p={{ base: "20px", md: "40px" }}>
+        <ModalContent
+          maxW={{ base: "90%", md: "1000px" }}
+          p={{ base: "20px", md: "40px" }}
+        >
           <Flex
-            gap={{ base: "20px", md: "40px" }}
-            alignItems={"center"}
+            gap={{ base: "10px", md: "40px" }}
+            alignItems={{ base: "center", md: "start" }}
             flexDirection={{ base: "column", md: "row" }}
           >
             <Image
-            alt={doctor.name}
+              alt={doctor.name}
               loading="lazy"
               src={doctor.img}
-              w={"auto"}
-              h={"600px"}
-              objectFit={"contain"}
+              maxW={{ base: "100%", md: "auto" }}
+              maxH={{ base: "400px", md: "600px" }}
+              objectFit={'cover'}
             />
             <Box>
               <Flex
@@ -48,7 +51,7 @@ const DoctorModal = ({ doctor, isOpen, onClose }) => {
                 mb={"20px"}
                 gap={"20px"}
               >
-                <ModalHeader fontSize={{ base: "40px", md: "30px" }} p={"0px"}>
+                <ModalHeader fontSize={'30px'} p={"0px"}>
                   {doctor.name}
                 </ModalHeader>
                 <Box

@@ -11,13 +11,14 @@ import {
   CardBody,
 } from "@chakra-ui/react";
 import Location from "./Location";
-import FormModal from "./FormModal";
+const FormModal = React.lazy(() => import("./FormModal"));
 
 import build from "./../assets/location/build.webp";
 import { motion } from "framer-motion";
 import telegram from "./../assets/icons/social/telegram.svg";
 import whatsap from "./../assets/icons/social/whatsapp.svg";
 import { useInView } from "react-intersection-observer";
+import { useMediaQuery } from "@chakra-ui/react";
 
 const MotionBox = motion(Box);
 const MotionButton = motion(Button);
@@ -25,16 +26,17 @@ const MotionButton = motion(Button);
 const YandexMap = ({ address, coordinates }) => {
   const { ref, inView } = useInView({
     triggerOnce: true,
-    threshold: 0.3,
+    threshold: 0.2,
   });
   const [isModalOpen, setIsModalOpen] = useState(false); //modal window
+  const isMobile = useMediaQuery("(max-width: 768px)");
 
   return (
     <MotionBox
       ref={ref}
-      initial={{ opacity: 0, y: 50 }}
-      animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 50 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
+      initial={{ opacity: 0, y: isMobile ? 0 : 50 }} 
+      animate={{ opacity: inView ? 1 : 0, y: inView && !isMobile ? 0 : 50 }}
+      transition={{ duration: isMobile ? 0.3 : 0.6, ease: "easeOut" }} 
       mb={"120px"}
     >
       <Location address={address} coordinates={coordinates} />

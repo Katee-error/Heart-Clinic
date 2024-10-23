@@ -1,31 +1,31 @@
 import { Box, Text, Container } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { useMediaQuery } from "@chakra-ui/react";
 
 const MotionBox = motion(Box);
 
 const AboutUs = () => {
+  const isMobile = useMediaQuery("(max-width: 768px)");
+
   const { ref, inView } = useInView({
     triggerOnce: true, // Анимация запускается только один раз
-    threshold: 0.4, // Процент видимой области, после которого запускается анимация
+    threshold: 0.2, // Процент видимой области, после которого запускается анимация
   });
   return (
     <MotionBox
       id="about"
-      mb={{ base: "60px", md: "120px" }}
-      mt={{base: '80px'}}
-      pt={{ "2xs": "0px", }}
+      m={{ base: "60px 0", md: "60px 0 120px" }}
+      fontSize={{ base: "20px", sm: "24px", md: "30px" }}
       ref={ref}
-      initial={{ opacity: 0, y: 50 }}
-      animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 50 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
+      fontWeight={"300"}
+      initial={{ opacity: 0, y: isMobile ? 0 : 50 }} 
+      animate={{ opacity: inView ? 1 : 0, y: inView && !isMobile ? 0 : 50 }}
+      transition={{ duration: isMobile ? 0.3 : 0.6, ease: "easeOut" }} 
     >
       <Container maxW={"container.lg"}>
         <Box textAlign={"center"}>
-          <Text
-            fontSize={{ base: "20px", sm: "24px", md: "30px" }}
-            fontWeight={"300"}
-          >
+          <Text>
             «Клиника Сердца» - это современная клиника, предоставляющая
             медицинские услуги по диагностике и лечению заболеваний сердца и
             сосудов, а также по другим областям медицины. Клиника входит в

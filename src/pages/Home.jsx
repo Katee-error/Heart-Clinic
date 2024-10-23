@@ -1,30 +1,46 @@
 import { Box } from "@chakra-ui/react";
-
-import AboutUs from "../components/AboutUs";
-import OurDoctors from "../components/DoctorsList";
-import ContactForm from "../components/FormTest";
-import YandexMap from "../components/YandexMap";
-// import Services from "../components/Services";
-import Benefits from "../components/Benefits";
-import Test from "../components/Test";
+import { lazy } from "react";
 import HeroSlider from "../components/HeroSlider";
-import TestimonialsMarquee from "./../components/Reviews";
-import PromotionList from "../components/PromotionList";
+import LazyLoad from "../components/LazyLoad"; // Import LazyLoad
+
+// Lazy loading other components
+const AboutUs = lazy(() => import("../components/AboutUs"));
+const OurDoctors = lazy(() => import("../components/DoctorsList"));
+const ContactForm = lazy(() => import("../components/FormTest"));
+const YandexMap = lazy(() => import("../components/YandexMap"));
+const Benefits = lazy(() => import("../components/Benefits"));
+const Test = lazy(() => import("../components/Test"));
+const PromotionList = lazy(() => import("../components/PromotionList"));
+const TestimonialsMarquee = lazy(() => import("./../components/Reviews"));
 
 const Home = () => {
   return (
     <Box>
       <HeroSlider />
-      <AboutUs />
-      <Benefits />
-      <Test />
-      {/* <Services /> */}
-      <OurDoctors />
-      <PromotionList />
-      <TestimonialsMarquee />
-      <ContactForm />
-
-      <YandexMap />
+      <LazyLoad>
+        <AboutUs />
+      </LazyLoad>
+      <LazyLoad>
+        <Benefits />
+      </LazyLoad>
+      <LazyLoad>
+        <Test />
+      </LazyLoad>
+      <LazyLoad>
+        <OurDoctors />
+      </LazyLoad>
+      <LazyLoad>
+        <PromotionList />
+      </LazyLoad>
+      <LazyLoad>
+        <TestimonialsMarquee />
+      </LazyLoad>
+      <LazyLoad>
+        <ContactForm />
+      </LazyLoad>
+      <LazyLoad>
+        <YandexMap />
+      </LazyLoad>
     </Box>
   );
 };

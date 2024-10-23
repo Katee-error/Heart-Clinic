@@ -17,6 +17,7 @@ import oms from "../data/oms";
 import { motion } from "framer-motion";
 import FormModal from "../components/FormModal";
 import { FiArrowRight } from "react-icons/fi";
+import ButtonMain from "../components/ButtonMain";
 
 const OmsPage = () => {
 
@@ -42,22 +43,7 @@ const OmsPage = () => {
             057/у от лечащего (участкового) врача, а также предъявить паспорт и
             полис ОМС.
           </Text>
-          <MotionButton
-          p={"25px 30px"}
-          borderRadius={"10px"}
-          fontSize={"16px"}
-          fontWeight={600}
-          border={"1px solid #3a3a9c"}
-          // bg={"transparent"}
-          bg={"brand.main"}
-          _hover={{ bgColor: "hover.button", color: "black" }}
-          whileHover={{ scale: 1.05 }}
-          color={"white"}
-          onClick={setIsModalOpen}
-        >
-          Записаться
-     
-        </MotionButton>
+          <ButtonMain onClick={() => setIsModalOpen(true)}/>
         </Box>
         <Text fontSize={"30px"} mb={"20px"}>
           Документы по ОМС

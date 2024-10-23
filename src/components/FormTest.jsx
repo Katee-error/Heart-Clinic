@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import {
   Box,
   Container,
@@ -11,13 +11,15 @@ import {
   Input,
   Button,
   Divider,
-  Link,
   VStack,
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { useMediaQuery } from "@chakra-ui/react";
 
-import AutoResizeTextarea from "./AutoResizeTexarea";
+const AutoResizeTextarea = React.lazy(() =>
+  import("./../components/AutoResizeTexarea")
+);
 import formImg from "./../assets/all/form-img.webp";
 import InputMask from "react-input-mask";
 
@@ -26,9 +28,10 @@ const MotionBox = motion(Box);
 const ContactForm = () => {
   const { ref, inView } = useInView({
     triggerOnce: true, // Анимация запускается только один раз
-    threshold: 0.6, // Процент видимой области, после которого запускается анимация
+    threshold: 0.2, // Процент видимой области, после которого запускается анимация
   });
   const MotionButton = motion(Button);
+  const isMobile = useMediaQuery("(max-width: 768px)");
 
   // SENDING FORM
   const [isLoading, setIsLoading] = useState(false);
@@ -62,14 +65,12 @@ const ContactForm = () => {
   return (
     <MotionBox
       id="form"
-      //  ref={sectionRefs["form"]}
       textAlign={"center"}
-      // py={{ base: "100px", md: "150px" }}
       my={"120px"}
       ref={ref}
-      initial={{ opacity: 0, y: 50 }}
-      animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 50 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
+      initial={{ opacity: 0, y: isMobile ? 0 : 50 }} 
+      animate={{ opacity: inView ? 1 : 0, y: inView && !isMobile ? 0 : 50 }}
+      transition={{ duration: isMobile ? 0.3 : 0.6, ease: "easeOut" }} 
     >
       <Container maxW="container.xl">
         <Heading

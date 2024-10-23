@@ -12,7 +12,9 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
 const PromotionCard = ({ promotion }) => {
-  const MotionCard = motion(GridItem);
+
+  const MotionCard = React.memo(motion(GridItem));
+  
   return (
     <MotionCard whileHover={{ scale: 1.08 }} cursor="pointer">
       <Link to={`/promotion/${promotion.id}`}>

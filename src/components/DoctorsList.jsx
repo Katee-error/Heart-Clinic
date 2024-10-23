@@ -1,28 +1,22 @@
-import {
-  Box,
-  Heading,
-  Flex,
-  Container,
-  SimpleGrid,
-  
-} from "@chakra-ui/react";
-import { useState } from "react";
+import { Box, Heading, Flex, Container, SimpleGrid } from "@chakra-ui/react";
+import React, { useState } from "react";
 
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import doctors from "../data/doctors";
 import DoctorCard from "./DoctorCard";
-import DoctorModal from "./ModalWindowDoctors";
+import { useMediaQuery } from "@chakra-ui/react";
+const DoctorModal = React.lazy(() => import("./ModalWindowDoctors"));
 
 const MotionBox = motion(Box);
 
 const DoctorsList = () => {
-  
   const { ref, inView } = useInView({
     triggerOnce: true, // Анимация запускается только один раз
-    threshold: 0.3, // Процент видимой области, после которого запускается анимация
+    threshold: 0.2, // Процент видимой области, после которого запускается анимация
   });
 
+  const isMobile = useMediaQuery("(max-width: 768px)");
   const [selectedDoctor, setSelectedDoctor] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -41,9 +35,9 @@ const DoctorsList = () => {
     <MotionBox
       my={"120px"}
       ref={ref}
-      initial={{ opacity: 0, y: 50 }}
-      animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 50 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
+      initial={{ opacity: 0, y: isMobile ? 0 : 50 }}
+      animate={{ opacity: inView ? 1 : 0, y: inView && !isMobile ? 0 : 50 }}
+      transition={{ duration: isMobile ? 0.3 : 0.6, ease: "easeOut" }}
     >
       <Container maxW="container.xl">
         <Flex justifyContent={"space-between"} pb={"60px"}>
@@ -65,11 +59,13 @@ const DoctorsList = () => {
             />
           ))}
         </SimpleGrid>
-        <DoctorModal
-          doctor={selectedDoctor}
-          isOpen={isModalOpen}
-          onClose={handleCloseModal}
-        />
+        <React.Suspense fallback={<div>Loading...</div>}>
+          <DoctorModal
+            doctor={selectedDoctor}
+            isOpen={isModalOpen}
+            onClose={handleCloseModal}
+          />
+        </React.Suspense>
       </Container>
     </MotionBox>
   );

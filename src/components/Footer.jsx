@@ -9,17 +9,17 @@ import {
   VStack,
   Button,
 } from "@chakra-ui/react";
-import { useState } from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import logo from "./../assets/logo/logo.webp";
 import telegram from "./../assets/icons/social/telegram.svg";
 import whatsap from "./../assets/icons/social/whatsapp.svg";
-import { motion } from "framer-motion";
-import FormModal from "./FormModal";
+const FormModal = React.lazy(() => import("./FormModal"));
+import ButtonMain from "./ButtonMain";
 
 const Footer = () => {
   const [isModalOpen, setIsModalOpen] = useState(false); //modal window
-  const MotionButton = motion(Button);
+
   return (
     <Box py={"60px"} bg={"#F8F8F8"} as="footer" w="100%" mt="auto">
       <Container maxW="container.lg">
@@ -32,7 +32,13 @@ const Footer = () => {
         >
           <VStack spacing={"20px"} w={"220px"} alignItems={"start"}>
             <NavLink to="/">
-              <Image src={logo} alt="logo" w={"200px"} h={'auto'} loading="lazy" />
+              <Image
+                src={logo}
+                alt="logo"
+                w={"200px"}
+                h={"auto"}
+                loading="lazy"
+              />
             </NavLink>
             <Text fontSize={"12px"} color={"gray.500"}>
               Cовременная клиника, предоставляющая медицинские услуги по
@@ -120,29 +126,27 @@ const Footer = () => {
                 </Text>
                 <Flex gap={"20px"}>
                   <Link>
-                    <Image src={telegram} alt="telegram" w={"36px"} h={'auto'} loading="lazy" />
+                    <Image
+                      src={telegram}
+                      alt="telegram"
+                      w={"36px"}
+                      h={"auto"}
+                      loading="lazy"
+                    />
                   </Link>
                   <Link>
-                    <Image src={whatsap} alt="whatsap" w={"36px"} h={'auto'} loading="lazy" />
+                    <Image
+                      src={whatsap}
+                      alt="whatsap"
+                      w={"36px"}
+                      h={"auto"}
+                      loading="lazy"
+                    />
                   </Link>
                 </Flex>
               </VStack>
               <Box display={{ base: "block", md: "none" }}>
-                <MotionButton
-                  p={"20px"}
-                  borderRadius={"10px"}
-                  fontSize={"16px"}
-                  fontWeight={600}
-                  border={"1px solid #3a3a9c"}
-                  // bg={"transparent"}
-                  bg={"brand.main"}
-                  _hover={{ bgColor: "hover.button", color: "black" }}
-                  whileHover={{ scale: 1.05 }}
-                  color={"white"}
-                  onClick={() => setIsModalOpen(true)} // Open modal window
-                >
-                  Записаться
-                </MotionButton>
+                <ButtonMain onClick={() => setIsModalOpen(true)} />
               </Box>
             </Flex>
           </Flex>

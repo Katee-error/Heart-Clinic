@@ -17,7 +17,9 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import React, { useState } from "react";
-import AutoResizeTextarea from "./../components/AutoResizeTexarea";
+const AutoResizeTextarea = React.lazy(() =>
+  import("./../components/AutoResizeTexarea")
+);
 import InputMask from "react-input-mask";
 
 const FormModal = ({ isOpen, onClose }) => {
@@ -32,7 +34,7 @@ const FormModal = ({ isOpen, onClose }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    ym(98379175,'reachGoal','otpravka_formy') // метрика для от правки 
+    ym(98379175, "reachGoal", "otpravka_formy"); // метрика для от правки
     // Формируем сообщение для отправки в WhatsApp
     const message = `Имя: ${name}\nТелефон: ${phone}\nКомментарий: ${comment}`;
 
@@ -139,7 +141,7 @@ const FormModal = ({ isOpen, onClose }) => {
                   <Box as={"span"}>
                     Нажимая кнопку "Отправить", вы даете
                     <Link href="" color="#3a3a9c">
-                     <br/>
+                      <br />
                       согласие на обработку персональных данных
                     </Link>
                   </Box>

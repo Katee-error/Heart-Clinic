@@ -32,6 +32,7 @@ import { NavLink } from "react-router-dom";
 import StickyNavbar from "./StickyNavbar";
 import FormModal from "./FormModal";
 import { useScroll } from "./StickyContext";
+import ButtonMain from "./ButtonMain";
 
 const StickyHeader = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -77,24 +78,8 @@ const StickyHeader = () => {
             loading="lazy"
           />
         </Link>
-
         <StickyNavbar />
-
-        <MotionButton
-          p={"25px 30px"}
-          borderRadius={"10px"}
-          fontSize={"16px"}
-          fontWeight={600}
-          border={"1px solid #3a3a9c"}
-          // bg={"transparent"}
-          bg={"brand.main"}
-          _hover={{ bgColor: "hover.button", color: "black" }}
-          whileHover={{ scale: 1.05 }}
-          color={"white"}
-          onClick={handleOpenModal}
-        >
-          Записаться
-        </MotionButton>
+        <ButtonMain onClick={() => setIsModalOpen(true)} />
       </Flex>
 
       {/* Mobile */}
@@ -170,23 +155,7 @@ const StickyHeader = () => {
                 </Text>
               </Flex>
             </Flex>
-            <Link as={NavLink} to="/" display={{ base: "block", sm: "none" }}>
-              <MotionButton
-                p={"20px"}
-                borderRadius={"10px"}
-                fontSize={"16px"}
-                fontWeight={600}
-                border={"1px solid #3a3a9c"}
-                // bg={"transparent"}
-                bg={"brand.main"}
-                _hover={{ bgColor: "hover.button", color: "black" }}
-                whileHover={{ scale: 1.05 }}
-                color={"white"}
-                onClick={() => setIsModalOpen(true)} // Open modal window
-              >
-                Записаться
-              </MotionButton>
-            </Link>
+            <ButtonMain onClick={() => setIsModalOpen(true)} />
             {/* Menu hamburger */}
           </Flex>
           <Box w={"45px"} bg={"brand.main"} h={"45px"} borderRadius={"10px"}>
@@ -293,23 +262,7 @@ const StickyHeader = () => {
                     </Link>
                   </NavLink>
 
-                  <MotionButton
-                    mt={"30px"}
-                    p={"20px"}
-                    borderRadius={"10px"}
-                    fontSize={"16px"}
-                    fontWeight={600}
-                    border={"1px solid #3a3a9c"}
-                    // bg={"transparent"}
-                    bg={"brand.main"}
-                    _hover={{ bgColor: "hover.button", color: "black" }}
-                    whileHover={{ scale: 1.05 }}
-                    color={"white"}
-                    // onClick={onClose}
-                    onClick={handleOpenModal}
-                  >
-                    Записаться
-                  </MotionButton>
+                  <ButtonMain onClick={() => setIsModalOpen(true)} />
                 </VStack>
               </DrawerBody>
             </DrawerContent>

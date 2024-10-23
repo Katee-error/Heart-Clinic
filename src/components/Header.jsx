@@ -45,7 +45,7 @@ const Header = () => {
         >
           <Link as={NavLink} to="/">
             <Image
-            loading="lazy"
+              loading="lazy"
               src={logo}
               alt="logo"
               w={"210px"}
@@ -72,7 +72,7 @@ const Header = () => {
                     boxShadow={"1px 2px 5px 0 #3a3a9c"}
                   >
                     <Image
-                    loading="lazy"
+                      loading="lazy"
                       src={mapIcon}
                       alt="map Icon"
                       margin={"8px auto"}
@@ -96,7 +96,7 @@ const Header = () => {
                   boxShadow={"1px 2px 5px 0 #3a3a9c"}
                 >
                   <Image
-                  loading="lazy"
+                    loading="lazy"
                     src={phoneIcon}
                     alt="phone"
                     margin={"8px auto"}
@@ -120,8 +120,8 @@ const Header = () => {
                   boxShadow={"1px 2px 5px 0 #3a3a9c"}
                 >
                   <Image
-                  alt="clock"
-                  loading="lazy"
+                    alt="clock"
+                    loading="lazy"
                     src={clockIcon}
                     margin={"8px auto"}
                     color={"#3a3a9c"}
@@ -152,7 +152,7 @@ const Header = () => {
                     boxShadow={"1px 2px 5px 0 #3a3a9c"}
                   >
                     <Image
-                    alt="Telegram"
+                      alt="Telegram"
                       loading="lazy"
                       src={Telegram}
                       margin={"8px auto"}
@@ -169,23 +169,28 @@ const Header = () => {
                 </Flex>
               </Link>
             </Flex>
-            <Link as={RouterLink} href="#form">
-              <MotionButton
-                p={"30px"}
-                borderRadius={"20px"}
-                boxShadow={"1px 2px 5px 0 #3a3a9c"}
-                fontSize={"14px"}
-                fontWeight={700}
-                border={"1px solid #3a3a9c"}
-                bg={"transparent"}
-                _hover={{ bgColor: "transparent" }}
-                whileHover={{ scale: 1.05 }}
-                onClick={() => setIsModalOpen(true)} // Open modal window
-              >
-                <Image src={calendarIcon} alt="calendar" mr={"10px"} loading="lazy" w={'20px'} h={'20px'} />
-                Записаться на прием
-              </MotionButton>
-            </Link>
+            <MotionButton
+              p={"30px"}
+              borderRadius={"20px"}
+              boxShadow={"1px 2px 5px 0 #3a3a9c"}
+              fontSize={"14px"}
+              fontWeight={700}
+              border={"1px solid #3a3a9c"}
+              bg={"transparent"}
+              _hover={{ bgColor: "transparent" }}
+              whileHover={{ scale: 1.05 }}
+              onClick={() => setIsModalOpen(true)} // Open modal window
+            >
+              <Image
+                src={calendarIcon}
+                alt="calendar"
+                mr={"10px"}
+                loading="lazy"
+                w={"20px"}
+                h={"20px"}
+              />
+              Записаться на прием
+            </MotionButton>
           </Flex>
         </Flex>
 

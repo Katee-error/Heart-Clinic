@@ -11,6 +11,7 @@ import {
 import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { useMediaQuery } from "@chakra-ui/react";
 
 const MotionBox = motion(Box);
 
@@ -45,8 +46,9 @@ const TestimonialSlider = () => {
 
   const { ref, inView } = useInView({
     triggerOnce: true,
-    threshold: 0.3,
+    threshold: 0.2,
   });
+  const isMobile = useMediaQuery("(max-width: 768px)");
 
   const slideWidth = useBreakpointValue({ base: "300px", md: "33.3333%" });
 
@@ -55,9 +57,9 @@ const TestimonialSlider = () => {
       my={"120px"}
       py={{ base: "0px", md: "60px" }}
       ref={ref}
-      initial={{ opacity: 0, y: 50 }}
-      animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 50 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
+      initial={{ opacity: 0, y: isMobile ? 0 : 50 }} 
+      animate={{ opacity: inView ? 1 : 0, y: inView && !isMobile ? 0 : 50 }}
+      transition={{ duration: isMobile ? 0.3 : 0.6, ease: "easeOut" }} 
     >
       <Box
         pos={"relative"}

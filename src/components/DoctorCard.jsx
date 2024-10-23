@@ -10,11 +10,10 @@ import {
   Button,
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
-import FormModal from "./FormModal";
-import { useState } from "react";
+import React, { useState } from "react";
+const FormModal = React.lazy(() => import("./FormModal"));
 const DoctorCard = ({ doctor, onOpen }) => {
   const MotionCard = motion(GridItem);
-  const MotionButton = motion(Button);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -33,7 +32,7 @@ const DoctorCard = ({ doctor, onOpen }) => {
             fontWeight={700}
             p={"10px "}
             display={"inline-block"}
-            w={"30%"}
+            w={"35%"}
             border={"1px solid #3a3a9c"}
             bg={"white"}
             boxShadow={"1px 2px 5px 0 #3a3a9c"}
@@ -52,7 +51,6 @@ const DoctorCard = ({ doctor, onOpen }) => {
           <Stack mt="6" spacing="3">
             <Heading fontSize={"20px"}>{doctor.name}</Heading>
             <Text color={"gray.500"}>{doctor.shortSpeciality}</Text>
-
             <Button
               mt={"20px"}
               p={"30px"}
@@ -69,7 +67,6 @@ const DoctorCard = ({ doctor, onOpen }) => {
                 setIsModalOpen(true); // Открываем модальное окно для записи на приём
               }} // Open modal window
             >
-             
               Записаться на прием
             </Button>
           </Stack>
