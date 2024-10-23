@@ -8,13 +8,11 @@ import { ToastContainer } from "react-toastify"; // добавление уве�
 import "react-toastify/dist/ReactToastify.css"; // добавление уведомлениЯ о добавлении продукта в корзину
 import customTheme from "../theme.js";
 import { ScrollProvider } from "./components/StickyContext.jsx";
-import YandexMetrika from "./services/YandexMetrika.jsx";
+
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <YandexMetrika />
     <BrowserRouter>
-      {/* <AuthProvider> */}
       <ChakraProvider theme={customTheme}>
         <ToastContainer
           position="top-right"
@@ -26,7 +24,6 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           <App />
         </ScrollProvider>
       </ChakraProvider>
-      {/* </AuthProvider> */}
     </BrowserRouter>
   </React.StrictMode>
 );

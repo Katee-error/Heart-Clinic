@@ -1,4 +1,4 @@
-const formatTextWithLineBreaks = (text) => {
+const  formatTextWithLineBreaks = (text) => {
   return text.split("\n").map((str, index) => (
     <span key={index}>
       {str}

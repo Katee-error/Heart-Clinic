@@ -70,7 +70,7 @@ const HeroSlider = () => {
   return imagesLoaded ? (
     <Box
       id="hero"
-      width={{ base: '94vw', md: '80vw'}}
+      width={{ base: '90%', md: '80%'}}
       height={{ base: "300px", xs: '565px', sm:'600px', md: "650px", lg: '700px', xl: '850px' }}
       overflow="hidden"
       position="relative"
@@ -86,7 +86,7 @@ const HeroSlider = () => {
               src={image}
               alt={`Slide ${index + 1}`}
               width="100%"
-              height="100%"
+              height="400px"
               borderRadius={'20px'}
             />
             <Box
