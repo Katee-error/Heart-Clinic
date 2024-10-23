@@ -11,7 +11,7 @@ import {
   CardBody,
 } from "@chakra-ui/react";
 import Location from "./Location";
-const FormModal = React.lazy(() => import("./FormModal"));
+import FormModal from "./FormModal";
 
 import build from "./../assets/location/build.webp";
 import { motion } from "framer-motion";

@@ -17,9 +17,7 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import React, { useState } from "react";
-const AutoResizeTextarea = React.lazy(() =>
-  import("./../components/AutoResizeTexarea")
-);
+import AutoResizeTextarea from "./AutoResizeTexarea";
 import InputMask from "react-input-mask";
 
 const FormModal = ({ isOpen, onClose }) => {

@@ -14,7 +14,7 @@ import { NavLink } from "react-router-dom";
 import logo from "./../assets/logo/logo.webp";
 import telegram from "./../assets/icons/social/telegram.svg";
 import whatsap from "./../assets/icons/social/whatsapp.svg";
-const FormModal = React.lazy(() => import("./FormModal"));
+import FormModal from "./FormModal";
 import ButtonMain from "./ButtonMain";
 
 const Footer = () => {

@@ -6,7 +6,7 @@ import { useInView } from "react-intersection-observer";
 import doctors from "../data/doctors";
 import DoctorCard from "./DoctorCard";
 import { useMediaQuery } from "@chakra-ui/react";
-const DoctorModal = React.lazy(() => import("./ModalWindowDoctors"));
+import DoctorModal from "./ModalWindowDoctors";
 
 const MotionBox = motion(Box);
 

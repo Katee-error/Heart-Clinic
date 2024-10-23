@@ -14,7 +14,7 @@ import {
   Box,
   Button,
 } from "@chakra-ui/react";
-const FormModal = React.lazy(() => import("./FormModal"));
+import FormModal from "./FormModal";
 
 const DoctorModal = ({ doctor, isOpen, onClose }) => {
   if (!doctor) return null; // Возвращаем null, если doctor не определен

@@ -8,7 +8,7 @@ import {
 } from "@chakra-ui/react";
 import Slider from "react-slick";
 import { motion } from "framer-motion";
-const FormModal = React.lazy(() => import("./FormModal"));
+import FormModal from "./FormModal";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";

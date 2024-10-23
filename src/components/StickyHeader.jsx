@@ -30,7 +30,7 @@ import { FiMenu } from "react-icons/fi";
 import { NavLink } from "react-router-dom";
 
 import StickyNavbar from "./StickyNavbar";
-const FormModal = React.lazy(() => import("./FormModal"));
+import FormModal from "./FormModal";
 import { useScroll } from "./StickyContext";
 import ButtonMain from "./ButtonMain";
 
@@ -136,8 +136,9 @@ const StickyHeader = () => {
                   loading="lazy"
                 />
                 <Text>
-                  +7 (999) 478 00 66 <br />
-                  +7 (999) 478 00 55
+                  <Link href="tel:+79994780066">+7 (999) 478 00 66 </Link>
+                  <br />
+                  <Link href="tel:+79994780055">+7 (999) 478 00 55 </Link>
                 </Text>
               </Flex>
               <Flex gap={"8px"} alignItems={"center"}>

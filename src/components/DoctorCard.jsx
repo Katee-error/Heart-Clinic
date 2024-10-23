@@ -11,7 +11,7 @@ import {
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import React, { useState } from "react";
-const FormModal = React.lazy(() => import("./FormModal"));
+import FormModal from "./FormModal";
 const DoctorCard = ({ doctor, onOpen }) => {
   const MotionCard = motion(GridItem);
 
