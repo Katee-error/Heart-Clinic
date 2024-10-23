@@ -68,7 +68,14 @@ const StickyHeader = () => {
         transition="all 0.5s ease-in-out" // Плавный переход
       >
         <Link as={NavLink} to="/">
-          <Image src={logo} alt="logo" w={"170px"} objectFit={"contain"} loading="lazy" />
+          <Image
+            src={logo}
+            alt="logo"
+            w={"170px"}
+            h={"auto"}
+            objectFit={"contain"}
+            loading="lazy"
+          />
         </Link>
 
         <StickyNavbar />
@@ -107,9 +114,9 @@ const StickyHeader = () => {
         boxShadow="sm"
       >
         <NavLink to="/home">
-          <Image src={logoMobile} alt="logo" w={"70px"} />
+          <Image src={logoMobile} alt="logo" w={"70px"} h={"auto"} />
         </NavLink>
-        
+
         <Flex alignItems={"center"} gap={"10px"}>
           <Flex gap={"30px"} alignItems={"center"}>
             <Flex
@@ -121,21 +128,42 @@ const StickyHeader = () => {
               display={{ base: "none", sm: "flex", lg: "none" }}
             >
               <Flex gap={"8px"} alignItems={"center"}>
-                <Image src={mapIcon} color={"#3a3a9c"} w={"25px"} loading="lazy" />
+                <Image
+                  src={mapIcon}
+                  alt="map"
+                  color={"#3a3a9c"}
+                  w={"25px"}
+                  h={"auto"}
+                  loading="lazy"
+                />
                 <Text>
                   Туп. Каммаева 1-й,
                   <br /> влд.30
                 </Text>
               </Flex>
               <Flex gap={"8px"} alignItems={"center"}>
-                <Image src={phoneIcon} color={"#3a3a9c"} w={"25px"} loading="lazy" />
+                <Image
+                  src={phoneIcon}
+                  alt="phone"
+                  color={"#3a3a9c"}
+                  w={"25px"}
+                  h={"auto"}
+                  loading="lazy"
+                />
                 <Text>
                   +7 (999) 478 00 66 <br />
                   +7 (999) 478 00 55
                 </Text>
               </Flex>
               <Flex gap={"8px"} alignItems={"center"}>
-                <Image src={clockIcon} color={"#3a3a9c"} w={"25px"} loading="lazy" />
+                <Image
+                  src={clockIcon}
+                  alt="clock"
+                  color={"#3a3a9c"}
+                  w={"25px"}
+                  h={"auto"}
+                  loading="lazy"
+                />
                 <Text>
                   пн-пт 8:00-18:00
                   <br /> сб 9:00-14:00

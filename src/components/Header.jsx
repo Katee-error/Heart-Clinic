@@ -74,6 +74,7 @@ const Header = () => {
                     <Image
                     loading="lazy"
                       src={mapIcon}
+                      alt="map Icon"
                       margin={"8px auto"}
                       color={"#3a3a9c"}
                       size={"20px"}
@@ -97,6 +98,7 @@ const Header = () => {
                   <Image
                   loading="lazy"
                     src={phoneIcon}
+                    alt="phone"
                     margin={"8px auto"}
                     color={"#3a3a9c"}
                     size={"20px"}
@@ -118,6 +120,7 @@ const Header = () => {
                   boxShadow={"1px 2px 5px 0 #3a3a9c"}
                 >
                   <Image
+                  alt="clock"
                   loading="lazy"
                     src={clockIcon}
                     margin={"8px auto"}
@@ -149,10 +152,13 @@ const Header = () => {
                     boxShadow={"1px 2px 5px 0 #3a3a9c"}
                   >
                     <Image
-                    loading="lazy"
+                    alt="Telegram"
+                      loading="lazy"
                       src={Telegram}
                       margin={"8px auto"}
                       color={"#3a3a9c"}
+                      width="20px"
+                      height="20px"
                     />
                   </Box>
                   <Link href="https://t.me/clinicaserdca">
@@ -172,11 +178,11 @@ const Header = () => {
                 fontWeight={700}
                 border={"1px solid #3a3a9c"}
                 bg={"transparent"}
-                _hover={{ bgColor: "hover.button" }}
+                _hover={{ bgColor: "transparent" }}
                 whileHover={{ scale: 1.05 }}
                 onClick={() => setIsModalOpen(true)} // Open modal window
               >
-                <Image src={calendarIcon} mr={"10px"} loading="lazy" />
+                <Image src={calendarIcon} alt="calendar" mr={"10px"} loading="lazy" w={'20px'} h={'20px'} />
                 Записаться на прием
               </MotionButton>
             </Link>

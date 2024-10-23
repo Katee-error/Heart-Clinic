@@ -74,7 +74,14 @@ const Test = () => {
           <GridItem>
             <MotionCard maxW="sm" whileHover={{ scale: 1.08 }} h={"400px"}>
               <CardBody>
-                <Image src={Polis} h={"100px"} w={"100%"} objectFit={"cover"} loading="lazy"/>
+                <Image
+                  src={Polis}
+                  alt="Polis"
+                  h={"100px"}
+                  w={"100%"}
+                  objectFit={"cover"}
+                  loading="lazy"
+                />
                 <Stack mt="6" spacing="3">
                   <Heading fontSize={"20px"}>Медпомощь по ОМС</Heading>
                   <Text color={"gray.500"} fontSize={"14px"}>
@@ -105,7 +112,14 @@ const Test = () => {
           <GridItem>
             <MotionCard maxW="sm" whileHover={{ scale: 1.08 }} h={"400px"}>
               <CardBody>
-                <Image src={Laba} h={"100px"} w={"100%"} objectFit={"cover"} loading="lazy" />
+                <Image
+                  src={Laba}
+                  alt="Laboratory"
+                  h={"100px"}
+                  w={"100%"}
+                  objectFit={"cover"}
+                  loading="lazy"
+                />
                 <Stack mt="6" spacing="3">
                   <Heading fontSize={"20px"}>Лабораторные анализы</Heading>
                   <Text color={"gray.500"} fontSize={"14px"}>
@@ -132,7 +146,14 @@ const Test = () => {
           <GridItem>
             <MotionCard maxW="sm" whileHover={{ scale: 1.08 }} h={"400px"}>
               <CardBody>
-                <Image src={test1} h={"100px"} w={"100%"} objectFit={"cover"} loading="lazy" />
+                <Image
+                  src={test1}
+                  alt="uzi"
+                  h={"100px"}
+                  w={"100%"}
+                  objectFit={"cover"}
+                  loading="lazy"
+                />
                 <Stack mt="6" spacing="3">
                   <Heading fontSize={"20px"}>УЗИ сердца и сосудов</Heading>
                   <Text color={"gray.500"} fontSize={"14px"}>
@@ -160,7 +181,14 @@ const Test = () => {
           <GridItem>
             <MotionCard maxW="sm" whileHover={{ scale: 1.08 }} h={"400px"}>
               <CardBody>
-                <Image src={test5} h={"100px"} w={"100%"} objectFit={"cover"}  loading="lazy"/>
+                <Image
+                  src={test5}
+                  h={"100px"}
+                  alt="consultations"
+                  w={"100%"}
+                  objectFit={"cover"}
+                  loading="lazy"
+                />
                 <Stack mt="6" spacing="3">
                   <Heading fontSize={"20px"}>Консультации специалистов</Heading>
                   <Text color={"gray.500"} fontSize={"14px"}>
@@ -188,7 +216,8 @@ const Test = () => {
             <MotionCard maxW="sm" whileHover={{ scale: 1.08 }} h={"400px"}>
               <CardBody>
                 <Image
-                loading="lazy"
+                  alt="Dnevnoy"
+                  loading="lazy"
                   src={Dnevnoy}
                   h={"100px"}
                   w={"100%"}

@@ -32,7 +32,7 @@ const Footer = () => {
         >
           <VStack spacing={"20px"} w={"220px"} alignItems={"start"}>
             <NavLink to="/">
-              <Image src={logo} alt="logo" w={"200px"} loading="lazy" />
+              <Image src={logo} alt="logo" w={"200px"} h={'auto'} loading="lazy" />
             </NavLink>
             <Text fontSize={"12px"} color={"gray.500"}>
               Cовременная клиника, предоставляющая медицинские услуги по
@@ -120,10 +120,10 @@ const Footer = () => {
                 </Text>
                 <Flex gap={"20px"}>
                   <Link>
-                    <Image src={telegram} w={"36px"} loading="lazy" />
+                    <Image src={telegram} alt="telegram" w={"36px"} h={'auto'} loading="lazy" />
                   </Link>
                   <Link>
-                    <Image src={whatsap} w={"36px"} loading="lazy" />
+                    <Image src={whatsap} alt="whatsap" w={"36px"} h={'auto'} loading="lazy" />
                   </Link>
                 </Flex>
               </VStack>

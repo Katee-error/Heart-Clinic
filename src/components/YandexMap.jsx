@@ -118,10 +118,22 @@ const YandexMap = () => {
                 </MotionButton>
                 <Flex gap={"20px"}>
                   <Link href="https://t.me/clinicaserdca">
-                    <Image src={telegram} w={"36px"} loading="lazy" />
+                    <Image
+                      src={telegram}
+                      alt="telegram"
+                      w={"36px"}
+                      h={"auto"}
+                      loading="lazy"
+                    />
                   </Link>
                   <Link href="https://api.whatsapp.com/send/?phone=79994780055">
-                    <Image src={whatsap} w={"36px"} loading="lazy" />
+                    <Image
+                      src={whatsap}
+                      alt="whatsap"
+                      w={"36px"}
+                      h={"auto"}
+                      loading="lazy"
+                    />
                   </Link>
                 </Flex>
               </Flex>
@@ -129,6 +141,7 @@ const YandexMap = () => {
             <Image
               loading="lazy"
               src={build}
+              alt="clinicaserdca"
               borderRadius={"20px"}
               w={{ base: "100%", md: "40%" }}
               h={"auto"}

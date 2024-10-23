@@ -42,6 +42,7 @@ const DoctorCard = ({ doctor, onOpen }) => {
           </Box>
           <Image
             borderRadius="lg"
+            alt="doctor"
             src={doctor.img}
             w={"auto"}
             h={"250px"}
@@ -68,7 +69,7 @@ const DoctorCard = ({ doctor, onOpen }) => {
                 setIsModalOpen(true); // Открываем модальное окно для записи на приём
               }} // Open modal window
             >
-              {/* <Image src={calendarIcon} mr={"10px"} /> */}
+             
               Записаться на прием
             </Button>
           </Stack>

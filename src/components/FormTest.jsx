@@ -168,6 +168,7 @@ const ContactForm = () => {
           <Box maxW={"50%"} mt={"25px"} display={{ base: "none", md: "block" }}>
             <Image
               src={formImg}
+              alt="doctors"
               borderRadius={"20px"}
               w={"100%"}
               h={"400px"}

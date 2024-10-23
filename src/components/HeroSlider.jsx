@@ -95,7 +95,7 @@ const HeroSlider = () => {
         {images.map((image, index) => (
           <Box key={index} position="relative">
             <Image
-            loading="lazy"
+              loading="lazy"
               src={image}
               alt={`Slide ${index + 1}`}
               width="100%"
@@ -130,7 +130,7 @@ const HeroSlider = () => {
                 border="1px solid #3a3a9c"
                 bg="white"
                 boxShadow="1px 2px 5px 0 #3a3a9c"
-                _hover={{ bgColor: "hover.button", color: "black" }}
+                _hover={{ bgColor: "white" }}
                 whileHover={{ scale: 1.05 }}
                 color="black"
                 onClick={() => setIsModalOpen(true)}

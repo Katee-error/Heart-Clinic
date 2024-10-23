@@ -20,7 +20,7 @@ const PromotionDetail = () => {
   return (
     <Box py={"60px"}>
       <Container maxW="container.xl">
-        <Image src={img} w={"auto"} h={"500px"} objectFit={"contain"} loading="lazy"/>
+        <Image src={img} alt={promotionName} w={"auto"} h={"500px"} objectFit={"contain"} loading="lazy"/>
 
         <Flex flexDirection={"column"}>
           <Text

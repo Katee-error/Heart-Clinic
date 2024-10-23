@@ -32,6 +32,7 @@ const DoctorModal = ({ doctor, isOpen, onClose }) => {
             flexDirection={{ base: "column", md: "row" }}
           >
             <Image
+            alt={doctor.name}
               loading="lazy"
               src={doctor.img}
               w={"auto"}
