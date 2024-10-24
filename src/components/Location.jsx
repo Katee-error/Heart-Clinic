@@ -49,6 +49,7 @@ const Location = ({ address }) => {
               }}
               width="100%"
               height="100%"
+              lazy={'loading'}
             >
               <YMaps.Placemark
                 geometry={[43.001465, 47.459335]} // Координаты метки
