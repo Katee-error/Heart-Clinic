@@ -79,7 +79,7 @@ const StickyHeader = () => {
           />
         </Link>
         <StickyNavbar />
-        <ButtonMain onClick={() => setIsModalOpen(true)} />
+        <ButtonMain onClick={() => setIsModalOpen(true)}>Записаться</ButtonMain>
       </Flex>
 
       {/* Mobile */}
@@ -156,7 +156,7 @@ const StickyHeader = () => {
                 </Text>
               </Flex>
             </Flex>
-            <ButtonMain onClick={() => setIsModalOpen(true)} />
+            <ButtonMain onClick={() => setIsModalOpen(true)}>Записаться</ButtonMain>
             {/* Menu hamburger */}
           </Flex>
           <Box w={"45px"} bg={"brand.main"} h={"45px"} borderRadius={"10px"}>
@@ -263,7 +263,7 @@ const StickyHeader = () => {
                     </Link>
                   </NavLink>
 
-                  <ButtonMain onClick={() => setIsModalOpen(true)} />
+                  <ButtonMain onClick={() => setIsModalOpen(true)}>Записаться</ButtonMain>
                 </VStack>
               </DrawerBody>
             </DrawerContent>

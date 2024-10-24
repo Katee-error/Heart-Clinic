@@ -146,7 +146,7 @@ const Footer = () => {
                 </Flex>
               </VStack>
               <Box display={{ base: "block", md: "none" }}>
-                <ButtonMain onClick={() => setIsModalOpen(true)} />
+              <ButtonMain onClick={() => setIsModalOpen(true)}>Записаться</ButtonMain>
               </Box>
             </Flex>
           </Flex>

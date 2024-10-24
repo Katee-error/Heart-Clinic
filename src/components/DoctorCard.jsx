@@ -44,17 +44,17 @@ const DoctorCard = ({ doctor, onOpen }) => {
             alt="doctor"
             src={doctor.img}
             w={"190px"}
-            h={"250px"}
+            h={"270px"}
             m={"0 auto"}
             loading="lazy"
           />
-          <Stack mt="6" spacing="3">
+          <Stack mt="6" spacing="2">
             <Heading fontSize={"20px"}>{doctor.name}</Heading>
             <Text color={"gray.500"}>{doctor.shortSpeciality}</Text>
             <Button
               mt={"20px"}
-              p={"30px"}
-              borderRadius={"20px"}
+              p={['25px',"30px"]}
+              borderRadius={"10px"}
               boxShadow={"1px 2px 5px 0 #3a3a9c"}
               fontSize={"16px"}
               color={"white"}

@@ -6,7 +6,7 @@ import { useMediaQuery } from "@chakra-ui/react";
 const MotionBox = motion(Box);
 
 const AboutUs = () => {
-  const isMobile = useMediaQuery("(max-width: 768px)");
+  const [isMobile] = useMediaQuery("(max-width: 768px)");
 
   const { ref, inView } = useInView({
     triggerOnce: true, // Анимация запускается только один раз
@@ -15,13 +15,13 @@ const AboutUs = () => {
   return (
     <MotionBox
       id="about"
-      m={{ base: "10px 0 60px", md: "60px 0 100px" }}
-      fontSize={{ base: "20px", sm: "24px", md: "30px" }}
+      m={{ base: '0px', md: "90px 0 60px " }}
+      fontSize={{ base: "16px", md: "30px" }}
       ref={ref}
       fontWeight={"300"}
-      initial={{ opacity: 0, y: isMobile ? 0 : 50 }} 
-      animate={{ opacity: inView ? 1 : 0, y: inView && !isMobile ? 0 : 50 }}
-      transition={{ duration: isMobile ? 0.3 : 0.6, ease: "easeOut" }} 
+      initial={isMobile ? undefined : { opacity: 0, y: 50 }} // Установка undefined вместо пустого объекта
+      animate={isMobile ? undefined : { opacity: inView ? 1 : 0, y: inView ? 0 : 50 }}
+      transition={isMobile ? undefined : { duration: 0.6, ease: "easeOut" }} // undefined для отключения анимации
     >
       <Container maxW={"container.lg"}>
         <Box textAlign={"center"}>
@@ -39,4 +39,4 @@ const AboutUs = () => {
 };
 
 export default AboutUs;
-// сделать на заднем фоне ритм сердца с экг
+

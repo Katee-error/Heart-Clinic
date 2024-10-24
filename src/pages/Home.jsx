@@ -1,7 +1,6 @@
 import React from 'react';
 import { Box } from "@chakra-ui/react";
 import HeroSlider from "../components/HeroSlider";
-// import AboutUs from "../components/AboutUs";
 import OurDoctors from "../components/DoctorsList";
 import ContactForm from "../components/FormTest";
 import YandexMap from "../components/YandexMap";

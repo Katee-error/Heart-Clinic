@@ -39,7 +39,7 @@ const OmsPage = () => {
             057/у от лечащего (участкового) врача, а также предъявить паспорт и
             полис ОМС.
           </Text>
-          <ButtonMain onClick={() => setIsModalOpen(true)}/>
+          <ButtonMain onClick={() => setIsModalOpen(true)}>Записаться</ButtonMain>
         </Box>
         <Text fontSize={"30px"} mb={"20px"}>
           Документы по ОМС

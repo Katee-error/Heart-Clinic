@@ -52,37 +52,37 @@ const Benefits = () => {
 
   const MotionCard = React.memo(motion(Card));
 
-  const isMobile = useMediaQuery("(max-width: 768px)");
+  const [isMobile] = useMediaQuery("(max-width: 768px)");
   return (
     <MotionBox
-      my={"120px"}
+      my={["50px", "80px"]}
       py={{ base: "0px", md: "60px" }}
       ref={ref}
-      initial={{ opacity: 0, y: isMobile ? 0 : 50 }} // Без движения на мобильных
-      animate={{ opacity: inView ? 1 : 0, y: inView && !isMobile ? 0 : 50 }}
-      transition={{ duration: isMobile ? 0.3 : 0.6, ease: "easeOut" }} // Быстрее на мобильных
+      initial={isMobile ? undefined : { opacity: 0, y: 50 }} // Установка undefined вместо пустого объекта
+      animate={isMobile ? undefined : { opacity: inView ? 1 : 0, y: inView ? 0 : 50 }}
+      transition={isMobile ? undefined : { duration: 0.6, ease: "easeOut" }} // undefined для отключения анимации
     >
-      <Container maxW="container.xl">
-        <Box
-          pos={"relative"}
-          w={"100%"}
-          h={{ base: "120px", md: "300px" }}
-          borderRadius={"10px"}
-          bgColor={"brand.main"}
+    
+      <Box
+        pos={"relative"}
+        w={"100%"}
+        h={{ base: "120px", md: "300px" }}
+        bgColor={"brand.main"}
+      >
+        <Heading
+          mb={"60px"}
+          fontSize={{ base: "24px", md: "50px" }}
+          fontWeight={300}
+          pos={"absolute"}
+          top={"10"}
+          left={{ base: "10px", md: "20" }}
+          color={"#fff"}
         >
-          <Heading
-            mb={"60px"}
-            fontSize={{ base: "24px", md: "50px" }}
-            fontWeight={300}
-            pos={"absolute"}
-            top={"10"}
-            left={{ base: "10px", md: "20" }}
-            color={"#fff"}
-          >
-            {" "}
-            Почему нас выбирают?
-          </Heading>
-        </Box>
+          {" "}
+          Почему нас выбирают?
+        </Heading>
+      </Box>
+      <Container maxW="container.xl">
         <Box mt={{ base: "30px", md: "-70px" }} zIndex={"1"} pos={"relative"}>
           <SimpleGrid
             columns={{ base: 1, md: 3 }} // 1 колонка на мобильных, 3 на десктопе

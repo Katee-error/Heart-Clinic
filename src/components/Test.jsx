@@ -27,7 +27,7 @@ import { useInView } from "react-intersection-observer";
 const MotionBox = motion(Box);
 
 const Test = () => {
-  const isMobile = useMediaQuery("(max-width: 768px)");
+  const [isMobile] = useMediaQuery("(max-width: 768px)");
 
   const { ref, inView } = useInView({
     triggerOnce: true, // Анимация запускается только один раз
@@ -38,12 +38,12 @@ const Test = () => {
 
   return (
     <MotionBox
-      my={"120px"}
+      my={['50px',"80px"]}
       py={{ base: "0px", md: "60px" }}
       ref={ref}
-      initial={{ opacity: 0, y: isMobile ? 0 : 50 }} 
-      animate={{ opacity: inView ? 1 : 0, y: inView && !isMobile ? 0 : 50 }}
-      transition={{ duration: isMobile ? 0.3 : 0.6, ease: "easeOut" }} 
+      initial={isMobile ? undefined : { opacity: 0, y: 50 }} // Установка undefined вместо пустого объекта
+      animate={isMobile ? undefined : { opacity: inView ? 1 : 0, y: inView ? 0 : 50 }}
+      transition={isMobile ? undefined : { duration: 0.6, ease: "easeOut" }} // undefined для отключения анимации
     >
       <Container maxW={"container.xl"}>
         <SimpleGrid

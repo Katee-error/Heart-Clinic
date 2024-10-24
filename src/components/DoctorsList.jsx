@@ -16,7 +16,7 @@ const DoctorsList = () => {
     threshold: 0.2, // Процент видимой области, после которого запускается анимация
   });
 
-  const isMobile = useMediaQuery("(max-width: 768px)");
+  const [isMobile] = useMediaQuery("(max-width: 768px)");
   const [selectedDoctor, setSelectedDoctor] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -33,14 +33,14 @@ const DoctorsList = () => {
 
   return (
     <MotionBox
-      my={"120px"}
+      my={["50px", "80px"]}
       ref={ref}
-      initial={{ opacity: 0, y: isMobile ? 0 : 50 }}
-      animate={{ opacity: inView ? 1 : 0, y: inView && !isMobile ? 0 : 50 }}
-      transition={{ duration: isMobile ? 0.3 : 0.6, ease: "easeOut" }}
+      initial={isMobile ? undefined : { opacity: 0, y: 50 }} // Установка undefined вместо пустого объекта
+      animate={isMobile ? undefined : { opacity: inView ? 1 : 0, y: inView ? 0 : 50 }}
+      transition={isMobile ? undefined : { duration: 0.6, ease: "easeOut" }} // undefined для отключения анимации
     >
       <Container maxW="container.xl">
-        <Flex justifyContent={"space-between"} pb={"60px"}>
+        <Flex justifyContent={"space-between"} pb={["30px", '60px']}>
           <Heading
             fontSize={{ base: "40px", md: "50px" }}
             fontWeight={"300"}

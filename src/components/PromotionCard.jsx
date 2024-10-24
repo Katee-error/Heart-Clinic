@@ -18,7 +18,7 @@ const PromotionCard = ({ promotion }) => {
   return (
     <MotionCard whileHover={{ scale: 1.08 }} cursor="pointer">
       <Link to={`/promotion/${promotion.id}`}>
-        <Card maxW="lg" p={"20px"} h={{ base: "520px", md: "650px" }}>
+        <Card maxW="lg" p={"20px"} h={{ base: "480px", md: "650px" }}>
           <CardBody>
             <Box position={"relative"} w={"100%"} height={"auto"}>
               <Image
