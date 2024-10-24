@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Box, Image, Text, Button, Skeleton } from "@chakra-ui/react";
 import Slider from "react-slick";
 import { motion } from "framer-motion";
@@ -21,13 +21,17 @@ import slideSmall04 from "./../assets/slider/slideSmall-5.webp";
 import slideSmall05 from "./../assets/slider/slideSmall-6.webp";
 
 const HeroSlider = () => {
-
   const [isMobile] = useMediaQuery("(max-width: 768px)");
-
-  
   const desktopImages = [slide01, slide02, slide03, slide04, slide05];
-  const mobileImages = [slideSmall01, slideSmall03, slideSmall02, slideSmall04,slideSmall05]; 
-const images = isMobile ? mobileImages : desktopImages;
+  const mobileImages = [
+    slideSmall01,
+    slideSmall03,
+    slideSmall02,
+    slideSmall04,
+    slideSmall05,
+  ];
+  const images = isMobile ? mobileImages : desktopImages;
+
   const settings = {
     dots: false,
     infinite: true,
@@ -39,89 +43,62 @@ const images = isMobile ? mobileImages : desktopImages;
     fade: false,
     cssEase: "ease",
     pauseOnHover: false,
-    lazyLoad: "ondemand",
-    beforeChange: (current, next) => handleLazyLoad(next),
   };
 
   const sliderRef = useRef(null);
+
   const MotionButton = motion(Button);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false); //modal window
   const [imagesLoaded, setImagesLoaded] = useState(false);
-  const [loadedImages, setLoadedImages] = useState([0, 1, 2]); // Load first three images initially
-
-  // Функция для ленивой загрузки изображений
-  const handleLazyLoad = (nextIndex) => {
-    if (!loadedImages.includes(nextIndex)) {
-      setLoadedImages((prev) => [...prev, nextIndex]);
-    }
-
-    if (nextIndex >= images.length - 3) {
-      setLoadedImages((prev) =>
-        [
-          ...prev,
-          images.length - 3,
-          images.length - 2,
-          images.length - 1,
-        ].filter((v, i, a) => a.indexOf(v) === i)
-      );
-    }
-  };
 
   useEffect(() => {
-    const loadInitialImages = () => {
+    const loadImages = () => {
       let loaded = 0;
-      const initialImages = images.slice(0, 3); // Load the first 3 images
+      const firstTwoImages = images.slice(0, 2);
 
-      initialImages.forEach((image) => {
+      firstTwoImages.forEach((image) => {
         const img = new window.Image();
         img.src = image;
         img.onload = () => {
           loaded++;
-          if (loaded === initialImages.length) {
+          if (loaded === firstTwoImages.length) {
             setImagesLoaded(true);
           }
         };
       });
-
-      // Load remaining images with a delay
-      for (let i = 3; i < images.length; i++) {
-        setTimeout(() => {
-          const img = new window.Image();
-          img.src = images[i];
-          img.onload = () => {
-            setLoadedImages((prev) => [...prev, i]); // Add to loaded images
-          };
-        }, 500 * (i - 3)); // 500ms delay for each image after the first three
-      }
     };
 
-    loadInitialImages();
+    loadImages();
   }, [images]);
 
   return imagesLoaded ? (
     <Box
       id="hero"
-      width={{ base: "90%", md: "80%" }}
-      height={{ base: "300px", md: "700px" }}
+      width={{ base: "94vw", md: "80vw" }}
+      height={{
+        base: "300px",
+        xs: "565px",
+        sm: "600px",
+        md: "650px",
+        lg: "700px",
+        xl: "850px",
+      }}
       overflow="hidden"
       position="relative"
       textAlign="center"
-      mt={{ base: "70px", md: "0" }}
+      mt={{ base: "50px", md: "0" }}
       mx={"auto"}
     >
       <Slider {...settings} ref={sliderRef}>
         {images.map((image, index) => (
           <Box key={index} position="relative">
-            {loadedImages.includes(index) && (
-              <Image
-                src={image}
-                alt={`Slide ${index + 1}`}
-                width="100%"
-                height="100%"
-                borderRadius={"20px"}
-                loading="lazy"
-              />
-            )}
+            <Image
+              src={image}
+              alt={`Slide ${index + 1}`}
+              width="100%"
+              height="100%"
+              borderRadius={"20px"}
+            />
             <Box
               position="absolute"
               top="50%"
@@ -132,20 +109,25 @@ const images = isMobile ? mobileImages : desktopImages;
               p="20px"
               width={{ base: "100%", md: "70%" }}
             >
-              <Text fontWeight={700} fontSize={{ base: "34px", md: "80px" }}>
+              <Text fontWeight={500} fontSize={{ base: "30px", md: "80px" }}>
                 Клиника Сердца
               </Text>
-              <Text fontWeight={700} fontSize={{ base: "16px", md: "24px" }}>
+              <Text
+                fontWeight={500}
+                fontSize={{ base: "16px", md: "24px" }}
+                mt="-10px"
+              >
                 Забота о сердце начинается здесь
               </Text>
               <MotionButton
-                p={{ base: "10px 15px", md: "25px 30px" }}
+                p={{ base: "10px 20px", md: "25px 30px" }}
                 borderRadius="10px"
-                fontSize={["12px", "16px"]}
-                fontWeight={700}
+                fontSize="16px"
+                fontWeight={600}
                 border="1px solid #3a3a9c"
                 bg="white"
                 boxShadow="1px 2px 5px 0 #3a3a9c"
+                _hover={{ bgColor: "hover.button", color: "black" }}
                 whileHover={{ scale: 1.05 }}
                 color="black"
                 onClick={() => setIsModalOpen(true)}
