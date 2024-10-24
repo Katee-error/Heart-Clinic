@@ -36,7 +36,7 @@ const Footer = () => {
                 src={logo}
                 alt="logo"
                 w={"200px"}
-                h={"auto"}
+                h={"100%"}
                 loading="lazy"
               />
             </NavLink>
@@ -130,7 +130,7 @@ const Footer = () => {
                       src={telegram}
                       alt="telegram"
                       w={"36px"}
-                      h={"auto"}
+                      h={"100%"}
                       loading="lazy"
                     />
                   </Link>
@@ -139,7 +139,7 @@ const Footer = () => {
                       src={whatsap}
                       alt="whatsap"
                       w={"36px"}
-                      h={"auto"}
+                      h={"100%"}
                       loading="lazy"
                     />
                   </Link>

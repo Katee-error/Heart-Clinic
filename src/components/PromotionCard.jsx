@@ -14,7 +14,7 @@ import { Link } from "react-router-dom";
 const PromotionCard = ({ promotion }) => {
 
   const MotionCard = React.memo(motion(GridItem));
-  
+
   return (
     <MotionCard whileHover={{ scale: 1.08 }} cursor="pointer">
       <Link to={`/promotion/${promotion.id}`}>
@@ -27,7 +27,7 @@ const PromotionCard = ({ promotion }) => {
                 borderRadius="lg"
                 src={promotion.img}
                 w={"100%"}
-                h={"auto"}
+                h={"100%"}
                 objectFit={"contain"}
               />
             </Box>

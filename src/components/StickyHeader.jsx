@@ -73,7 +73,7 @@ const StickyHeader = () => {
             src={logo}
             alt="logo"
             w={"170px"}
-            h={"auto"}
+            h={"100%"}
             objectFit={"contain"}
             loading="lazy"
           />
@@ -118,7 +118,7 @@ const StickyHeader = () => {
                   alt="map"
                   color={"#3a3a9c"}
                   w={"25px"}
-                  h={"auto"}
+                  h={"100%"}
                   loading="lazy"
                 />
                 <Text>
@@ -132,7 +132,7 @@ const StickyHeader = () => {
                   alt="phone"
                   color={"#3a3a9c"}
                   w={"25px"}
-                  h={"auto"}
+                  h={"100%"}
                   loading="lazy"
                 />
                 <Text>
@@ -147,7 +147,7 @@ const StickyHeader = () => {
                   alt="clock"
                   color={"#3a3a9c"}
                   w={"25px"}
-                  h={"auto"}
+                  h={"100%"}
                   loading="lazy"
                 />
                 <Text>

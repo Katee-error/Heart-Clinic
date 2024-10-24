@@ -120,7 +120,7 @@ const YandexMap = ({ address, coordinates }) => {
                       src={telegram}
                       alt="telegram"
                       w={"36px"}
-                      h={"auto"}
+                      h={"100%"}
                       loading="lazy"
                     />
                   </Link>
@@ -132,7 +132,7 @@ const YandexMap = ({ address, coordinates }) => {
                       src={whatsap}
                       alt="whatsapp"
                       w={"36px"}
-                      h={"auto"}
+                      h={"100%"}
                       loading="lazy"
                     />
                   </Link>
@@ -145,7 +145,7 @@ const YandexMap = ({ address, coordinates }) => {
               alt="clinicaserdca"
               borderRadius={"20px"}
               w={{ base: "100%", md: "40%" }}
-              h={"auto"}
+              h={"100%"}
               objectFit={"contain"}
             />
           </Flex>

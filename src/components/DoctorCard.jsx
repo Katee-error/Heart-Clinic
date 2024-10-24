@@ -43,7 +43,7 @@ const DoctorCard = ({ doctor, onOpen }) => {
             borderRadius="lg"
             alt="doctor"
             src={doctor.img}
-            w={"auto"}
+            w={"190px"}
             h={"250px"}
             m={"0 auto"}
             loading="lazy"
