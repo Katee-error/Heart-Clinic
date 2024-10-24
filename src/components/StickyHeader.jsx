@@ -99,7 +99,7 @@ const StickyHeader = () => {
         boxShadow="sm"
       >
         <NavLink to="/home">
-          <Image src={logoMobile} alt="logo" w={"70px"} h={"auto"} />
+          <Image src={logoMobile} alt="logo" w={"70px"} h={"100%"} />
         </NavLink>
 
         <Flex alignItems={"center"} gap={"10px"}>
