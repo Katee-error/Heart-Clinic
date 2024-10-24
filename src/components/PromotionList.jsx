@@ -19,11 +19,13 @@ const PromotionList = () => {
     <MotionBox
       my={["50px", "80px"]}
       ref={ref}
-      initial={isMobile ? undefined : { opacity: 0, y: 50 }} // Установка undefined вместо пустого объекта
+      initial={isMobile ? {} : { opacity: 0, y: 50 }} // Keep the structure but no animations on mobile
       animate={
-        isMobile ? undefined : { opacity: inView ? 1 : 0, y: inView ? 0 : 50 }
-      }
-      transition={isMobile ? undefined : { duration: 0.6, ease: "easeOut" }} // undefined для отключения анимации
+        isMobile
+          ? { opacity: 1, y: 0 }
+          : { opacity: inView ? 1 : 0, y: inView ? 0 : 50 }
+      } // Ensure content is visible on mobile
+      transition={isMobile ? {} : { duration: 0.6, ease: "easeOut" }} // Maintain default transition behavior
     >
       <Container maxW="container.xl">
         <Flex justifyContent={"space-between"} pb={["30px", "40px"]}>

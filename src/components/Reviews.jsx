@@ -54,12 +54,16 @@ const TestimonialSlider = () => {
 
   return (
     <MotionBox
-      my={['50px',"80px"]}
+      my={["50px", "80px"]}
       py={{ base: "0px", md: "60px" }}
       ref={ref}
-      initial={isMobile ? undefined : { opacity: 0, y: 50 }} // Установка undefined вместо пустого объекта
-      animate={isMobile ? undefined : { opacity: inView ? 1 : 0, y: inView ? 0 : 50 }}
-      transition={isMobile ? undefined : { duration: 0.6, ease: "easeOut" }} // undefined для отключения анимации
+      initial={isMobile ? {} : { opacity: 0, y: 50 }} // Keep the structure but no animations on mobile
+      animate={
+        isMobile
+          ? { opacity: 1, y: 0 }
+          : { opacity: inView ? 1 : 0, y: inView ? 0 : 50 }
+      } // Ensure content is visible on mobile
+      transition={isMobile ? {} : { duration: 0.6, ease: "easeOut" }} // Maintain default transition behavior
     >
       <Box
         pos={"relative"}
@@ -68,7 +72,7 @@ const TestimonialSlider = () => {
         bgColor={"brand.main"}
       >
         <Heading
-          mb={['30px',"60px"]}
+          mb={["30px", "60px"]}
           fontSize={{ base: "24px", md: "50px" }}
           fontWeight={300}
           pos={"absolute"}
