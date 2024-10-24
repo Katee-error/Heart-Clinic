@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { Box, Spinner, Text } from "@chakra-ui/react";
 
 const Location = ({ address }) => {
   const [YMaps, setYMaps] = useState(null);
   const [loading, setLoading] = useState(true);
+  const mapRef = useRef(null); // Реф для отслеживания видимости компонента
 
   useEffect(() => {
     // Динамически загружаем библиотеку Yandex Maps
@@ -13,11 +14,26 @@ const Location = ({ address }) => {
       setLoading(false); // Устанавливаем состояние загрузки в false после загрузки
     };
 
-    loadYMaps();
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          loadYMaps(); // Загружаем YMaps только когда компонент становится видимым
+          observer.disconnect(); // Отключаем наблюдателя после загрузки
+        }
+      });
+    });
+
+    if (mapRef.current) {
+      observer.observe(mapRef.current); // Начинаем наблюдение за компонентом
+    }
+
+    return () => {
+      observer.disconnect(); // Отключаем наблюдателя при размонтировании компонента
+    };
   }, []);
 
   return (
-    <Box height="500px" width="100%" mb="50px">
+    <Box height="500px" width="100%" mb="50px" ref={mapRef}>
       {loading ? (
         <Box display="flex" justifyContent="center" alignItems="center" height="100%">
           <Spinner size="lg" />
