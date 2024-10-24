@@ -74,19 +74,12 @@ const HeroSlider = () => {
   return imagesLoaded ? (
     <Box
       id="hero"
-      width={{ base: "94vw", md: "80vw" }}
-      height={{
-        base: "300px",
-        xs: "565px",
-        sm: "600px",
-        md: "650px",
-        lg: "700px",
-        xl: "850px",
-      }}
+      width={{ base: "90%", md: "80%" }}
+      height={{ base: "300px", md: "700px" }}
       overflow="hidden"
       position="relative"
       textAlign="center"
-      mt={{ base: "50px", md: "0" }}
+      mt={{ base: "70px", md: "0" }}
       mx={"auto"}
     >
       <Slider {...settings} ref={sliderRef}>
@@ -98,6 +91,7 @@ const HeroSlider = () => {
               width="100%"
               height="100%"
               borderRadius={"20px"}
+              loading="lazy"
             />
             <Box
               position="absolute"
@@ -120,14 +114,13 @@ const HeroSlider = () => {
                 Забота о сердце начинается здесь
               </Text>
               <MotionButton
-                p={{ base: "10px 20px", md: "25px 30px" }}
+                p={{ base: "10px 15px", md: "25px 30px" }}
                 borderRadius="10px"
-                fontSize="16px"
-                fontWeight={600}
+                fontSize={["12px", "16px"]}
+                fontWeight={700}
                 border="1px solid #3a3a9c"
                 bg="white"
                 boxShadow="1px 2px 5px 0 #3a3a9c"
-                _hover={{ bgColor: "hover.button", color: "black" }}
                 whileHover={{ scale: 1.05 }}
                 color="black"
                 onClick={() => setIsModalOpen(true)}
