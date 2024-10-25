@@ -13,7 +13,6 @@ import Telegram from "./../assets/header-icons/Telegram.svg";
 import Navbar from "./Navbar";
 import FormModal from "./FormModal";
 
-
 const Header = () => {
   const [isModalOpen, setIsModalOpen] = useState(false); //modal window
 
