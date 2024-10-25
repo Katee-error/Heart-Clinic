@@ -35,8 +35,12 @@ const YandexMap = ({ address, coordinates }) => {
     <MotionBox
       ref={ref}
       initial={isMobile ? {} : { opacity: 0, y: 50 }} // Keep the structure but no animations on mobile
-  animate={isMobile ? { opacity: 1, y: 0 } : { opacity: inView ? 1 : 0, y: inView ? 0 : 50 }} // Ensure content is visible on mobile
-  transition={isMobile ? {} : { duration: 0.6, ease: "easeOut" }} // Maintain default transition behavior
+      animate={
+        isMobile
+          ? { opacity: 1, y: 0 }
+          : { opacity: inView ? 1 : 0, y: inView ? 0 : 50 }
+      } // Ensure content is visible on mobile
+      transition={isMobile ? {} : { duration: 0.6, ease: "easeOut" }} // Maintain default transition behavior
       my={["80px", "120px"]}
     >
       <Location address={address} coordinates={coordinates} />
@@ -56,37 +60,41 @@ const YandexMap = ({ address, coordinates }) => {
             justifyContent={"space-between"}
             flexDirection={{ base: "column", md: "row" }}
           >
-            <VStack spacing={["10px", "40px"]} alignItems={"start"}   mt={["0", "30px"]}>
+            <VStack
+              spacing={["10px", "40px"]}
+              alignItems={"start"}
+              mt={["0", "30px"]}
+            >
               <Flex
                 alignItems={"start"}
                 justifyContent={"space-between"}
                 flexDirection={{ base: "column", md: "row" }}
-                gap={["20px", '30px']}
+                gap={["20px", "30px"]}
               >
-                <VStack alignItems={{ md: "start" }}  spacing={0.5}>
+                <VStack alignItems={{ md: "start" }} spacing={0.5}>
                   <Text color={"brand.main"} fontWeight={700} fontSize={"16px"}>
                     Телефон
                   </Text>
-                  <Text fontSize={['14px',"16px"]}>
+                  <VStack gap={"6px"} fontSize={["14px", "16px"]}>
                     <Link href="tel:+79994780066">+7 (999) 478 00 66 </Link>
-                    <br />
+
                     <Link href="tel:+79994780055">+7 (999) 478 00 55 </Link>
-                  </Text>
+                  </VStack>
                 </VStack>
                 <VStack alignItems={"start"} spacing={0.5}>
                   <Text color={"brand.main"} fontWeight={700} fontSize={"16px"}>
                     Время работы
                   </Text>
-                  <Text ffontSize={['14px',"16px"]}>
+                  <Text ffontSize={["14px", "16px"]}>
                     пн-пт 8:00-18:00
                     <br /> сб 9:00-14:00
                   </Text>
                 </VStack>
-                <VStack alignItems={"start"}  spacing={0.5}>
+                <VStack alignItems={"start"} spacing={0.5}>
                   <Text color={"brand.main"} fontWeight={700} fontSize={"16px"}>
                     Адрес
                   </Text>
-                  <Text fontSize={['14px',"16px"]}>
+                  <Text fontSize={["14px", "16px"]}>
                     г. Махачкала, <br />
                     Туп. Каммаева 1-й, влд.30
                   </Text>

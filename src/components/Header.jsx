@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Box, Flex, Image, Text, Button, Link } from "@chakra-ui/react";
+import { Box, Flex, Image, Text, Button, Link, VStack } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { NavLink } from "react-router-dom";
 
@@ -100,11 +100,11 @@ const Header = () => {
                     size={"20px"}
                   />
                 </Box>
-                <Text>
+                <VStack gap={"6px"}>
                   <Link href="tel:+79994780066">+7 (999) 478 00 66 </Link>
-                  <br />
+
                   <Link href="tel:+79994780055">+7 (999) 478 00 55 </Link>
-                </Text>
+                </VStack>
               </Flex>
               <Flex w={"180px"} gap={"10px"} alignItems={"center"}>
                 <Box

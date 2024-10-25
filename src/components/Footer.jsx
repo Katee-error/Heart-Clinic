@@ -119,11 +119,11 @@ const Footer = () => {
               <VStack alignItems={"start"} spacing={"20px"}>
                 <Heading fontSize={"16px"}>Связаться с нами</Heading>
 
-                <Text fontSize={"14px"}>
+                <VStack gap={"6px"} fontSize={"14px"}>
                   <Link href="tel:+79994780066">+7 (999) 478 00 66 </Link>
-                  <br />
+
                   <Link href="tel:+79994780055">+7 (999) 478 00 55 </Link>
-                </Text>
+                </VStack>
                 <Flex gap={"20px"}>
                   <Link>
                     <Image
@@ -146,7 +146,9 @@ const Footer = () => {
                 </Flex>
               </VStack>
               <Box display={{ base: "block", md: "none" }}>
-              <ButtonMain onClick={() => setIsModalOpen(true)}>Записаться</ButtonMain>
+                <ButtonMain onClick={() => setIsModalOpen(true)}>
+                  Записаться
+                </ButtonMain>
               </Box>
             </Flex>
           </Flex>

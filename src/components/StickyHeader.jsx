@@ -135,11 +135,11 @@ const StickyHeader = () => {
                   h={"100%"}
                   loading="lazy"
                 />
-                <Text>
+                <VStack gap={"6px"}>
                   <Link href="tel:+79994780066">+7 (999) 478 00 66 </Link>
-                  <br />
+
                   <Link href="tel:+79994780055">+7 (999) 478 00 55 </Link>
-                </Text>
+                </VStack>
               </Flex>
               <Flex gap={"8px"} alignItems={"center"}>
                 <Image
@@ -156,7 +156,9 @@ const StickyHeader = () => {
                 </Text>
               </Flex>
             </Flex>
-            <ButtonMain onClick={() => setIsModalOpen(true)}>Записаться</ButtonMain>
+            <ButtonMain onClick={() => setIsModalOpen(true)}>
+              Записаться
+            </ButtonMain>
             {/* Menu hamburger */}
           </Flex>
           <Box w={"45px"} bg={"brand.main"} h={"45px"} borderRadius={"10px"}>
@@ -263,7 +265,9 @@ const StickyHeader = () => {
                     </Link>
                   </NavLink>
 
-                  <ButtonMain onClick={() => setIsModalOpen(true)}>Записаться</ButtonMain>
+                  <ButtonMain onClick={() => setIsModalOpen(true)}>
+                    Записаться
+                  </ButtonMain>
                 </VStack>
               </DrawerBody>
             </DrawerContent>
