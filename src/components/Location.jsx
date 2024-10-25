@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { Box, Spinner, Text } from "@chakra-ui/react";
 
-const Location = ({ address }) => {
+const Location = React.memo(({ address }) => {
   const [YMaps, setYMaps] = useState(null);
   const [loading, setLoading] = useState(true);
   const mapRef = useRef(null); // Реф для отслеживания видимости компонента
@@ -66,6 +66,6 @@ const Location = ({ address }) => {
       )}
     </Box>
   );
-};
+});
 
 export default Location;

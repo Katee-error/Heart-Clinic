@@ -23,7 +23,7 @@ import ButtonMain from "./ButtonMain";
 
 const MotionBox = motion(Box);
 
-const YandexMap = ({ address, coordinates }) => {
+const YandexMap = React.memo(({ address, coordinates }) => {
   const { ref, inView } = useInView({
     triggerOnce: true,
     threshold: 0.2,
@@ -141,6 +141,6 @@ const YandexMap = ({ address, coordinates }) => {
       <FormModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </MotionBox>
   );
-};
+});
 
 export default YandexMap;

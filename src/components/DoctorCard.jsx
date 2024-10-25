@@ -12,7 +12,7 @@ import {
 import { motion } from "framer-motion";
 import React, { useState } from "react";
 import FormModal from "./FormModal";
-const DoctorCard = ({ doctor, onOpen }) => {
+const DoctorCard = React.memo(({ doctor, onOpen }) => {
   const MotionCard = motion(GridItem);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -75,6 +75,6 @@ const DoctorCard = ({ doctor, onOpen }) => {
       <FormModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </MotionCard>
   );
-};
+});
 
 export default DoctorCard;

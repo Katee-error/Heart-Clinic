@@ -11,7 +11,7 @@ import {
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
-const PromotionCard = ({ promotion }) => {
+const PromotionCard = React.memo(({ promotion }) => {
 
   const MotionCard = React.memo(motion(GridItem));
 
@@ -54,6 +54,6 @@ const PromotionCard = ({ promotion }) => {
       </Link>
     </MotionCard>
   );
-};
+});
 
 export default PromotionCard;

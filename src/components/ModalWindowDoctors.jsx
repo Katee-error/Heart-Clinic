@@ -16,7 +16,7 @@ import {
 } from "@chakra-ui/react";
 import FormModal from "./FormModal";
 
-const DoctorModal = ({ doctor, isOpen, onClose }) => {
+const DoctorModal = React.memo(({ doctor, isOpen, onClose }) => {
   if (!doctor) return null; // Возвращаем null, если doctor не определен
 
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -121,5 +121,5 @@ const DoctorModal = ({ doctor, isOpen, onClose }) => {
       />
     </>
   );
-};
+});
 export default DoctorModal;
