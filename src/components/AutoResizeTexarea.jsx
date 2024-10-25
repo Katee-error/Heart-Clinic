@@ -1,8 +1,7 @@
-import React from "react";
 import  { useEffect, useRef } from "react";
 import { Textarea } from "@chakra-ui/react";
 
-const AutoResizeTextarea =React.memo((props) => {
+const AutoResizeTextarea = (props) => {
   const textareaRef = useRef(null);
 
   const autoResizeTextarea = () => {
@@ -26,6 +25,6 @@ const AutoResizeTextarea =React.memo((props) => {
       {...props}
     />
   );
-});
+};
 
 export default AutoResizeTextarea;

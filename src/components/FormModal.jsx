@@ -20,7 +20,7 @@ import React, { useState } from "react";
 import AutoResizeTextarea from "./AutoResizeTexarea";
 import InputMask from "react-input-mask";
 
-const FormModal = React.memo(({ isOpen, onClose }) => {
+const FormModal = ({ isOpen, onClose }) => {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   // SENDING FORM
@@ -183,6 +183,6 @@ const FormModal = React.memo(({ isOpen, onClose }) => {
       </ModalContent>
     </Modal>
   );
-});
+};
 
 export default FormModal;

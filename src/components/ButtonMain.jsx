@@ -1,10 +1,9 @@
 import { Button } from "@chakra-ui/react";
 import { motion } from "framer-motion";
-import React from "react";
 
 const MotionButton = motion(Button);
 
-const ButtonMain = React.memo( ({
+const ButtonMain = ({
   onClick,
   colorScheme = "#3A3A9C",
   borderColorScheme = "#3A3A9C",
@@ -32,6 +31,6 @@ const ButtonMain = React.memo( ({
       {children}
     </MotionButton>
   );
-});
+};
 
 export default ButtonMain;

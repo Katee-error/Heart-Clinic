@@ -3,7 +3,7 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 // Создаем контекст для отслеживания прокрутки
 const ScrollContext = createContext();
 
-export const ScrollProvider = React.memo(({ children }) => {
+export const ScrollProvider = ({ children }) => {
   const [isStickyVisible, setIsStickyVisible] = useState(false);
 
   useEffect(() => {
@@ -30,7 +30,7 @@ export const ScrollProvider = React.memo(({ children }) => {
       {children}
     </ScrollContext.Provider>
   );
-});
+};
 
 // Хук для использования контекста
 export const useScroll = () => useContext(ScrollContext);
